@@ -2,7 +2,7 @@
   jonasyambao.com - v1
 </h1>
 <p align="center">
-  The first iteration of <a href="https://jonasyambao.com" target="_blank">jonasyambao.com</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+  The first iteration of <a href="https://jonasyambao.vercel.app/" target="_blank">jonasyambao.vercel.app</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
