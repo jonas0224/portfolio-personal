@@ -26,10 +26,11 @@
     "@types/react-transition-group": "^4.4.12",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.4",
+    "globals": "^17.6.0",
     "tailwindcss": "^4",
-    "typescript": "^6.0.3"
+    "typescript": "^5.9.3"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20 <23"
   }
 }
