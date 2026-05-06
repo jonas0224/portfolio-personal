@@ -11,6 +11,7 @@
     "start": "npm run start --prefix next-app",
     "lint": "npm run lint --prefix next-app",
     "sync-content": "npm run sync-content --prefix next-app",
+    "lint-staged": "lint-staged",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,mjs}\"",
     "prepare": "husky install"
   },
