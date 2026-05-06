@@ -2,7 +2,8 @@
 .cache
 node_modules
 yarn-error.log
-package-lock.json
+## Commit lockfiles for reproducible deploys
+## (Vercel uses them for `npm ci`)
 
 # Build directory
 /public
