@@ -1,0 +1,37 @@
+[
+  {
+    "title": "BOQ Digital Banking Platform",
+    "description": "Senior frontend work under NRI ANZ for the BOQ project, focused on secure architecture, scalable UI patterns, and release reliability.",
+    "tech": ["NextJS", "ReactJS", "TypeScript", "Azure", "Playwright", "Jest"],
+    "github": null,
+    "external": "https://www.boq.com.au"
+  },
+  {
+    "title": "Helika Analytics Platform",
+    "description": "Senior frontend ownership of a data-heavy analytics experience, including scalable UI architecture, dashboard performance optimization, and high-quality delivery workflows.",
+    "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
+    "github": "https://github.com/helika-io",
+    "external": "https://helika.io"
+  },
+  {
+    "title": "Real Estate Operations Suite",
+    "description": "Internal business tooling for operations teams, built with Next.js and React Native, focused on usability, maintainability, and reliable day-to-day workflows.",
+    "tech": ["Next.js", "React Native", "TypeScript", "Spring Boot", "SQL"],
+    "github": "https://github.com/twistresources",
+    "external": "https://twistresources.com"
+  },
+  {
+    "title": "Entrego Logistics Applications",
+    "description": "Frontend modernization and delivery support for logistics and last-mile systems, improving developer velocity and platform stability.",
+    "tech": ["React", "JavaScript", "Redux", "Figma"],
+    "github": "https://github.com/entrego",
+    "external": "https://entrego.com.ph"
+  },
+  {
+    "title": "Enterprise Batch Processing Workflows",
+    "description": "SQL-centric automation and batch processing enhancements for enterprise systems where reliability and throughput were critical.",
+    "tech": ["Oracle SQL", "PL/SQL", "Spring Boot"],
+    "github": null,
+    "external": "https://accenture.com"
+  }
+]

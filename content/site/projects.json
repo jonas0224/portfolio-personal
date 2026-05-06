@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Frontend Design System Migration",
+    "description": "Planned: migrate scattered UI patterns into a reusable design system with tokens, shared primitives, and visual regression checks.",
+    "tech": ["React", "TypeScript", "Storybook", "Playwright"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
+    "title": "Realtime Operations Dashboard",
+    "description": "Planned: build a realtime monitoring dashboard with websocket streams, alerting states, and resilient data synchronization.",
+    "tech": ["Next.js", "TypeScript", "WebSockets", "PostgreSQL"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
+    "title": "Developer Productivity Portal",
+    "description": "Planned: centralize CI insights, release notes, and service health into a single internal developer portal.",
+    "tech": ["Next.js", "Node.js", "GraphQL", "Docker"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
+    "title": "Mobile Delivery Companion",
+    "description": "Planned: a React Native companion app for field teams with offline-first workflows and sync conflict handling.",
+    "tech": ["React Native", "TypeScript", "SQLite", "Expo"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
+    "title": "AI-Assisted Incident Triage UI",
+    "description": "Planned: interface for classifying incidents, suggesting runbooks, and routing ownership based on historical patterns.",
+    "tech": ["Next.js", "TypeScript", "OpenAI APIs", "Redis"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
+    "title": "Portfolio CMS + Publishing Workflow",
+    "description": "Planned: lightweight content management and publishing pipeline for portfolio updates, posts, and media assets.",
+    "tech": ["Next.js", "MDX", "GitHub Actions", "Vercel"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  }
+]

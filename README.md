@@ -1,64 +1,39 @@
-<h1 align="center">
-  jonasyambao.com - v1
-</h1>
-<p align="center">
-  The first iteration of <a href="https://jonasyambao.vercel.app/" target="_blank">jonasyambao.vercel.app</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
-</p>
-<p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
-  </a>
-</p>
+# portfolio-personal
 
-## 🛠 Installation & Set Up
+Personal portfolio built with **Next.js** (`next-app`). Legacy **Gatsby** code has been removed.
 
-1. Install the Gatsby CLI
+## Prerequisites
 
-   ```sh
-   npm install -g gatsby-cli
-   ```
+- Node.js **>= 18.17** (see `.nvmrc`)
 
-2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
+## Setup
 
-   ```sh
-   nvm install
-   ```
+```sh
+npm install
+cd next-app && npm install
+```
 
-3. Install dependencies
+## Content sync
 
-   ```sh
-   yarn
-   ```
+Site copy is maintained under `content/` at the repo root. To push that into the Next app (JSON + Pensieve posts and images):
 
-4. Start the development server
+```sh
+npm run sync-content
+```
 
-   ```sh
-   npm start
-   ```
+## Scripts (run from repo root)
 
-## 🚀 Building and Running for Production
+| Command            | Description                |
+| ------------------ | -------------------------- |
+| `npm run dev`      | Next.js dev server         |
+| `npm run build`    | Production build           |
+| `npm run start`    | Start production server    |
+| `npm run lint`     | ESLint in `next-app`       |
+| `npm run format`   | Prettier (repo-wide)       |
+| `npm run sync-content` | Sync `content/` → `next-app` |
 
-1. Generate a full static production build
+See `next-app/README.md` for app-specific details.
 
-   ```sh
-   npm run build
-   ```
+## Deploy
 
-1. Preview the site as it will appear once deployed
-
-   ```sh
-   npm run serve
-   ```
-
-## 🎨 Color Reference
-
-| Color          | Hex                                                                |
-| -------------- | ------------------------------------------------------------------ |
-| Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
-| Light Navy     | ![#112240](https://via.placeholder.com/10/0a192f?text=+) `#112240` |
-| Lightest Navy  | ![#233554](https://via.placeholder.com/10/303C55?text=+) `#233554` |
-| Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` |
-| Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
-| Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
-| White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
-| Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` |
+`netlify.toml` builds from the **`next-app`** base directory and runs **`sync-content`** before **`build`** so deploys track root `content/`.

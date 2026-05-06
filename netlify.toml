@@ -1,2 +1,6 @@
 [build]
-  node_version = "18.17.0"
+  base = "next-app"
+  command = "npm ci && npm run sync-content && npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

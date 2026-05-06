@@ -1,0 +1,62 @@
+{
+  "intro": [
+    "Hello! I’m Jonas Paul Yambao, a Senior Frontend/Mobile Developer with 7+ years of professional experience (since 2018) building and shipping web and mobile applications.",
+    "I specialize in React, Next.js, TypeScript, and frontend architecture, with strong exposure to CI/CD, cloud deployments, testing, and API integration.",
+    "I’ve worked across banking, analytics, logistics, and enterprise systems, leading frontend initiatives, mentoring developers, and partnering closely with product, design, and backend teams."
+  ],
+  "companies": [
+    {
+      "name": "NRI ANZ (Bank of Queensland)",
+      "url": "https://www.boq.com.au/"
+    },
+    {
+      "name": "Helika.io",
+      "url": "https://helika.io/"
+    },
+    {
+      "name": "TwistResources",
+      "url": "https://www.twistresources.com/"
+    },
+    {
+      "name": "Entrego",
+      "url": "https://www.entrego.com.ph/"
+    },
+    {
+      "name": "Accenture",
+      "url": "https://www.accenture.com/"
+    }
+  ],
+  "companiesSummary": "where I led delivery, improved engineering quality through reviews and mentoring, and helped modernize frontend systems.",
+  "skills": [
+    "ReactJS",
+    "NextJS",
+    "JavaScript",
+    "TypeScript",
+    "HTML5/CSS3",
+    "Tailwind CSS",
+    "MUI",
+    "Redux",
+    "Redux-Saga",
+    "Zustand",
+    "React Native",
+    "GraphQL",
+    "REST APIs",
+    "Jest",
+    "React Testing Library",
+    "Playwright",
+    "Chart.js",
+    "D3.js",
+    "Spring Boot",
+    "Oracle SQL",
+    "SQL",
+    "AWS",
+    "Azure DevOps",
+    "Docker",
+    "GitHub Actions",
+    "Jenkins",
+    "GitHub/GitLab",
+    "Agile Delivery",
+    "Technical Mentoring",
+    "Code Reviews"
+  ]
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Senior Frontend Developer",
+    "company": "NRI ANZ",
+    "range": "February 2025 – Present",
+    "url": "https://www.nri.com/en/company/profile/offices/worldwide/boq",
+    "highlights": [
+      "Currently assigned to the Bank of Queensland (BOQ) project, leading frontend initiatives for banking applications.",
+      "Mentor and onboard developers, and run code reviews to improve delivery quality.",
+      "Improve CI/CD workflows and collaborate with cross-functional teams to align architecture with business goals."
+    ]
+  },
+  {
+    "title": "Senior Frontend Developer",
+    "company": "Helika.io",
+    "range": "February 2024 – November 2024",
+    "url": "https://helika.io",
+    "highlights": [
+      "Delivered analytics dashboards using ReactJS/NextJS and data visualization libraries.",
+      "Conducted code reviews and supported recruitment and onboarding activities.",
+      "Improved platform maintainability and deployment workflows for faster release cycles."
+    ]
+  },
+  {
+    "title": "Full Stack Developer",
+    "company": "TwistResources",
+    "range": "March 2023 – March 2024",
+    "url": "https://twistresources.com",
+    "highlights": [
+      "Modernized legacy systems using ReactJS/NextJS to improve maintainability and performance.",
+      "Mentored developers through code reviews and technical guidance.",
+      "Designed SQL solutions and API integrations for backend systems."
+    ]
+  },
+  {
+    "title": "Senior Frontend/Mobile Developer",
+    "company": "Entrego",
+    "range": "May 2021 – March 2023",
+    "url": "https://entrego.com.ph",
+    "highlights": [
+      "Supervised frontend/mobile team while balancing delivery and mentoring responsibilities.",
+      "Modernized tech stacks, reducing technical debt and boosting performance.",
+      "Facilitated Agile ceremonies to improve planning and execution efficiency."
+    ]
+  },
+  {
+    "title": "Associate Software Engineer",
+    "company": "Accenture",
+    "range": "October 2018 – May 2020",
+    "url": "https://accenture.com",
+    "highlights": [
+      "Designed SQL-based solutions and automation for enterprise operations.",
+      "Maintained and optimized batch processing pipelines.",
+      "Delivered enhancements for client systems with strict reliability requirements."
+    ]
+  }
+]

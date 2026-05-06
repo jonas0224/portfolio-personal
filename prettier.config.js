@@ -1,1 +1,6 @@
-module.exports = require('@upstatement/prettier-config');
+/** @type {import('prettier').Options} */
+module.exports = {
+  semi: true,
+  singleQuote: true,
+  trailingComma: 'es5',
+};
