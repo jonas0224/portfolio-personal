@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "npm run dev --prefix next-app",
-    "build": "npm run build --prefix next-app",
+    "build": "npm ci --prefix next-app && npm run build --prefix next-app",
     "start": "npm run start --prefix next-app",
     "lint": "npm run lint --prefix next-app",
     "sync-content": "npm run sync-content --prefix next-app",
