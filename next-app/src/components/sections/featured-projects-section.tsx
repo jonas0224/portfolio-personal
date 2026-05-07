@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import type { ProjectContent } from "@/types/content";
 import { ExternalLink } from "@/components/external-link";
 import { RevealSection } from "@/components/reveal-section";
@@ -44,6 +45,22 @@ export function FeaturedProjectsSection({ projects }: Props) {
                 <h3 className="portfolio-featured-title mb-5 text-[clamp(24px,5vw,28px)] text-[var(--lightest-slate)] [@media(max-width:768px)]:mb-5 [@media(max-width:768px)]:text-[var(--white)]">
                   <ExternalLink href={project.external}>{project.title}</ExternalLink>
                 </h3>
+                {project.impact?.length ? (
+                  <ul
+                    className={`mb-4 flex list-none flex-wrap gap-2 p-0 ${
+                      reverse ? "lg:justify-end" : ""
+                    }`}
+                  >
+                    {project.impact.map((metric) => (
+                      <li
+                        key={metric}
+                        className="rounded-full border border-[var(--green)] bg-[var(--green-tint)] px-3 py-1 font-mono text-[length:var(--fz-xxs)] text-[var(--green)]"
+                      >
+                        {metric}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
                 <div
                   className={`portfolio-card-shadow relative z-[2] rounded-[var(--border-radius)] bg-[var(--light-navy)] p-[25px] text-[length:var(--fz-lg)] text-[var(--light-slate)] [@media(max-width:768px)]:bg-transparent [@media(max-width:768px)]:p-5 [@media(max-width:768px)]:shadow-none ${
                     reverse ? "lg:text-right" : ""
@@ -60,6 +77,13 @@ export function FeaturedProjectsSection({ projects }: Props) {
                     <li key={tech}>{tech}</li>
                   ))}
                 </ul>
+                {project.slug && project.caseStudy ? (
+                  <div className={reverse ? "lg:text-right" : ""}>
+                    <Link href={`/projects/${project.slug}`} className="btn-outline-sm">
+                      Read case study
+                    </Link>
+                  </div>
+                ) : null}
               </div>
               {hasImage ? (
                 <div

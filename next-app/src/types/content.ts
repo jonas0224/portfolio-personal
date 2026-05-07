@@ -21,12 +21,23 @@ export interface AboutContent {
 }
 
 export interface ProjectContent {
+  slug?: string;
   title: string;
   description: string;
   tech: string[];
   github: string | null;
   external: string;
   image?: string;
+  status?: "Built" | "Roadmap";
+  impact?: string[];
+  caseStudy?: {
+    role: string;
+    challenge: string;
+    approach: string[];
+    architecture: string[];
+    quality: string[];
+    outcome: string;
+  };
 }
 
 export interface JobContent {
@@ -42,4 +53,14 @@ export interface ContactContent {
   title: string;
   description: string;
   ctaLabel: string;
+}
+
+export interface LeadershipHighlight {
+  title: string;
+  description: string;
+}
+
+export interface QualitySignal {
+  title: string;
+  proof: string;
 }

@@ -1,36 +1,151 @@
 [
   {
+    "slug": "boq-digital-banking-platform",
     "title": "BOQ Digital Banking Platform",
-    "description": "Senior frontend work under NRI ANZ for the BOQ project, focused on secure architecture, scalable UI patterns, and release reliability.",
+    "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ. Standardized reusable UI patterns and release guardrails, reducing production risk and improving release readiness in regulated workflows.",
     "tech": ["NextJS", "ReactJS", "TypeScript", "Azure", "Playwright", "Jest"],
+    "status": "Built",
+    "impact": ["Lower production defect risk", "Stronger release readiness"],
+    "caseStudy": {
+      "role": "Senior frontend engineer responsible for architecture, implementation standards, and delivery quality across critical customer journeys.",
+      "challenge": "Shipping in a regulated environment required balancing fast iterations with strict reliability, security, and review requirements.",
+      "approach": [
+        "Standardized reusable UI patterns to reduce inconsistency across teams and squads.",
+        "Introduced release guardrails and review checks for risky UI changes.",
+        "Strengthened test strategy for key flows to reduce regression risk."
+      ],
+      "architecture": [
+        "Feature-oriented frontend structure for scalable ownership boundaries.",
+        "Typed contracts and shared utilities to enforce consistency.",
+        "Progressive rollout pattern for high-risk changes."
+      ],
+      "quality": [
+        "Automated test coverage for critical user paths.",
+        "PR review checklist for reliability and accessibility.",
+        "Post-release validation workflow for faster issue detection."
+      ],
+      "outcome": "Improved platform reliability and release confidence while keeping delivery velocity sustainable in regulated workflows."
+    },
     "github": null,
     "external": "https://www.boq.com.au"
   },
   {
+    "slug": "helika-analytics-platform",
     "title": "Helika Analytics Platform",
-    "description": "Senior frontend ownership of a data-heavy analytics experience, including scalable UI architecture, dashboard performance optimization, and high-quality delivery workflows.",
+    "description": "Owned frontend architecture for a data-heavy analytics platform, including dashboard performance tuning and team delivery standards; improved perceived responsiveness and reduced regression escapes.",
     "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
+    "status": "Built",
+    "impact": ["Faster dashboard responsiveness", "Fewer regression escapes"],
+    "caseStudy": {
+      "role": "Senior frontend owner for architecture and performance of analytics surfaces used by internal and external stakeholders.",
+      "challenge": "Data-heavy dashboards suffered from rendering bottlenecks and inconsistent patterns that slowed delivery.",
+      "approach": [
+        "Optimized rendering paths for large datasets and expensive components.",
+        "Created reusable dashboard patterns and state management conventions.",
+        "Embedded quality standards into reviews and team workflows."
+      ],
+      "architecture": [
+        "Modular dashboard composition using React and TypeScript.",
+        "Predictable state handling with Redux Toolkit.",
+        "Shared visualization primitives for consistency and speed."
+      ],
+      "quality": [
+        "Performance budgets for primary dashboard pages.",
+        "Component-level test strategy for critical interactions.",
+        "Structured code reviews to prevent drift and regressions."
+      ],
+      "outcome": "Delivered faster dashboards and more reliable releases while improving maintainability for future feature work."
+    },
     "github": "https://github.com/helika-io",
     "external": "https://helika.io"
   },
   {
+    "slug": "real-estate-operations-suite",
     "title": "Real Estate Operations Suite",
-    "description": "Internal business tooling for operations teams, built with Next.js and React Native, focused on usability, maintainability, and reliable day-to-day workflows.",
+    "description": "Built internal operations tooling with Next.js and React Native, improving workflow reliability and maintainability; reduced manual effort and improved on-time operational completion.",
     "tech": ["Next.js", "React Native", "TypeScript", "Spring Boot", "SQL"],
+    "status": "Built",
+    "impact": ["Less manual operational work", "More reliable on-time completion"],
+    "caseStudy": {
+      "role": "Senior frontend contributor across web and mobile experiences with shared ownership of delivery outcomes.",
+      "challenge": "Operations teams relied on fragmented manual workflows that created delays and avoidable errors.",
+      "approach": [
+        "Mapped high-friction workflows and prioritized high-impact automation.",
+        "Built consistent web and mobile interfaces for daily operations.",
+        "Partnered with backend teams for robust integrations and data consistency."
+      ],
+      "architecture": [
+        "Shared TypeScript domain models across app surfaces.",
+        "Workflow-first UI design for repeatable operational tasks.",
+        "Service integration boundaries aligned with backend ownership."
+      ],
+      "quality": [
+        "Validation and guardrails for high-impact operational actions.",
+        "Regression testing around critical workflow transitions.",
+        "Monitoring hooks for reliability and supportability."
+      ],
+      "outcome": "Reduced manual overhead and improved execution reliability for operational teams."
+    },
     "github": "https://github.com/twistresources",
     "external": "https://twistresources.com"
   },
   {
+    "slug": "entrego-logistics-applications",
     "title": "Entrego Logistics Applications",
-    "description": "Frontend modernization and delivery support for logistics and last-mile systems, improving developer velocity and platform stability.",
+    "description": "Led frontend modernization for last-mile logistics applications; improved engineering velocity, reduced incident frequency, and established a more predictable release cadence.",
     "tech": ["React", "JavaScript", "Redux", "Figma"],
+    "status": "Built",
+    "impact": ["Higher engineering velocity", "Lower incident frequency"],
+    "caseStudy": {
+      "role": "Frontend lead driving modernization initiatives and delivery coordination for logistics product surfaces.",
+      "challenge": "Legacy frontend patterns slowed feature delivery and created recurring production issues.",
+      "approach": [
+        "Refactored brittle UI modules into reusable and testable components.",
+        "Aligned delivery practices with stronger review and release processes.",
+        "Collaborated with design to improve UX consistency in core journeys."
+      ],
+      "architecture": [
+        "Component reuse model to reduce duplicate logic.",
+        "State flow cleanup for easier maintenance and debugging.",
+        "Gradual modernization to avoid risky full rewrites."
+      ],
+      "quality": [
+        "Stabilization-first roadmap to address high-frequency incident areas.",
+        "Release checklist for high-risk deployments.",
+        "UI consistency standards shared across teams."
+      ],
+      "outcome": "Improved maintainability, release predictability, and platform stability while continuing feature delivery."
+    },
     "github": "https://github.com/entrego",
     "external": "https://entrego.com.ph"
   },
   {
+    "slug": "enterprise-batch-processing-workflows",
     "title": "Enterprise Batch Processing Workflows",
-    "description": "SQL-centric automation and batch processing enhancements for enterprise systems where reliability and throughput were critical.",
+    "description": "Delivered SQL-centric automation for enterprise batch workflows, increasing throughput and reducing failed overnight runs in reliability-critical systems.",
     "tech": ["Oracle SQL", "PL/SQL", "Spring Boot"],
+    "status": "Built",
+    "impact": ["Improved batch throughput", "Fewer failed overnight runs"],
+    "caseStudy": {
+      "role": "Engineer focused on reliability and performance improvements for enterprise batch processing systems.",
+      "challenge": "Overnight workflows had failure hotspots that impacted downstream reporting and business operations.",
+      "approach": [
+        "Identified bottlenecks and optimized critical SQL and PL/SQL paths.",
+        "Introduced resilience checks for failure-prone batch stages.",
+        "Worked with stakeholders to prioritize the highest-risk process windows."
+      ],
+      "architecture": [
+        "Batch orchestration improvements around high-volume data steps.",
+        "Query and transaction optimizations for predictable throughput.",
+        "Operational visibility enhancements for support teams."
+      ],
+      "quality": [
+        "Guardrails for failure handling and restart safety.",
+        "Validation checks for data integrity in batch outputs.",
+        "Operational runbook support for faster incident recovery."
+      ],
+      "outcome": "Increased batch reliability and throughput in systems where processing windows were business-critical."
+    },
     "github": null,
     "external": "https://accenture.com"
   }

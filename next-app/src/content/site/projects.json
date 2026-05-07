@@ -1,43 +1,56 @@
 [
   {
     "title": "Frontend Design System Migration",
-    "description": "Planned: migrate scattered UI patterns into a reusable design system with tokens, shared primitives, and visual regression checks.",
-    "tech": ["React", "TypeScript", "Storybook", "Playwright"],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "description": "Next.js workspace with semantic design tokens, reusable primitives (forms, feedback, overlay), a live component playground, and Storybook + Vitest quality gates—including CI—so consuming apps can migrate away from one-off UI drift.",
+    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest", "Playwright"],
+    "status": "Built",
+    "impact": ["Token-driven primitives", "Storybook + CI coverage"],
+    "github": "https://github.com/jonas0224/frontend-design-system-migration",
+    "external": "https://github.com/jonas0224/frontend-design-system-migration"
   },
   {
     "title": "Realtime Operations Dashboard",
-    "description": "Planned: build a realtime monitoring dashboard with websocket streams, alerting states, and resilient data synchronization.",
+    "description": "Roadmap: build a realtime operations dashboard with websocket streams, alert states, and resilient synchronization focused on fast incident detection and lower mean-time-to-awareness.",
     "tech": ["Next.js", "TypeScript", "WebSockets", "PostgreSQL"],
+    "status": "Roadmap",
+    "impact": ["Faster incident awareness", "Stronger operational visibility"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
     "title": "Developer Productivity Portal",
-    "description": "Planned: centralize CI insights, release notes, and service health into a single internal developer portal.",
+    "description": "Roadmap: centralize CI health, release notes, and service status into a single developer portal to reduce context switching and improve release confidence.",
     "tech": ["Next.js", "Node.js", "GraphQL", "Docker"],
+    "status": "Roadmap",
+    "impact": ["Less context switching", "Higher release confidence"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
     "title": "Mobile Delivery Companion",
-    "description": "Planned: a React Native companion app for field teams with offline-first workflows and sync conflict handling.",
+    "description": "Roadmap: build a React Native companion app with offline-first workflows, sync conflict handling, and resilient retry logic for field operations.",
     "tech": ["React Native", "TypeScript", "SQLite", "Expo"],
+    "status": "Roadmap",
+    "impact": ["Better task completion reliability", "Fewer sync failures"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
     "title": "AI-Assisted Incident Triage UI",
-    "description": "Planned: interface for classifying incidents, suggesting runbooks, and routing ownership based on historical patterns.",
+    "description": "Roadmap: design an AI-assisted triage interface for incident classification, runbook suggestions, and ownership routing with human override and auditability.",
     "tech": ["Next.js", "TypeScript", "OpenAI APIs", "Redis"],
+    "status": "Roadmap",
+    "impact": ["Faster incident triage", "More accurate routing"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
+    "slug": "portfolio-cms-publishing-workflow",
     "title": "Portfolio CMS + Publishing Workflow",
-    "description": "Built a dedicated CMS app for editing portfolio content, previewing drafts, and opening PR-based updates into the portfolio repo.",
+    "description": "Built a dedicated CMS with draft preview and PR-based publishing for portfolio content. Added role-aware workflows, validation, and release guardrails, significantly reducing content update turnaround with auditable change history.",
     "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "GitHub API"],
+    "status": "Built",
+    "impact": ["Faster content publishing turnaround", "More reliable publishing workflow"],
     "github": "https://github.com/jonas0224/portfolio-content-management",
     "external": "https://github.com/jonas0224/portfolio-content-management"
   }
