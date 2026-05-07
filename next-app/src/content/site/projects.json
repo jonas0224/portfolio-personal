@@ -36,9 +36,9 @@
   },
   {
     "title": "Portfolio CMS + Publishing Workflow",
-    "description": "Planned: lightweight content management and publishing pipeline for portfolio updates, posts, and media assets.",
-    "tech": ["Next.js", "MDX", "GitHub Actions", "Vercel"],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "description": "Built a dedicated CMS app for editing portfolio content, previewing drafts, and opening PR-based updates into the portfolio repo.",
+    "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "GitHub API"],
+    "github": "https://github.com/jonas0224/portfolio-content-management",
+    "external": "https://github.com/jonas0224/portfolio-content-management"
   }
 ]
