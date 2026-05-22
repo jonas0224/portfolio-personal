@@ -9,7 +9,7 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 | **Shipped** | Portfolio CMS + Publishing Workflow |
 | **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption) |
 | **In progress** | POS & Inventory System — code-complete; deploy checklist in `pos-inventory-system/docs/completion-status.md` |
-| **Planned** | 4 showcase projects (see priority list below) |
+| **Planned** | 4 showcase projects + 2 future apps (see lists below) |
 
 ---
 
@@ -52,6 +52,44 @@ _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-re
 Rationale: design system is done; next project adds realtime full-stack depth for interviews.
 
 **Note:** POS uses its own UI stack (shadcn/ui) and is tracked separately above.
+
+---
+
+## Future app ideas (side projects)
+
+Practical tools for personal or small-business use — separate from interview showcase repos; ship when capacity allows.
+
+### Training & Certification Tracker
+
+**Description**  
+An app that helps you track online training and certifications — courses in progress, completion dates, expiry/renewal reminders, and links to certificates.
+
+**Suggested MVP**
+- Add/edit training entries (provider, URL, status, target date)
+- Certification records with issue and expiry dates
+- Dashboard: in progress, completed, due for renewal
+- Optional email or in-app reminders before expiry
+
+**Success criteria**
+- One place to see all active and completed training
+- Renewal dates visible without digging through email
+
+---
+
+### Gross & Expense Calculator (small business)
+
+**Description**  
+An app that lets small business owners easily compute **gross revenue**, **product price**, and **expenses** for their product or business — simple inputs, clear PHP (or currency) breakdown, and margin at a glance.
+
+**Suggested MVP**
+- Product/line item: cost, selling price, quantity → gross and margin
+- Business summary: revenue, categorized expenses, net vs gross
+- Save named scenarios (e.g. “Weekend market”, “Online Shopee”)
+- Export or print a one-page summary for records
+
+**Success criteria**
+- Owner can answer “What’s my gross and what’s left after expenses?” without a spreadsheet
+- Readable on mobile for market-day quick checks
 
 ---
 
@@ -169,7 +207,7 @@ What it demonstrates:
 
 ## Execution notes
 
-- **Cursor rules:** Each repo has `.cursor/rules/` tailored from the ME-Bank setup (shared commits/verification + project-specific conventions). Open the project folder as workspace for best results.
+- **Repo conventions:** Each project keeps its own README, verification scripts, and scoped commits. Open one repo folder at a time for focused work.
 - Keep each **showcase** project in its own repo for clean storytelling.
 - **POS** stays in `pos-inventory-system`; link it here for planning, not as portfolio project #6.
 - Aim for **1 shipped MVP every 2-3 weeks** (showcase projects).
