@@ -11,6 +11,7 @@ import {
 import { KEY_CODES } from '@/lib/key-codes';
 import { NAV_LINKS } from '@/lib/nav';
 import { useOnClickOutside } from '@/hooks/use-on-click-outside';
+import { ButtonLink } from '@/ui/button';
 
 export function MobileMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -120,15 +121,17 @@ export function MobileMenu() {
                 </li>
               ))}
             </ol>
-            <a
+            <ButtonLink
+              className="portfolio-sidebar-resume"
               href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline portfolio-sidebar-resume"
               onClick={() => setMenuOpen(false)}
+              rel="noopener noreferrer"
+              size="lg"
+              target="_blank"
+              variant="outline"
             >
               Resume
-            </a>
+            </ButtonLink>
           </nav>
         </aside>
       </div>

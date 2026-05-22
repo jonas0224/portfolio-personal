@@ -8,6 +8,7 @@ import { NAV_LINKS } from '@/lib/nav';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
 import { useScrollDirection } from '@/hooks/use-scroll-direction';
 import { MobileMenu } from '@/components/mobile-menu';
+import { ButtonLink } from '@/ui/button';
 
 type SiteHeaderProps = {
   isHome: boolean;
@@ -90,14 +91,16 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
   );
 
   const resume = (
-    <a
-      className="btn-outline-sm portfolio-nav-resume"
+    <ButtonLink
+      className="portfolio-nav-resume"
       href="/resume.pdf"
-      target="_blank"
       rel="noopener noreferrer"
+      size="sm"
+      target="_blank"
+      variant="outline"
     >
       Resume
-    </a>
+    </ButtonLink>
   );
 
   const linkList = (

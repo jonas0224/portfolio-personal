@@ -1,8 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
 import type { ProjectContent } from "@/types/content";
+import { OutlineLink } from "@/ui/outline-link";
+import { Card, CardContent } from "@/ui/card";
 import { ExternalLink } from "@/components/external-link";
 import { RevealSection } from "@/components/reveal-section";
 import { SECTION_SHELL } from "@/components/sections/constants";
@@ -61,13 +62,15 @@ export function FeaturedProjectsSection({ projects }: Props) {
                     ))}
                   </ul>
                 ) : null}
-                <div
-                  className={`portfolio-card-shadow relative z-[2] rounded-[var(--border-radius)] bg-[var(--light-navy)] p-[25px] text-[length:var(--fz-lg)] text-[var(--light-slate)] [@media(max-width:768px)]:bg-transparent [@media(max-width:768px)]:p-5 [@media(max-width:768px)]:shadow-none ${
+                <Card
+                  className={`ds-card-portfolio relative z-[2] p-[25px] text-[length:var(--fz-lg)] text-[var(--light-slate)] shadow-none motion-safe:hover:translate-y-0 [@media(max-width:768px)]:border-0 [@media(max-width:768px)]:bg-transparent [@media(max-width:768px)]:p-5 [@media(max-width:768px)]:shadow-none ${
                     reverse ? "lg:text-right" : ""
                   }`}
                 >
-                  <p>{project.description}</p>
-                </div>
+                  <CardContent className="p-0 text-[length:var(--fz-lg)] text-[var(--light-slate)]">
+                    <p>{project.description}</p>
+                  </CardContent>
+                </Card>
                 <ul
                   className={`portfolio-featured-tech relative z-[2] mt-[25px] mb-[10px] flex flex-wrap gap-x-[18px] gap-y-2 p-0 font-mono text-[length:var(--fz-xxs)] text-[var(--light-slate)] ${
                     reverse && hasImage ? "lg:justify-end" : ""
@@ -79,9 +82,9 @@ export function FeaturedProjectsSection({ projects }: Props) {
                 </ul>
                 {project.slug && project.caseStudy ? (
                   <div className={reverse ? "lg:text-right" : ""}>
-                    <Link href={`/projects/${project.slug}`} className="btn-outline-sm">
+                    <OutlineLink href={`/projects/${project.slug}`}>
                       Read case study
-                    </Link>
+                    </OutlineLink>
                   </div>
                 ) : null}
               </div>

@@ -5,6 +5,7 @@ import type { ReactNode } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink } from '@/components/external-link';
+import { ButtonLink } from '@/ui/button';
 import { NAV_DELAY_MS, LOADER_DELAY_MS } from '@/lib/timing';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
 
@@ -74,14 +75,16 @@ export function HeroSection({ hero }: Props) {
     </p>
   );
   const five = (
-    <a
-      className="btn-outline hero-cta"
+    <ButtonLink
+      className="hero-cta"
       href={`mailto:${hero.ctaEmail}`}
-      target="_blank"
       rel="noreferrer"
+      size="lg"
+      target="_blank"
+      variant="outline"
     >
       {hero.ctaLabel}
-    </a>
+    </ButtonLink>
   );
 
   const items = [one, two, three, four, five];

@@ -1,0 +1,143 @@
+/*
+  Design-system tokens for portfolio (reference scales + host theme).
+  Vendored from frontend-design-system-migration. Keep in sync with tokens-ref.css.
+  Requires html[data-theme="portfolio"] (see app/layout.tsx).
+*/
+
+/* --- Reference scales (--ref-*) --- */
+:root {
+  --ref-color-neutral-0: #ffffff;
+  --ref-color-neutral-50: #f8fafc;
+  --ref-color-neutral-100: #f1f5f9;
+  --ref-color-neutral-300: #cbd5e1;
+  --ref-color-neutral-500: #64748b;
+  --ref-color-neutral-700: #334155;
+  --ref-color-neutral-900: #0f172a;
+
+  --ref-color-brand-400: #38bdf8;
+  --ref-color-brand-500: #0ea5e9;
+  --ref-color-brand-600: #0284c7;
+
+  --ref-color-success-500: #16a34a;
+  --ref-color-warning-500: #d97706;
+  --ref-color-error-500: #dc2626;
+  --ref-color-info-500: #2563eb;
+
+  --ref-font-size-xs: 0.75rem;
+  --ref-font-size-sm: 0.875rem;
+  --ref-font-size-md: 1rem;
+  --ref-font-size-lg: 1.125rem;
+  --ref-font-size-xl: 1.25rem;
+  --ref-font-size-2xl: 1.5rem;
+
+  --ref-font-weight-regular: 400;
+  --ref-font-weight-medium: 500;
+  --ref-font-weight-semibold: 600;
+  --ref-font-weight-bold: 700;
+
+  --ref-line-height-tight: 1.25;
+  --ref-line-height-normal: 1.5;
+  --ref-line-height-loose: 1.7;
+
+  --ref-space-1: 0.25rem;
+  --ref-space-2: 0.5rem;
+  --ref-space-3: 0.75rem;
+  --ref-space-4: 1rem;
+  --ref-space-5: 1.25rem;
+  --ref-space-6: 1.5rem;
+  --ref-space-8: 2rem;
+  --ref-space-10: 2.5rem;
+  --ref-space-12: 3rem;
+
+  --ref-radius-sm: 0.25rem;
+  --ref-radius-md: 0.5rem;
+  --ref-radius-lg: 0.75rem;
+  --ref-radius-xl: 1rem;
+  --ref-radius-pill: 9999px;
+
+  --ref-shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --ref-shadow-md: 0 4px 12px rgb(15 23 42 / 0.1);
+  --ref-shadow-lg: 0 10px 24px rgb(15 23 42 / 0.14);
+
+  --ref-motion-duration-fast: 120ms;
+  --ref-motion-duration-base: 200ms;
+  --ref-motion-duration-slow: 320ms;
+  --ref-motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* --- Host theme: portfolio palette → semantic tokens --- */
+:root,
+[data-theme="portfolio"] {
+  --color-background: var(--navy);
+  --color-surface: var(--light-navy);
+  --color-surface-elevated: var(--lightest-navy);
+  --color-border: var(--dark-slate);
+  --color-text-primary: var(--lightest-slate);
+  --color-text-secondary: var(--light-slate);
+  --color-brand: var(--green);
+  --color-brand-hover: var(--green);
+  --color-success: var(--green);
+  --color-warning: #f59e0b;
+  --color-error: #f87171;
+  --color-info: var(--blue);
+
+  --ref-color-brand-400: var(--green);
+  --ref-color-brand-500: var(--green);
+  --ref-color-brand-600: var(--green);
+
+  --ref-motion-duration-base: 0.25s;
+  --ref-motion-ease-standard: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ref-font-size-xs: var(--fz-xs);
+  --ref-font-size-sm: var(--fz-sm);
+  --ref-radius-md: var(--border-radius);
+
+  --ds-btn-font: var(--font-mono);
+  --ds-btn-radius: var(--border-radius);
+}
+
+/* Outline CTA: match legacy .btn-outline / .btn-outline-sm */
+.ds-btn-outline,
+.ds-btn-outline-sm {
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.ds-btn-outline:hover,
+.ds-btn-outline:focus-visible {
+  outline: none;
+  box-shadow: 4px 4px 0 0 var(--green);
+  transform: translate(-5px, -5px);
+}
+
+.ds-btn-outline-sm {
+  font-size: var(--fz-xs);
+  padding: 0.75rem 1rem;
+}
+
+.ds-btn-outline-sm:hover,
+.ds-btn-outline-sm:focus-visible {
+  outline: none;
+  box-shadow: 3px 3px 0 0 var(--green);
+  transform: translate(-4px, -4px);
+}
+
+a.ds-btn-outline:not(.ds-btn-outline-sm) {
+  font-size: var(--fz-sm);
+  padding: 1.25rem 1.75rem;
+}
+
+/* Card: match legacy .portfolio-card-shadow tiles */
+.ds-card-portfolio {
+  border-radius: var(--border-radius);
+  border-color: transparent;
+  background-color: var(--light-navy);
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  transition: var(--transition);
+}
+
+.ds-card-portfolio:hover {
+  transform: none;
+  box-shadow: 0 20px 30px -15px var(--navy-shadow);
+}

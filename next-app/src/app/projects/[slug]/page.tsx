@@ -1,5 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ButtonLink } from "@/ui/button";
+import { OutlineLink } from "@/ui/outline-link";
+import { CaseStudySection } from "@/components/case-study-section";
 import type { Metadata } from "next";
 import { featuredProjects } from "@/data/site";
 
@@ -61,61 +63,53 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
       ) : null}
 
       <div className="grid gap-4">
-        <article className="portfolio-card-shadow rounded-[var(--border-radius)] bg-[var(--light-navy)] p-6">
-          <h2 className="mb-3 text-[length:var(--fz-xl)]">Role and Scope</h2>
-          <p className="text-[var(--light-slate)]">{project.caseStudy.role}</p>
-        </article>
+        <CaseStudySection title="Role and Scope">
+          <p>{project.caseStudy.role}</p>
+        </CaseStudySection>
 
-        <article className="portfolio-card-shadow rounded-[var(--border-radius)] bg-[var(--light-navy)] p-6">
-          <h2 className="mb-3 text-[length:var(--fz-xl)]">Challenge</h2>
-          <p className="text-[var(--light-slate)]">{project.caseStudy.challenge}</p>
-        </article>
+        <CaseStudySection title="Challenge">
+          <p>{project.caseStudy.challenge}</p>
+        </CaseStudySection>
 
-        <article className="portfolio-card-shadow rounded-[var(--border-radius)] bg-[var(--light-navy)] p-6">
-          <h2 className="mb-3 text-[length:var(--fz-xl)]">Approach</h2>
+        <CaseStudySection title="Approach">
           <ul className="fancy-list">
             {project.caseStudy.approach.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </article>
+        </CaseStudySection>
 
-        <article className="portfolio-card-shadow rounded-[var(--border-radius)] bg-[var(--light-navy)] p-6">
-          <h2 className="mb-3 text-[length:var(--fz-xl)]">Architecture Decisions</h2>
+        <CaseStudySection title="Architecture Decisions">
           <ul className="fancy-list">
             {project.caseStudy.architecture.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </article>
+        </CaseStudySection>
 
-        <article className="portfolio-card-shadow rounded-[var(--border-radius)] bg-[var(--light-navy)] p-6">
-          <h2 className="mb-3 text-[length:var(--fz-xl)]">Quality and Reliability</h2>
+        <CaseStudySection title="Quality and Reliability">
           <ul className="fancy-list">
             {project.caseStudy.quality.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </article>
+        </CaseStudySection>
 
-        <article className="portfolio-card-shadow rounded-[var(--border-radius)] bg-[var(--light-navy)] p-6">
-          <h2 className="mb-3 text-[length:var(--fz-xl)]">Outcome</h2>
-          <p className="text-[var(--light-slate)]">{project.caseStudy.outcome}</p>
-        </article>
+        <CaseStudySection title="Outcome">
+          <p>{project.caseStudy.outcome}</p>
+        </CaseStudySection>
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3">
-        <a className="btn-outline-sm" href={project.external} target="_blank" rel="noreferrer">
+        <ButtonLink href={project.external} rel="noreferrer" size="sm" target="_blank" variant="outline">
           Visit project
-        </a>
+        </ButtonLink>
         {project.github ? (
-          <a className="btn-outline-sm" href={project.github} target="_blank" rel="noreferrer">
+          <ButtonLink href={project.github} rel="noreferrer" size="sm" target="_blank" variant="outline">
             View repository
-          </a>
+          </ButtonLink>
         ) : null}
-        <Link href="/#featured-projects" className="btn-outline-sm">
-          Back to featured work
-        </Link>
+        <OutlineLink href="/#featured-projects">Back to featured work</OutlineLink>
       </div>
     </section>
   );

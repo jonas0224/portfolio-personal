@@ -2,6 +2,7 @@
 
 import type { ContactContent } from "@/types/content";
 import { RevealSection } from "@/components/reveal-section";
+import { ButtonLink } from "@/ui/button";
 type Props = {
   contact: ContactContent;
   email: string;
@@ -19,9 +20,14 @@ export function ContactSection({ contact, email }: Props) {
         {contact.title}
       </h2>
       <p className="mx-auto mt-4 max-w-2xl text-[var(--light-slate)]">{contact.description}</p>
-      <a className="btn-outline email-link inline-block" href={`mailto:${email}`}>
+      <ButtonLink
+        className="email-link mt-6"
+        href={`mailto:${email}`}
+        size="lg"
+        variant="outline"
+      >
         {contact.ctaLabel}
-      </a>
+      </ButtonLink>
     </RevealSection>
   );
 }
