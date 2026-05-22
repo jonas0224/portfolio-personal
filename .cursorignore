@@ -1,8 +1,0 @@
-node_modules/
-.next/
-next-app/.next/
-.DS_Store
-*.log
-.env
-.env.*
-!.env.example
