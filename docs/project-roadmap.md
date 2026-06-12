@@ -8,7 +8,7 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 |-------|--------|
 | **Shipped** | Portfolio CMS + Publishing Workflow |
 | **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption) |
-| **In progress** | POS & Inventory System — code-complete; deploy checklist in `pos-inventory-system/docs/completion-status.md` |
+| **In progress** | POS & Inventory System — MVP done; pilot deploy via `pos-inventory-system/docs/release-plan.md` |
 | **Planned** | 4 showcase projects + 2 future apps (see lists below) |
 
 ---
@@ -19,7 +19,7 @@ These are real tools you maintain alongside showcase repos. They share the works
 
 ### POS & Inventory System
 
-**Status:** Feature-complete; **production hardening in progress** (not yet deployed to prod checklist green)  
+**Status:** MVP complete; **pilot deploy** (Neon + Vercel) per release plan  
 **Repo:** `pos-inventory-system` (sibling folder under `personal/`)  
 **Role:** Web POS + inventory + reports + consignee portal for a consigned clothing business  
 
@@ -32,11 +32,11 @@ These are real tools you maintain alongside showcase repos. They share the works
 - Staging/production env (`JWT_SECRET`, `DATABASE_URL`, HTTPS)
 - `npx prisma migrate deploy` + backup
 - `npm run smoke` after deploy
-- See `pos-inventory-system/docs/completion-status.md`
+- See `pos-inventory-system/docs/release-plan.md`
 
-**Recently added in repo:** CI, API role guards, request logging, ops runbook, smoke script
+**Recently added in repo:** Multi-tenant shops, PIN lock, tablet POS, CI, smoke script
 
-**Docs (source of truth):** `docs/workflow-plan.md`, `docs/production-plan.md`, `docs/production-checklist.md`, `docs/baseline-audit.md`
+**Docs:** `pos-inventory-system/docs/release-plan.md` (deploy), `docs/mvp-backlog.md` (features), `docs/ops-runbook.md` (commands)
 
 ---
 

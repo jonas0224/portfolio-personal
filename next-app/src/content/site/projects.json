@@ -57,6 +57,23 @@
     "external": "https://jonasyambao.com"
   },
   {
+    "title": "Document Keeper",
+    "description": "Roadmap: a documentation keeper that indexes and renders markdown across personal projects — release plans, roadmaps, runbooks, and specs — with search and links back to source repos (Archive Room, CMS, design system).",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Markdown",
+      "GitHub API"
+    ],
+    "status": "Roadmap",
+    "impact": [
+      "Faster doc discovery",
+      "Single index for project knowledge"
+    ],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
     "title": "Developer Productivity Portal",
     "description": "Roadmap: centralize CI health, release notes, and service status into a single developer portal to reduce context switching and improve release confidence.",
     "tech": [
