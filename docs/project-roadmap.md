@@ -8,7 +8,7 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 |-------|--------|
 | **Shipped** | Portfolio CMS + Publishing Workflow |
 | **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption) |
-| **In progress** | POS & Inventory System — MVP done; pilot deploy via `pos-inventory-system/docs/release-plan.md` |
+| **In progress** | POS & Inventory System — MVP done; pilot deploy via `pos-inventory-system/docs/operations.md` |
 | **Planned** | 4 showcase projects + 2 future apps (see lists below) |
 
 ---
@@ -32,11 +32,11 @@ These are real tools you maintain alongside showcase repos. They share the works
 - Staging/production env (`JWT_SECRET`, `DATABASE_URL`, HTTPS)
 - `npx prisma migrate deploy` + backup
 - `npm run smoke` after deploy
-- See `pos-inventory-system/docs/release-plan.md`
+- See `pos-inventory-system/docs/operations.md`
 
 **Recently added in repo:** Multi-tenant shops, PIN lock, tablet POS, CI, smoke script
 
-**Docs:** `pos-inventory-system/docs/release-plan.md` (deploy), `docs/mvp-backlog.md` (features), `docs/ops-runbook.md` (commands)
+**Docs:** `pos-inventory-system/docs/operations.md` (deploy), `docs/roadmap.md` (features), `docs/security.md` (auth)
 
 ---
 
