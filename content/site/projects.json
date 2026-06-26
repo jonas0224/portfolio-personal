@@ -40,6 +40,25 @@
     "external": "https://github.com/jonas0224/pos-inventory-system"
   },
   {
+    "title": "FLASHCUT",
+    "description": "Real-time team party game: a quick image peek, blackout flashcut phase, then Kahoot-style speed scoring across 15 rounds. Built with Next.js, Redis-backed rooms, HTTP polling for Vercel serverless, and host-editable funny image packs.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Upstash Redis",
+      "Tailwind CSS",
+      "Vitest"
+    ],
+    "status": "Built",
+    "impact": [
+      "Sync for ~20 remote players",
+      "Speed-based round scoring"
+    ],
+    "github": "https://github.com/jonas0224/flashcut",
+    "external": "https://github.com/jonas0224/flashcut"
+  },
+  {
     "title": "Realtime Operations Dashboard",
     "description": "Roadmap: build a realtime operations dashboard with websocket streams, alert states, and resilient synchronization focused on fast incident detection and lower mean-time-to-awareness.",
     "tech": [

@@ -40,6 +40,25 @@
     "external": "https://github.com/jonas0224/pos-inventory-system"
   },
   {
+    "title": "FLASHCUT",
+    "description": "Real-time team party game: a quick image peek, blackout flashcut phase, then Kahoot-style speed scoring across 15 rounds. Built with Next.js, Redis-backed rooms, HTTP polling for Vercel serverless, and host-editable funny image packs.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Upstash Redis",
+      "Tailwind CSS",
+      "Vitest"
+    ],
+    "status": "Built",
+    "impact": [
+      "Sync for ~20 remote players",
+      "Speed-based round scoring"
+    ],
+    "github": "https://github.com/jonas0224/flashcut",
+    "external": "https://github.com/jonas0224/flashcut"
+  },
+  {
     "title": "Realtime Operations Dashboard",
     "description": "Roadmap: build a realtime operations dashboard with websocket streams, alert states, and resilient synchronization focused on fast incident detection and lower mean-time-to-awareness.",
     "tech": [
@@ -120,39 +139,6 @@
     "impact": [
       "Faster incident triage",
       "More accurate routing"
-    ],
-    "github": null,
-    "external": "https://jonasyambao.com"
-  },
-  {
-    "title": "Training & Certification Tracker",
-    "description": "Roadmap: track online training and certifications — courses in progress, completion dates, expiry reminders, and certificate links in one place.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Prisma"
-    ],
-    "status": "Roadmap",
-    "impact": [
-      "Fewer missed renewals",
-      "Clear training progress"
-    ],
-    "github": null,
-    "external": "https://jonasyambao.com"
-  },
-  {
-    "title": "Gross & Expense Calculator",
-    "description": "Roadmap: help small business owners compute gross revenue, product price, and expenses — simple inputs with margin and net breakdown without spreadsheets.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "React"
-    ],
-    "status": "Roadmap",
-    "impact": [
-      "Faster pricing decisions",
-      "Clear gross vs net view"
     ],
     "github": null,
     "external": "https://jonasyambao.com"
