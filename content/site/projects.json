@@ -60,17 +60,37 @@
   },
   {
     "title": "Realtime Operations Dashboard",
-    "description": "Roadmap: build a realtime operations dashboard with websocket streams, alert states, and resilient synchronization focused on fast incident detection and lower mean-time-to-awareness.",
+    "description": "Realtime operations dashboard with WebSocket event streams, service health tiles, alert states, and reconnect/stale-data UX — demo e-commerce platform monitoring with a self-contained event simulator.",
     "tech": [
       "Next.js",
       "TypeScript",
       "WebSockets",
-      "PostgreSQL"
+      "PostgreSQL",
+      "Prisma",
+      "Redis"
+    ],
+    "status": "Built",
+    "impact": [
+      "Faster incident awareness",
+      "Resilient realtime sync patterns"
+    ],
+    "github": "https://github.com/jonas0224/realtime-operations-dashboard",
+    "external": "https://github.com/jonas0224/realtime-operations-dashboard"
+  },
+  {
+    "title": "RC Crawler PH — Builder & Community",
+    "description": "Roadmap: QuadPartPicker-style web app for planning RC crawler builds in PHP (presets, shareable rig URLs) plus a Philippines-focused community — public build gallery, crawl spots, events, and club pages for the growing PH crawler scene.",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS"
     ],
     "status": "Roadmap",
     "impact": [
-      "Faster incident awareness",
-      "Stronger operational visibility"
+      "Beginner-friendly PH build planning",
+      "Community beyond Facebook groups"
     ],
     "github": null,
     "external": "https://jonasyambao.com"

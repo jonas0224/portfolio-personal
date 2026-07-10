@@ -42,7 +42,7 @@ These are real tools you maintain alongside showcase repos. They share the works
 
 ## Priority order (portfolio showcase projects)
 
-1. **Realtime Operations Dashboard** ← **next**
+1. **Realtime Operations Dashboard** — **shipped** (see `realtime-operations-dashboard/`)
 2. **AI-Assisted Incident Triage UI**
 3. **Developer Productivity Portal**
 4. **Mobile Delivery Companion**
@@ -52,6 +52,47 @@ _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-re
 Rationale: design system is done; next project adds realtime full-stack depth for interviews.
 
 **Note:** POS uses its own UI stack (shadcn/ui) and is tracked separately above.
+
+---
+
+## Active product bet: RC Crawler PH (builder + community)
+
+**Status:** Planning — validate before heavy build  
+**Working name:** CrawlBuild PH (or similar)  
+**Angle:** QuadPartPicker-style rig builder + community hub for the Philippines RC crawler scene (not a full 3D simulator on day one).
+
+### Why now
+
+- Pasig RC Park (2026), mall meet-ups, RC Cars Pinas growth — influx of beginners who need build guidance and a place to share rigs beyond Facebook alone.
+- Global tools (RC Spotters, RCLab, 4x4 Builder) don’t own **PH budget builds, peso pricing, and local spots/events**.
+
+### Product pillars
+
+| Pillar | MVP | Later |
+| ------ | --- | ----- |
+| **Builder** | One scale (1/24 or 1/10), part slots, PHP total, 3 presets, share URL | Fit warnings, Shopee/Lazada links, shopping list export |
+| **Community** | Public build gallery, user profiles, like/comment on shared rigs | Spots map, event calendar, club/chapter pages |
+
+### To-do list (execution order)
+
+- [ ] **Validate** — Join RC Cars Pinas + 2 regional groups; interview ~10 crawlers; run a short budget survey (“what was your first build?”).
+- [ ] **Pick wedge scale** — Start with 1/24 micro *or* 1/10 trail; curate ~40 parts (hand-entered OK).
+- [ ] **Builder MVP** — Platform → parts → running PHP total → 3 preset builds → shareable build URL.
+- [ ] **Community v1** — Auth (lightweight), public rig gallery, profile page, like + comment on builds.
+- [ ] **Community v2** — PH crawl spots (Pasig RC Park, malls, user-submitted) + simple events calendar.
+- [ ] **Community v3** — Club/chapter pages (link-out to FB groups; optional “official” badges when partnered).
+- [ ] **Launch** — Post preset builds in FB groups; goal: 500 shared builds / meaningful gallery activity before 3D or marketplace.
+- [ ] **Monetize (after traction)** — Shopee/Lazada affiliate on parts lists; sponsored listings from PH RC shops.
+
+### Kill criteria
+
+- Fewer than ~20 completed builds in week 3 after soft launch → narrow scale or simplify UX before adding community v2/v3.
+- If answers are always “we just use Facebook” with no pain on builds/spots → pause or merge into builder-only.
+
+### Repo
+
+- New repo when MVP starts (e.g. `rc-crawler-ph`); keep POS in `pos-inventory-system` as separate track.
+- **Future build prompt:** [rc-crawler-ph-build-prompt.md](./rc-crawler-ph-build-prompt.md) — copy-paste into a new agent chat when ready to scaffold or implement.
 
 ---
 
