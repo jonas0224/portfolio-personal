@@ -9,13 +9,14 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 | **Shipped** | Portfolio CMS + Publishing Workflow |
 | **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption) |
 | **In progress** | POS & Inventory System — MVP done; pilot deploy via `pos-inventory-system/docs/operations.md` |
+| **Parked** | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md` |
 | **Planned** | 4 showcase projects + 2 future apps (see lists below) |
 
 ---
 
 ## Active products (not portfolio demos)
 
-These are real tools you maintain alongside showcase repos. They share the workspace but are not interview “case study” projects in the same sense.
+These are real tools you maintain alongside showcase repos. They share the workspace but are not interview "case study" projects in the same sense.
 
 ### POS & Inventory System
 
@@ -57,42 +58,38 @@ Rationale: design system is done; next project adds realtime full-stack depth fo
 
 ## Active product bet: RC Crawler PH (builder + community)
 
-**Status:** Planning — validate before heavy build  
-**Working name:** CrawlBuild PH (or similar)  
-**Angle:** QuadPartPicker-style rig builder + community hub for the Philippines RC crawler scene (not a full 3D simulator on day one).
+**Status:** **Parked (2026-07-10)** — MVP + community v1–v3 + 3D viewer spike shipped in repo; deploy, validation, and accurate per-part 3D models still open  
+**Repo:** `rc-crawler-ph` (private) — sibling folder under `personal/`, same layout as `portfolio-personal`  
+**Status doc:** `rc-crawler-ph/docs/STATUS.md` (resume here)
 
-### Why now
+**Working name:** RC Crawler PH / CrawlBuild PH  
+**Angle:** QuadPartPicker-style MN82 1:12 rig builder + Philippines RC crawler community hub.
 
-- Pasig RC Park (2026), mall meet-ups, RC Cars Pinas growth — influx of beginners who need build guidance and a place to share rigs beyond Facebook alone.
-- Global tools (RC Spotters, RCLab, 4x4 Builder) don’t own **PH budget builds, peso pricing, and local spots/events**.
+### Shipped in repo (high level)
 
-### Product pillars
+- Builder: ~40 MN82 parts, PHP totals, 3 presets, share URLs, community pricing + moderation
+- Community: gallery, auth, likes/comments, spots map, events, clubs, OG images
+- 3D: desktop R3F rig viewer (accurate per-part `modelUrl` mode); mobile 2D preview
+- **Not done:** production deploy, FB validation, real MN82 GLBs (one per catalog part)
 
-| Pillar | MVP | Later |
-| ------ | --- | ----- |
-| **Builder** | One scale (1/24 or 1/10), part slots, PHP total, 3 presets, share URL | Fit warnings, Shopee/Lazada links, shopping list export |
-| **Community** | Public build gallery, user profiles, like/comment on shared rigs | Spots map, event calendar, club/chapter pages |
+### To-do list (when resuming)
 
-### To-do list (execution order)
-
-- [ ] **Validate** — Join RC Cars Pinas + 2 regional groups; interview ~10 crawlers; run a short budget survey (“what was your first build?”).
-- [ ] **Pick wedge scale** — Start with 1/24 micro *or* 1/10 trail; curate ~40 parts (hand-entered OK).
-- [ ] **Builder MVP** — Platform → parts → running PHP total → 3 preset builds → shareable build URL.
-- [ ] **Community v1** — Auth (lightweight), public rig gallery, profile page, like + comment on builds.
-- [ ] **Community v2** — PH crawl spots (Pasig RC Park, malls, user-submitted) + simple events calendar.
-- [ ] **Community v3** — Club/chapter pages (link-out to FB groups; optional “official” badges when partnered).
-- [ ] **Launch** — Post preset builds in FB groups; goal: 500 shared builds / meaningful gallery activity before 3D or marketplace.
-- [ ] **Monetize (after traction)** — Shopee/Lazada affiliate on parts lists; sponsored listings from PH RC shops.
+- [ ] **Deploy** — Vercel + Neon; auth secrets; `db:migrate:deploy` + seed
+- [ ] **Validate** (if still desired) — RC Cars Pinas + interviews + budget survey
+- [ ] **Accurate 3D** — scan or source MN82-specific GLBs per part (`part-models.json`); see `rc-crawler-ph/README.md`
+- [ ] **Launch** — preset URLs in FB groups; week-3 kill criteria (~20 builds)
+- [ ] **Monetize (after traction)** — optional affiliate; not a current goal
 
 ### Kill criteria
 
-- Fewer than ~20 completed builds in week 3 after soft launch → narrow scale or simplify UX before adding community v2/v3.
-- If answers are always “we just use Facebook” with no pain on builds/spots → pause or merge into builder-only.
+- Fewer than ~20 completed builds in week 3 after soft launch → narrow scale or simplify UX before more features.
+- If answers are always "we just use Facebook" with no pain on builds/spots → pause or builder-only.
 
-### Repo
+### Repo & docs
 
-- New repo when MVP starts (e.g. `rc-crawler-ph`); keep POS in `pos-inventory-system` as separate track.
-- **Future build prompt:** [rc-crawler-ph-build-prompt.md](./rc-crawler-ph-build-prompt.md) — copy-paste into a new agent chat when ready to scaffold or implement.
+- **Code:** `personal/rc-crawler-ph/` → GitHub `jonas0224/rc-crawler-ph` (private)
+- **Resume:** [`rc-crawler-ph/docs/STATUS.md`](../rc-crawler-ph/docs/STATUS.md)
+- **Build prompt (historical):** [rc-crawler-ph-build-prompt.md](./rc-crawler-ph-build-prompt.md) — superseded by shipped MVP; use for context only
 
 ---
 
@@ -125,11 +122,11 @@ An app that lets small business owners easily compute **gross revenue**, **produ
 **Suggested MVP**
 - Product/line item: cost, selling price, quantity → gross and margin
 - Business summary: revenue, categorized expenses, net vs gross
-- Save named scenarios (e.g. “Weekend market”, “Online Shopee”)
+- Save named scenarios (e.g. "Weekend market", "Online Shopee")
 - Export or print a one-page summary for records
 
 **Success criteria**
-- Owner can answer “What’s my gross and what’s left after expenses?” without a spreadsheet
+- Owner can answer "What's my gross and what's left after expenses?" without a spreadsheet
 - Readable on mobile for market-day quick checks
 
 ---
@@ -256,4 +253,4 @@ What it demonstrates:
   - concise README
   - architecture snapshot
   - 3-5 screenshots or short walkthrough GIF
-  - explicit “tradeoffs” section
+  - explicit "tradeoffs" section

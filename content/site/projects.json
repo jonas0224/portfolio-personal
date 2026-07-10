@@ -79,21 +79,22 @@
   },
   {
     "title": "RC Crawler PH — Builder & Community",
-    "description": "Roadmap: QuadPartPicker-style web app for planning RC crawler builds in PHP (presets, shareable rig URLs) plus a Philippines-focused community — public build gallery, crawl spots, events, and club pages for the growing PH crawler scene.",
+    "description": "Parked product bet: MN82 1:12 rig builder in PHP (presets, shareable builds, community pricing) plus PH crawler community — gallery, spots, events, clubs. Desktop 3D rig viewer started; accurate per-part models and production deploy still open.",
     "tech": [
       "Next.js",
       "TypeScript",
       "PostgreSQL",
       "Prisma",
-      "Tailwind CSS"
+      "Tailwind CSS",
+      "React Three Fiber"
     ],
-    "status": "Roadmap",
+    "status": "Parked",
     "impact": [
-      "Beginner-friendly PH build planning",
-      "Community beyond Facebook groups"
+      "PH budget build planning in pesos",
+      "Community hub beyond Facebook groups"
     ],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "github": "https://github.com/jonas0224/rc-crawler-ph",
+    "external": "https://github.com/jonas0224/rc-crawler-ph"
   },
   {
     "title": "Document Keeper",
