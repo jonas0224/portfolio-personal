@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation";
-import { ButtonLink } from "@/ui/button";
-import { OutlineLink } from "@/ui/outline-link";
-import { CaseStudySection } from "@/components/case-study-section";
-import type { Metadata } from "next";
-import { featuredProjects } from "@/data/site";
+import { notFound } from 'next/navigation';
+import { ButtonLink } from '@/ui/button';
+import { OutlineLink } from '@/ui/outline-link';
+import { CaseStudySection } from '@/components/case-study-section';
+import type { Metadata } from 'next';
+import { featuredProjects } from '@/data/site';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!project) {
     return {
-      title: "Project Not Found",
+      title: 'Project Not Found',
     };
   }
 
@@ -47,7 +47,9 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
       <h1 className="mb-3 text-[clamp(34px,6vw,52px)] text-[var(--lightest-slate)]">
         {project.title}
       </h1>
-      <p className="mb-6 max-w-[800px] text-[var(--light-slate)]">{project.description}</p>
+      <p className="mb-6 max-w-[800px] text-[var(--light-slate)]">
+        {project.description}
+      </p>
 
       {project.impact?.length ? (
         <ul className="mb-8 flex list-none flex-wrap gap-2 p-0">
@@ -101,15 +103,27 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3">
-        <ButtonLink href={project.external} rel="noreferrer" size="sm" target="_blank" variant="outline">
+        <ButtonLink
+          href={project.external}
+          rel="noreferrer"
+          size="sm"
+          target="_blank"
+          variant="outline"
+        >
           Visit project
         </ButtonLink>
         {project.github ? (
-          <ButtonLink href={project.github} rel="noreferrer" size="sm" target="_blank" variant="outline">
+          <ButtonLink
+            href={project.github}
+            rel="noreferrer"
+            size="sm"
+            target="_blank"
+            variant="outline"
+          >
             View repository
           </ButtonLink>
         ) : null}
-        <OutlineLink href="/#featured-projects">Back to featured work</OutlineLink>
+        <OutlineLink href="/#work">Back to selected work</OutlineLink>
       </div>
     </section>
   );

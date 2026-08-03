@@ -1,27 +1,24 @@
 /*
-  Design-system tokens for portfolio (reference scales + host theme).
-  Vendored from frontend-design-system-migration. Keep in sync with tokens-ref.css.
-  Requires html[data-theme="portfolio"] (see app/layout.tsx).
+  Design-system tokens for portfolio (Ship Surface host theme).
 */
 
-/* --- Reference scales (--ref-*) --- */
 :root {
   --ref-color-neutral-0: #ffffff;
-  --ref-color-neutral-50: #f8fafc;
-  --ref-color-neutral-100: #f1f5f9;
-  --ref-color-neutral-300: #cbd5e1;
-  --ref-color-neutral-500: #64748b;
-  --ref-color-neutral-700: #334155;
-  --ref-color-neutral-900: #0f172a;
+  --ref-color-neutral-50: #fafafa;
+  --ref-color-neutral-100: #f4f4f5;
+  --ref-color-neutral-300: #d4d4d8;
+  --ref-color-neutral-500: #71717a;
+  --ref-color-neutral-700: #3f3f46;
+  --ref-color-neutral-900: #09090b;
 
-  --ref-color-brand-400: #38bdf8;
-  --ref-color-brand-500: #0ea5e9;
-  --ref-color-brand-600: #0284c7;
+  --ref-color-brand-400: #67e8f9;
+  --ref-color-brand-500: #22d3ee;
+  --ref-color-brand-600: #06b6d4;
 
-  --ref-color-success-500: #16a34a;
-  --ref-color-warning-500: #d97706;
-  --ref-color-error-500: #dc2626;
-  --ref-color-info-500: #2563eb;
+  --ref-color-success-500: #22c55e;
+  --ref-color-warning-500: #f59e0b;
+  --ref-color-error-500: #ef4444;
+  --ref-color-info-500: #38bdf8;
 
   --ref-font-size-xs: 0.75rem;
   --ref-font-size-sm: 0.875rem;
@@ -55,38 +52,37 @@
   --ref-radius-xl: 1rem;
   --ref-radius-pill: 9999px;
 
-  --ref-shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
-  --ref-shadow-md: 0 4px 12px rgb(15 23 42 / 0.1);
-  --ref-shadow-lg: 0 10px 24px rgb(15 23 42 / 0.14);
+  --ref-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --ref-shadow-md: 0 4px 12px rgb(0 0 0 / 0.35);
+  --ref-shadow-lg: 0 10px 24px rgb(0 0 0 / 0.4);
 
-  --ref-motion-duration-fast: 120ms;
-  --ref-motion-duration-base: 200ms;
-  --ref-motion-duration-slow: 320ms;
-  --ref-motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ref-motion-duration-fast: 140ms;
+  --ref-motion-duration-base: 280ms;
+  --ref-motion-duration-slow: 420ms;
+  --ref-motion-ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Host theme: portfolio palette → semantic tokens --- */
 :root,
-[data-theme="portfolio"] {
+[data-theme='portfolio'] {
   --color-background: var(--navy);
   --color-surface: var(--light-navy);
   --color-surface-elevated: var(--lightest-navy);
-  --color-border: var(--dark-slate);
+  --color-border: #3f3f46;
   --color-text-primary: var(--lightest-slate);
   --color-text-secondary: var(--light-slate);
-  --color-brand: var(--green);
-  --color-brand-hover: var(--green);
-  --color-success: var(--green);
+  --color-brand: var(--copper);
+  --color-brand-hover: var(--copper-bright);
+  --color-success: #22c55e;
   --color-warning: #f59e0b;
-  --color-error: #f87171;
+  --color-error: #ef4444;
   --color-info: var(--blue);
 
-  --ref-color-brand-400: var(--green);
-  --ref-color-brand-500: var(--green);
-  --ref-color-brand-600: var(--green);
+  --ref-color-brand-400: var(--copper-bright);
+  --ref-color-brand-500: var(--copper);
+  --ref-color-brand-600: #06b6d4;
 
-  --ref-motion-duration-base: 0.25s;
-  --ref-motion-ease-standard: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ref-motion-duration-base: 0.35s;
+  --ref-motion-ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
   --ref-font-size-xs: var(--fz-xs);
   --ref-font-size-sm: var(--fz-sm);
   --ref-radius-md: var(--border-radius);
@@ -95,10 +91,9 @@
   --ds-btn-radius: var(--border-radius);
 }
 
-/* Outline CTA: match legacy .btn-outline / .btn-outline-sm */
 .ds-btn-outline,
 .ds-btn-outline-sm {
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   text-decoration: none;
   transition: var(--transition);
@@ -107,8 +102,9 @@
 .ds-btn-outline:hover,
 .ds-btn-outline:focus-visible {
   outline: none;
-  box-shadow: 4px 4px 0 0 var(--green);
-  transform: translate(-5px, -5px);
+  background-color: var(--copper-tint) !important;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25);
+  transform: translateY(-1px);
 }
 
 .ds-btn-outline-sm {
@@ -119,25 +115,25 @@
 .ds-btn-outline-sm:hover,
 .ds-btn-outline-sm:focus-visible {
   outline: none;
-  box-shadow: 3px 3px 0 0 var(--green);
-  transform: translate(-4px, -4px);
+  background-color: var(--copper-tint) !important;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25);
+  transform: translateY(-1px);
 }
 
 a.ds-btn-outline:not(.ds-btn-outline-sm) {
   font-size: var(--fz-sm);
-  padding: 1.25rem 1.75rem;
+  padding: 1rem 1.35rem;
 }
 
-/* Card: match legacy .portfolio-card-shadow tiles */
 .ds-card-portfolio {
   border-radius: var(--border-radius);
-  border-color: transparent;
+  border-color: rgba(255, 255, 255, 0.08);
   background-color: var(--light-navy);
-  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  box-shadow: 0 12px 32px -22px rgba(0, 0, 0, 0.55);
   transition: var(--transition);
 }
 
 .ds-card-portfolio:hover {
   transform: none;
-  box-shadow: 0 20px 30px -15px var(--navy-shadow);
+  box-shadow: 0 18px 36px -18px rgba(34, 211, 238, 0.12);
 }

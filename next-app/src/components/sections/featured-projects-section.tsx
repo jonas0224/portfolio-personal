@@ -1,114 +1,89 @@
 'use client';
 
-import Image from "next/image";
-import type { ProjectContent } from "@/types/content";
-import { OutlineLink } from "@/ui/outline-link";
-import { Card, CardContent } from "@/ui/card";
-import { ExternalLink } from "@/components/external-link";
-import { RevealSection } from "@/components/reveal-section";
-import { SECTION_SHELL } from "@/components/sections/constants";
+import type { ProjectContent } from '@/types/content';
+import { OutlineLink } from '@/ui/outline-link';
+import { ExternalLink } from '@/components/external-link';
+import { RevealItem, RevealSection } from '@/components/reveal-section';
+import { SECTION_SHELL } from '@/components/sections/constants';
+import { ProductCardPreview } from '@/components/sections/product-card-preview';
 
 type Props = {
   projects: ProjectContent[];
 };
 
+const HOME_SLUGS = [
+  'pos-inventory-system',
+  'frontend-design-system',
+  'flashcut',
+  'realtime-operations-dashboard',
+  'portfolio-content-management',
+];
+
 export function FeaturedProjectsSection({ projects }: Props) {
+  const primary = HOME_SLUGS.map((slug) =>
+    projects.find((p) => p.slug === slug)
+  ).filter(Boolean) as ProjectContent[];
+
+  const more = projects.filter(
+    (p) => p.slug && p.caseStudy && !HOME_SLUGS.includes(p.slug)
+  );
+
   return (
-    <RevealSection
-      id="featured-projects"
-      className={SECTION_SHELL}
-      delayMs={50}
-    >
-      <h2 className="numbered-heading">Some Things I’ve Built</h2>
-      <ul className="m-0 list-none p-0">
-        {projects.map((project, i) => {
-          const reverse = i % 2 === 1;
-          const hasImage = Boolean(project.image);
-          return (
-            <li
-              key={project.title}
-              className={`portfolio-featured-row relative mb-[100px] grid grid-cols-1 items-center gap-x-[10px] gap-y-[10px] last:mb-0 md:mb-[70px] [@media(max-width:480px)]:mb-[30px] ${
-                hasImage ? "lg:grid-cols-12" : "lg:grid-cols-1"
-              }`}
-            >
-              <div
-                className={`relative z-[5] lg:col-span-6 lg:row-span-full ${
-                  hasImage
-                    ? reverse
-                      ? "lg:col-start-7 lg:text-right"
-                      : "lg:col-start-1"
-                    : "lg:col-span-12 lg:col-start-1"
-                } flex flex-col justify-center [@media(max-width:768px)]:col-span-full [@media(max-width:768px)]:row-start-2 [@media(max-width:768px)]:z-[5] [@media(max-width:768px)]:px-10 [@media(max-width:768px)]:pt-10 [@media(max-width:768px)]:pb-[30px] [@media(max-width:480px)]:px-[25px] [@media(max-width:480px)]:pt-[30px] [@media(max-width:480px)]:pb-5`}
-              >
-                <p className="portfolio-featured-overline my-[10px] font-mono text-[length:var(--fz-xs)] text-[var(--green)]">
-                  Featured Project
-                </p>
-                <h3 className="portfolio-featured-title mb-5 text-[clamp(24px,5vw,28px)] text-[var(--lightest-slate)] [@media(max-width:768px)]:mb-5 [@media(max-width:768px)]:text-[var(--white)]">
-                  <ExternalLink href={project.external}>{project.title}</ExternalLink>
-                </h3>
-                {project.impact?.length ? (
-                  <ul
-                    className={`mb-4 flex list-none flex-wrap gap-2 p-0 ${
-                      reverse ? "lg:justify-end" : ""
-                    }`}
-                  >
-                    {project.impact.map((metric) => (
-                      <li
-                        key={metric}
-                        className="rounded-full border border-[var(--green)] bg-[var(--green-tint)] px-3 py-1 font-mono text-[length:var(--fz-xxs)] text-[var(--green)]"
-                      >
-                        {metric}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-                <Card
-                  className={`ds-card-portfolio relative z-[2] p-[25px] text-[length:var(--fz-lg)] text-[var(--light-slate)] shadow-none motion-safe:hover:translate-y-0 [@media(max-width:768px)]:border-0 [@media(max-width:768px)]:bg-transparent [@media(max-width:768px)]:p-5 [@media(max-width:768px)]:shadow-none ${
-                    reverse ? "lg:text-right" : ""
-                  }`}
-                >
-                  <CardContent className="p-0 text-[length:var(--fz-lg)] text-[var(--light-slate)]">
-                    <p>{project.description}</p>
-                  </CardContent>
-                </Card>
-                <ul
-                  className={`portfolio-featured-tech relative z-[2] mt-[25px] mb-[10px] flex flex-wrap gap-x-[18px] gap-y-2 p-0 font-mono text-[length:var(--fz-xxs)] text-[var(--light-slate)] ${
-                    reverse && hasImage ? "lg:justify-end" : ""
-                  }`}
-                >
-                  {project.tech.map((tech) => (
-                    <li key={tech}>{tech}</li>
+    <RevealSection id="work" className={SECTION_SHELL} delayMs={40}>
+      <h2 className="section-heading">Selected products</h2>
+      <ul className="product-gallery">
+        {primary.map((project, i) => (
+          <RevealItem
+            key={project.slug ?? project.title}
+            as="li"
+            delayMs={50 + i * 60}
+            className="product-card"
+          >
+            <ProductCardPreview slug={project.slug} title={project.title} />
+            <div className="product-card-body">
+              <p className="portfolio-work-overline">
+                {project.status === 'Built'
+                  ? 'Shipped'
+                  : project.status ?? 'Project'}
+              </p>
+              <h3 className="product-card-title">
+                <ExternalLink href={project.external}>
+                  {project.title}
+                </ExternalLink>
+              </h3>
+              {project.impact?.length ? (
+                <ul className="portfolio-work-impact">
+                  {project.impact.map((metric) => (
+                    <li key={metric}>{metric}</li>
                   ))}
                 </ul>
-                {project.slug && project.caseStudy ? (
-                  <div className={reverse ? "lg:text-right" : ""}>
-                    <OutlineLink href={`/projects/${project.slug}`}>
-                      Read case study
-                    </OutlineLink>
-                  </div>
-                ) : null}
-              </div>
-              {hasImage ? (
-                <div
-                  className={`relative lg:col-span-6 lg:row-span-full ${
-                    reverse ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-7"
-                  } [@media(max-width:768px)]:col-span-full`}
-                >
-                  <div className="portfolio-card-shadow relative aspect-[1.4/1] w-full overflow-hidden rounded-[var(--border-radius)] [@media(max-width:768px)]:aspect-auto [@media(max-width:768px)]:min-h-[240px]">
-                    <Image
-                      src={project.image!}
-                      alt={`${project.title} preview`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
               ) : null}
-            </li>
-          );
-        })}
+              <p className="product-card-desc">{project.description}</p>
+              <ul className="portfolio-work-tech">
+                {project.tech.slice(0, 5).map((tech) => (
+                  <li key={tech}>{tech}</li>
+                ))}
+              </ul>
+              {project.slug && project.caseStudy ? (
+                <OutlineLink href={`/projects/${project.slug}`}>
+                  Read case study
+                </OutlineLink>
+              ) : null}
+            </div>
+          </RevealItem>
+        ))}
       </ul>
+      {more.length ? (
+        <p className="product-gallery-more">
+          More case studies:{' '}
+          {more.map((project, index) => (
+            <span key={project.slug}>
+              <a href={`/projects/${project.slug}`}>{project.title}</a>
+              {index < more.length - 1 ? ' · ' : null}
+            </span>
+          ))}
+        </p>
+      ) : null}
     </RevealSection>
   );
 }

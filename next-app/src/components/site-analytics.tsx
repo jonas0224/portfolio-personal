@@ -1,5 +1,5 @@
-import Script from "next/script";
-import { GA_MEASUREMENT_ID } from "@/lib/site";
+import Script from 'next/script';
+import { GA_MEASUREMENT_ID } from '@/lib/site';
 
 export function SiteAnalytics() {
   if (!GA_MEASUREMENT_ID) {

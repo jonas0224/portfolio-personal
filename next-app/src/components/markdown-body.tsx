@@ -1,5 +1,5 @@
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type MarkdownBodyProps = {
   content: string;
@@ -14,31 +14,31 @@ export function MarkdownBody({ content, assetDirectory }: MarkdownBodyProps) {
         remarkPlugins={[remarkGfm]}
         components={{
           img({ src, alt, ...rest }) {
-            const raw = typeof src === "string" ? src : "";
+            const raw = typeof src === 'string' ? src : '';
             const resolved =
-              raw.startsWith("http://") || raw.startsWith("https://")
+              raw.startsWith('http://') || raw.startsWith('https://')
                 ? raw
-                : `/posts-static/${assetDirectory}/${raw.replace(/^\.\//, "")}`;
+                : `/posts-static/${assetDirectory}/${raw.replace(/^\.\//, '')}`;
             return (
               // eslint-disable-next-line @next/next/no-img-element -- local markdown assets from /public
               <img
                 {...rest}
                 src={resolved}
-                alt={alt ?? ""}
+                alt={alt ?? ''}
                 className="my-6 max-w-full rounded-[var(--border-radius)] border border-[var(--lightest-navy)]"
               />
             );
           },
           a({ href, children, ...rest }) {
             const external =
-              href?.startsWith("http://") || href?.startsWith("https://");
+              href?.startsWith('http://') || href?.startsWith('https://');
             return (
               <a
                 {...rest}
                 href={href}
                 className="inline-link"
                 {...(external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
                   : {})}
               >
                 {children}
@@ -46,7 +46,7 @@ export function MarkdownBody({ content, assetDirectory }: MarkdownBodyProps) {
             );
           },
           code({ className, children, ...rest }) {
-            const isBlock = Boolean(className?.includes("language-"));
+            const isBlock = Boolean(className?.includes('language-'));
             if (!isBlock) {
               return (
                 <code
@@ -86,7 +86,9 @@ export function MarkdownBody({ content, assetDirectory }: MarkdownBodyProps) {
           },
           p({ children }) {
             return (
-              <p className="my-4 leading-relaxed text-[var(--slate)]">{children}</p>
+              <p className="my-4 leading-relaxed text-[var(--slate)]">
+                {children}
+              </p>
             );
           },
           ul({ children }) {

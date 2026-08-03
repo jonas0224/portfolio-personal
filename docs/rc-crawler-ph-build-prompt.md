@@ -138,10 +138,10 @@ Reference planning doc in my workspace: `portfolio-personal/docs/project-roadmap
 
 ## When to use this prompt
 
-| Situation | Action |
-| --------- | ------ |
-| **Resuming parked work** | Open `rc-crawler-ph/docs/STATUS.md` — do not re-scaffold |
-| Greenfield rewrite only | Paste archived prompt below |
+| Situation                | Action                                                         |
+| ------------------------ | -------------------------------------------------------------- |
+| **Resuming parked work** | Open `rc-crawler-ph/docs/STATUS.md` — do not re-scaffold       |
+| Greenfield rewrite only  | Paste archived prompt below                                    |
 | Community-only extension | Assume builder exists in `rc-crawler-ph`; start from STATUS.md |
 
 ## Related docs

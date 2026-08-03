@@ -1,30 +1,204 @@
 [
   {
-    "slug": "boq-digital-banking-platform",
-    "title": "BOQ Digital Banking Platform",
-    "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ. Standardized reusable UI patterns and release guardrails, reducing production risk and improving release readiness in regulated workflows.",
-    "tech": ["NextJS", "ReactJS", "TypeScript", "Azure", "Playwright", "Jest"],
+    "slug": "pos-inventory-system",
+    "title": "POS & Inventory Management",
+    "description": "Tablet-friendly consignment POS built with Next.js — checkout, stock tracking, and PDF/XLSX reporting on Prisma and PostgreSQL. Designed for real shop-floor use, not demo polish.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth"
+    ],
     "status": "Built",
-    "impact": ["Lower production defect risk", "Stronger release readiness"],
+    "impact": ["Tablet checkout flows", "Consignment stock tracking"],
     "caseStudy": {
-      "role": "Senior frontend engineer responsible for architecture, implementation standards, and delivery quality across critical customer journeys.",
-      "challenge": "Shipping in a regulated environment required balancing fast iterations with strict reliability, security, and review requirements.",
+      "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS.",
+      "challenge": "Shop staff needed fast tablet checkout and reliable stock/consignment tracking without a heavyweight ERP.",
       "approach": [
-        "Standardized reusable UI patterns to reduce inconsistency across teams and squads.",
-        "Introduced release guardrails and review checks for risky UI changes.",
-        "Strengthened test strategy for key flows to reduce regression risk."
+        "Designed checkout and inventory screens for touch-first tablet use.",
+        "Modeled consignment and stock states with typed Prisma schemas.",
+        "Added PDF/XLSX reporting for operators who still live in spreadsheets."
       ],
       "architecture": [
-        "Feature-oriented frontend structure for scalable ownership boundaries.",
-        "Typed contracts and shared utilities to enforce consistency.",
-        "Progressive rollout pattern for high-risk changes."
+        "Next.js App Router with server actions and role-aware routes.",
+        "PostgreSQL via Prisma for durable inventory and sales history.",
+        "NextAuth session boundaries for staff vs admin workflows."
       ],
       "quality": [
-        "Automated test coverage for critical user paths.",
-        "PR review checklist for reliability and accessibility.",
-        "Post-release validation workflow for faster issue detection."
+        "Critical path coverage around checkout and stock mutations.",
+        "Defensive UI for stale stock and concurrent edits.",
+        "Operational reporting that matches how shops actually reconcile."
       ],
-      "outcome": "Improved platform reliability and release confidence while keeping delivery velocity sustainable in regulated workflows."
+      "outcome": "A shippable POS surface that prioritizes speed on tablet and trustworthy consignment inventory."
+    },
+    "github": "https://github.com/jonas0224/pos-inventory-system",
+    "external": "https://archive-room.vercel.app/login"
+  },
+  {
+    "slug": "frontend-design-system",
+    "title": "Frontend Design System Migration",
+    "description": "Token-driven Next.js workspace with reusable primitives, a live playground, and Storybook + Vitest gates — so apps migrate off one-off UI drift.",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Storybook",
+      "Vitest"
+    ],
+    "status": "Built",
+    "impact": ["Token-driven primitives", "Storybook + CI coverage"],
+    "caseStudy": {
+      "role": "Frontend platform owner defining tokens, primitives, and adoption paths for consuming apps.",
+      "challenge": "Product UIs drifted into one-off styles with weak shared contracts and little regression safety.",
+      "approach": [
+        "Established semantic tokens mapped to host themes.",
+        "Built forms, feedback, and overlay primitives with documented APIs.",
+        "Wired Storybook and Vitest into CI so visual contracts stay enforceable."
+      ],
+      "architecture": [
+        "Next.js workspace separating tokens, primitives, and playground.",
+        "Tailwind + CSS custom properties for theme remapping.",
+        "Storybook as the living catalog for migration teams."
+      ],
+      "quality": [
+        "Component tests for interaction-critical primitives.",
+        "CI gates before consumers adopt new versions.",
+        "Clear migration guidance to reduce copy-paste UI."
+      ],
+      "outcome": "A reusable system that makes consistent UI the default path, not the exception."
+    },
+    "github": "https://github.com/jonas0224/frontend-design-system-migration",
+    "external": "https://github.com/jonas0224/frontend-design-system-migration"
+  },
+  {
+    "slug": "flashcut",
+    "title": "FLASHCUT",
+    "description": "Real-time party game: peek an image, survive the flashcut blackout, then race Kahoot-style scoring across 15 rounds — Next.js, Redis rooms, and Vercel-friendly polling.",
+    "tech": ["Next.js", "React", "TypeScript", "Upstash Redis", "Vitest"],
+    "status": "Built",
+    "impact": ["~20 player sync", "Speed-based scoring"],
+    "caseStudy": {
+      "role": "Full product owner for realtime game UX, room state, and serverless-friendly sync.",
+      "challenge": "Need multiplayer round timing that works on Vercel serverless without sticky WebSocket hosts.",
+      "approach": [
+        "Modeled host/player rooms with Redis-backed state.",
+        "Used HTTP polling tuned for serverless constraints.",
+        "Shipped host-editable image packs for replayable sessions."
+      ],
+      "architecture": [
+        "Next.js routes for lobby, round phases, and scoring.",
+        "Upstash Redis for ephemeral room state across instances.",
+        "Polling contract designed for reconnects mid-round."
+      ],
+      "quality": [
+        "Vitest coverage for scoring and phase transitions.",
+        "Graceful handling when players drop mid-round.",
+        "UX that stays readable under time pressure."
+      ],
+      "outcome": "A playable realtime game that stays deployable on serverless infrastructure."
+    },
+    "github": "https://github.com/jonas0224/flashcut",
+    "external": "https://flashcut-nine.vercel.app/"
+  },
+  {
+    "slug": "realtime-operations-dashboard",
+    "title": "Realtime Operations Dashboard",
+    "description": "WebSocket-driven ops board with health tiles, alerts, and reconnect/stale-data UX — plus a self-contained event simulator for demos.",
+    "tech": ["Next.js", "TypeScript", "WebSockets", "PostgreSQL", "Redis"],
+    "status": "Built",
+    "impact": ["Faster incident awareness", "Resilient sync UX"],
+    "caseStudy": {
+      "role": "Frontend architect for realtime visualization, connection resilience, and demo simulation.",
+      "challenge": "Ops dashboards often hide stale data and break silently when sockets disconnect.",
+      "approach": [
+        "Surfaced service health and alert states as first-class UI.",
+        "Designed reconnect and stale-data affordances operators can trust.",
+        "Built an event simulator so the board is demoable without production traffic."
+      ],
+      "architecture": [
+        "Next.js client surfaces fed by WebSocket event streams.",
+        "PostgreSQL + Redis backing for durable and ephemeral state.",
+        "Clear boundaries between live events and simulated feeds."
+      ],
+      "quality": [
+        "Visible stale/reconnect states instead of silent failure.",
+        "Alert presentation tuned for scanning under pressure.",
+        "Demo mode that still exercises real client sync paths."
+      ],
+      "outcome": "A realtime dashboard pattern that treats connection health as part of the product."
+    },
+    "github": "https://github.com/jonas0224/realtime-operations-dashboard",
+    "external": "https://github.com/jonas0224/realtime-operations-dashboard"
+  },
+  {
+    "slug": "portfolio-content-management",
+    "title": "Portfolio CMS + Publishing Workflow",
+    "description": "Next.js CMS for portfolio content in PostgreSQL — draft preview, role-aware admin, and GitHub PR publishing so content updates stay auditable and reviewable.",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "GitHub API"
+    ],
+    "status": "Built",
+    "impact": [
+      "PR-based content publishing",
+      "Draft preview before merge"
+    ],
+    "caseStudy": {
+      "role": "Solo builder owning auth, document model, preview, and GitHub publish flow for a separate portfolio repo.",
+      "challenge": "Portfolio content lived in the site repo with no safe draft/preview path — updates were either manual commits or risky direct edits.",
+      "approach": [
+        "Modeled content documents with slug, JSON payload, and workflow status in Postgres.",
+        "Built ADMIN edit/publish and draft preview routes behind NextAuth.",
+        "Wired publish to open a PR against the portfolio repo with an auditable PublishRun history."
+      ],
+      "architecture": [
+        "Next.js App Router with Zod-validated content APIs.",
+        "Prisma + PostgreSQL for documents and publish runs.",
+        "GitHub REST publish: branch → file updates → PR, with optional Redis rate limits."
+      ],
+      "quality": [
+        "Vitest coverage around services and publish contracts.",
+        "Role gates so only ADMIN can publish.",
+        "Explicit publishing contract so CMS JSON maps cleanly to portfolio paths."
+      ],
+      "outcome": "Faster content turnaround with preview and PR review instead of blind commits to the live site."
+    },
+    "github": "https://github.com/jonas0224/portfolio-content-management",
+    "external": "https://github.com/jonas0224/portfolio-content-management"
+  },
+  {
+    "slug": "boq-digital-banking-platform",
+    "title": "BOQ Digital Banking Platform",
+    "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ — reusable UI patterns and release guardrails in regulated workflows.",
+    "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
+    "status": "Built",
+    "impact": ["Lower production risk", "Stronger release readiness"],
+    "caseStudy": {
+      "role": "Senior frontend engineer for architecture, implementation standards, and delivery quality across critical journeys.",
+      "challenge": "Regulated banking delivery requires velocity without sacrificing reliability, security, or review depth.",
+      "approach": [
+        "Standardized reusable UI patterns across squads.",
+        "Introduced release guardrails for risky UI changes.",
+        "Strengthened test strategy for key customer flows."
+      ],
+      "architecture": [
+        "Feature-oriented frontend structure for ownership boundaries.",
+        "Typed contracts and shared utilities for consistency.",
+        "Progressive rollout patterns for high-risk changes."
+      ],
+      "quality": [
+        "Automated coverage for critical user paths.",
+        "PR checklists for reliability and accessibility.",
+        "Post-release validation for faster issue detection."
+      ],
+      "outcome": "Improved release confidence while keeping delivery sustainable in regulated workflows."
     },
     "github": null,
     "external": "https://www.boq.com.au"
@@ -32,121 +206,31 @@
   {
     "slug": "helika-analytics-platform",
     "title": "Helika Analytics Platform",
-    "description": "Owned frontend architecture for a data-heavy analytics platform, including dashboard performance tuning and team delivery standards; improved perceived responsiveness and reduced regression escapes.",
+    "description": "Frontend architecture for a data-heavy analytics product — dashboard performance, shared patterns, and team delivery standards.",
     "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
     "status": "Built",
-    "impact": ["Faster dashboard responsiveness", "Fewer regression escapes"],
+    "impact": ["Faster dashboards", "Fewer regressions"],
     "caseStudy": {
-      "role": "Senior frontend owner for architecture and performance of analytics surfaces used by internal and external stakeholders.",
-      "challenge": "Data-heavy dashboards suffered from rendering bottlenecks and inconsistent patterns that slowed delivery.",
+      "role": "Senior frontend owner for architecture and performance of analytics surfaces.",
+      "challenge": "Large datasets and inconsistent patterns slowed rendering and delivery.",
       "approach": [
-        "Optimized rendering paths for large datasets and expensive components.",
-        "Created reusable dashboard patterns and state management conventions.",
-        "Embedded quality standards into reviews and team workflows."
+        "Optimized rendering paths for expensive dashboard components.",
+        "Created reusable dashboard patterns and state conventions.",
+        "Embedded quality standards into reviews and workflows."
       ],
       "architecture": [
-        "Modular dashboard composition using React and TypeScript.",
-        "Predictable state handling with Redux Toolkit.",
-        "Shared visualization primitives for consistency and speed."
+        "Modular React + TypeScript dashboard composition.",
+        "Predictable state with Redux Toolkit.",
+        "Shared visualization primitives for consistency."
       ],
       "quality": [
-        "Performance budgets for primary dashboard pages.",
-        "Component-level test strategy for critical interactions.",
-        "Structured code reviews to prevent drift and regressions."
+        "Performance budgets on primary dashboard pages.",
+        "Component-level tests for critical interactions.",
+        "Structured reviews to prevent pattern drift."
       ],
-      "outcome": "Delivered faster dashboards and more reliable releases while improving maintainability for future feature work."
+      "outcome": "Faster dashboards and more reliable releases for a data-heavy product."
     },
     "github": "https://github.com/helika-io",
     "external": "https://helika.io"
-  },
-  {
-    "slug": "real-estate-operations-suite",
-    "title": "Real Estate Operations Suite",
-    "description": "Built internal operations tooling with Next.js and React Native, improving workflow reliability and maintainability; reduced manual effort and improved on-time operational completion.",
-    "tech": ["Next.js", "React Native", "TypeScript", "Spring Boot", "SQL"],
-    "status": "Built",
-    "impact": ["Less manual operational work", "More reliable on-time completion"],
-    "caseStudy": {
-      "role": "Senior frontend contributor across web and mobile experiences with shared ownership of delivery outcomes.",
-      "challenge": "Operations teams relied on fragmented manual workflows that created delays and avoidable errors.",
-      "approach": [
-        "Mapped high-friction workflows and prioritized high-impact automation.",
-        "Built consistent web and mobile interfaces for daily operations.",
-        "Partnered with backend teams for robust integrations and data consistency."
-      ],
-      "architecture": [
-        "Shared TypeScript domain models across app surfaces.",
-        "Workflow-first UI design for repeatable operational tasks.",
-        "Service integration boundaries aligned with backend ownership."
-      ],
-      "quality": [
-        "Validation and guardrails for high-impact operational actions.",
-        "Regression testing around critical workflow transitions.",
-        "Monitoring hooks for reliability and supportability."
-      ],
-      "outcome": "Reduced manual overhead and improved execution reliability for operational teams."
-    },
-    "github": "https://github.com/twistresources",
-    "external": "https://twistresources.com"
-  },
-  {
-    "slug": "entrego-logistics-applications",
-    "title": "Entrego Logistics Applications",
-    "description": "Led frontend modernization for last-mile logistics applications; improved engineering velocity, reduced incident frequency, and established a more predictable release cadence.",
-    "tech": ["React", "JavaScript", "Redux", "Figma"],
-    "status": "Built",
-    "impact": ["Higher engineering velocity", "Lower incident frequency"],
-    "caseStudy": {
-      "role": "Frontend lead driving modernization initiatives and delivery coordination for logistics product surfaces.",
-      "challenge": "Legacy frontend patterns slowed feature delivery and created recurring production issues.",
-      "approach": [
-        "Refactored brittle UI modules into reusable and testable components.",
-        "Aligned delivery practices with stronger review and release processes.",
-        "Collaborated with design to improve UX consistency in core journeys."
-      ],
-      "architecture": [
-        "Component reuse model to reduce duplicate logic.",
-        "State flow cleanup for easier maintenance and debugging.",
-        "Gradual modernization to avoid risky full rewrites."
-      ],
-      "quality": [
-        "Stabilization-first roadmap to address high-frequency incident areas.",
-        "Release checklist for high-risk deployments.",
-        "UI consistency standards shared across teams."
-      ],
-      "outcome": "Improved maintainability, release predictability, and platform stability while continuing feature delivery."
-    },
-    "github": "https://github.com/entrego",
-    "external": "https://entrego.com.ph"
-  },
-  {
-    "slug": "enterprise-batch-processing-workflows",
-    "title": "Enterprise Batch Processing Workflows",
-    "description": "Delivered SQL-centric automation for enterprise batch workflows, increasing throughput and reducing failed overnight runs in reliability-critical systems.",
-    "tech": ["Oracle SQL", "PL/SQL", "Spring Boot"],
-    "status": "Built",
-    "impact": ["Improved batch throughput", "Fewer failed overnight runs"],
-    "caseStudy": {
-      "role": "Engineer focused on reliability and performance improvements for enterprise batch processing systems.",
-      "challenge": "Overnight workflows had failure hotspots that impacted downstream reporting and business operations.",
-      "approach": [
-        "Identified bottlenecks and optimized critical SQL and PL/SQL paths.",
-        "Introduced resilience checks for failure-prone batch stages.",
-        "Worked with stakeholders to prioritize the highest-risk process windows."
-      ],
-      "architecture": [
-        "Batch orchestration improvements around high-volume data steps.",
-        "Query and transaction optimizations for predictable throughput.",
-        "Operational visibility enhancements for support teams."
-      ],
-      "quality": [
-        "Guardrails for failure handling and restart safety.",
-        "Validation checks for data integrity in batch outputs.",
-        "Operational runbook support for faster incident recovery."
-      ],
-      "outcome": "Increased batch reliability and throughput in systems where processing windows were business-critical."
-    },
-    "github": null,
-    "external": "https://accenture.com"
   }
 ]

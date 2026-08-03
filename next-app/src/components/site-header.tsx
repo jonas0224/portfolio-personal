@@ -6,8 +6,9 @@ import { useEffect, useRef, useState } from 'react';
 import { LOADER_DELAY_MS } from '@/lib/timing';
 import { NAV_LINKS } from '@/lib/nav';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
-import { useScrollDirection } from '@/hooks/use-scroll-direction';
+import { useActiveNavHref } from '@/hooks/use-active-nav-href';
 import { MobileMenu } from '@/components/mobile-menu';
+import { LogoMark } from '@/components/logo-mark';
 import { ButtonLink } from '@/ui/button';
 
 type SiteHeaderProps = {
@@ -21,11 +22,13 @@ function NavFadeLi({
   delayMs,
   timeout,
   transitionClassNames,
+  isActive,
 }: {
   link: NavLinkItem;
   delayMs: number;
   timeout: number;
   transitionClassNames: string;
+  isActive: boolean;
 }) {
   const nodeRef = useRef<HTMLLIElement>(null);
   return (
@@ -35,17 +38,23 @@ function NavFadeLi({
       timeout={timeout}
     >
       <li ref={nodeRef} style={{ transitionDelay: `${delayMs}ms` }}>
-        <Link href={link.href}>{link.name}</Link>
+        <Link
+          href={link.href}
+          className={isActive ? 'is-active' : undefined}
+          aria-current={isActive ? 'page' : undefined}
+        >
+          {link.name}
+        </Link>
       </li>
     </CSSTransition>
   );
 }
 
 export function SiteHeader({ isHome }: SiteHeaderProps) {
-  const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
   const [isMounted, setIsMounted] = useState(false);
+  const activeHref = useActiveNavHref(isHome);
 
   const logoNodeRef = useRef<HTMLDivElement>(null);
   const resumeNodeRef = useRef<HTMLDivElement>(null);
@@ -73,9 +82,9 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
 
-  let motionAttr: 'none' | 'compact-up' | 'hide-down' = 'none';
+  let motionAttr: 'none' | 'compact-up' = 'none';
   if (!prefersReducedMotion && !scrolledToTop) {
-    motionAttr = scrollDirection === 'up' ? 'compact-up' : 'hide-down';
+    motionAttr = 'compact-up';
   }
 
   const headerMods =
@@ -83,9 +92,8 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
 
   const logo = (
     <div className="portfolio-logo-wrap" tabIndex={-1}>
-      <Link href="/" aria-label="home">
-        {/* eslint-disable-next-line @next/next/no-img-element -- local SVG logo */}
-        <img src="/favicon-logo.svg" alt="" width={42} height={42} />
+      <Link href="/" aria-label="Jonas Yambao — home">
+        <LogoMark className="portfolio-logo-mark" />
       </Link>
     </div>
   );
@@ -105,11 +113,20 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
 
   const linkList = (
     <ol>
-      {NAV_LINKS.map((link) => (
-        <li key={link.href}>
-          <Link href={link.href}>{link.name}</Link>
-        </li>
-      ))}
+      {NAV_LINKS.map((link) => {
+        const isActive = activeHref === link.href;
+        return (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className={isActive ? 'is-active' : undefined}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {link.name}
+            </Link>
+          </li>
+        );
+      })}
     </ol>
   );
 
@@ -121,76 +138,85 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
       <nav className="portfolio-nav-inner" aria-label="Primary">
         {prefersReducedMotion ? (
           <>
-            {logo}
-            <div className="portfolio-nav-links">
-              {linkList}
-              {resume}
+            <div className="portfolio-nav-left">{logo}</div>
+            <div className="portfolio-nav-right">
+              <div className="portfolio-nav-links">
+                {linkList}
+                {resume}
+              </div>
+              <MobileMenu />
             </div>
-            <MobileMenu />
           </>
         ) : (
           <>
-            <TransitionGroup component={null}>
-              {isMounted && (
-                <CSSTransition
-                  nodeRef={logoNodeRef}
-                  classNames={fadeClass}
-                  timeout={timeout}
-                >
-                  <div ref={logoNodeRef}>{logo}</div>
-                </CSSTransition>
-              )}
-            </TransitionGroup>
-
-            <div className="portfolio-nav-links">
-              <ol>
-                <TransitionGroup component={null}>
-                  {isMounted &&
-                    NAV_LINKS.map((link, i) => (
-                      <NavFadeLi
-                        key={link.href}
-                        link={link}
-                        delayMs={isHome ? i * 100 : 0}
-                        timeout={timeout}
-                        transitionClassNames={fadeDownClass}
-                      />
-                    ))}
-                </TransitionGroup>
-              </ol>
-
+            <div className="portfolio-nav-left">
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition
-                    nodeRef={resumeNodeRef}
-                    classNames={fadeDownClass}
+                    nodeRef={logoNodeRef}
+                    classNames={fadeClass}
                     timeout={timeout}
                   >
-                    <div
-                      ref={resumeNodeRef}
-                      style={{
-                        transitionDelay: `${isHome ? NAV_LINKS.length * 100 : 0}ms`,
-                      }}
-                    >
-                      {resume}
-                    </div>
+                    <div ref={logoNodeRef}>{logo}</div>
                   </CSSTransition>
                 )}
               </TransitionGroup>
             </div>
 
-            <TransitionGroup component={null}>
-              {isMounted && (
-                <CSSTransition
-                  nodeRef={menuNodeRef}
-                  classNames={fadeClass}
-                  timeout={timeout}
-                >
-                  <div ref={menuNodeRef}>
-                    <MobileMenu />
-                  </div>
-                </CSSTransition>
-              )}
-            </TransitionGroup>
+            <div className="portfolio-nav-right">
+              <div className="portfolio-nav-links">
+                <ol>
+                  <TransitionGroup component={null}>
+                    {isMounted &&
+                      NAV_LINKS.map((link, i) => (
+                        <NavFadeLi
+                          key={link.href}
+                          link={link}
+                          delayMs={isHome ? i * 100 : 0}
+                          timeout={timeout}
+                          transitionClassNames={fadeDownClass}
+                          isActive={activeHref === link.href}
+                        />
+                      ))}
+                  </TransitionGroup>
+                </ol>
+
+                <TransitionGroup component={null}>
+                  {isMounted && (
+                    <CSSTransition
+                      nodeRef={resumeNodeRef}
+                      classNames={fadeDownClass}
+                      timeout={timeout}
+                    >
+                      <div
+                        ref={resumeNodeRef}
+                        style={{
+                          transitionDelay: `${
+                            isHome ? NAV_LINKS.length * 100 : 0
+                          }ms`,
+                        }}
+                      >
+                        {resume}
+                      </div>
+                    </CSSTransition>
+                  )}
+                </TransitionGroup>
+              </div>
+
+              <TransitionGroup component={null}>
+                {isMounted && (
+                  <CSSTransition
+                    nodeRef={menuNodeRef}
+                    classNames={fadeClass}
+                    timeout={timeout}
+                  >
+                    <div ref={menuNodeRef}>
+                      <MobileMenu />
+                    </div>
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
+            </div>
           </>
         )}
       </nav>

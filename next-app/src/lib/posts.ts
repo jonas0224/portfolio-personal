@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-const POSTS_DIR = path.join(process.cwd(), "content", "posts");
+const POSTS_DIR = path.join(process.cwd(), 'content', 'posts');
 
 export type PostFrontmatter = {
   title: string;
@@ -22,8 +22,8 @@ export type Post = PostFrontmatter & {
 };
 
 function slugSegmentFromPath(slugPath: string): string {
-  const trimmed = slugPath.replace(/^\/+|\/+$/g, "");
-  const prefix = "pensieve/";
+  const trimmed = slugPath.replace(/^\/+|\/+$/g, '');
+  const prefix = 'pensieve/';
   if (trimmed.startsWith(prefix)) {
     return trimmed.slice(prefix.length);
   }
@@ -31,17 +31,17 @@ function slugSegmentFromPath(slugPath: string): string {
 }
 
 function readPostDirectory(dirName: string): Post | null {
-  const mdPath = path.join(POSTS_DIR, dirName, "index.md");
+  const mdPath = path.join(POSTS_DIR, dirName, 'index.md');
   if (!fs.existsSync(mdPath)) {
     return null;
   }
-  const raw = fs.readFileSync(mdPath, "utf8");
+  const raw = fs.readFileSync(mdPath, 'utf8');
   const { data, content } = matter(raw);
   const slugPath = String(data.slug ?? `/pensieve/${dirName}`);
   return {
-    title: String(data.title ?? ""),
-    description: String(data.description ?? ""),
-    date: String(data.date ?? ""),
+    title: String(data.title ?? ''),
+    description: String(data.description ?? ''),
+    date: String(data.date ?? ''),
     draft: Boolean(data.draft),
     slug: slugPath,
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
@@ -87,7 +87,7 @@ export function getPostBySlugSegment(segment: string): Post | undefined {
 }
 
 export function tagToParam(tag: string): string {
-  return tag.toLowerCase().replace(/\s+/g, "-");
+  return tag.toLowerCase().replace(/\s+/g, '-');
 }
 
 export type TagIndexEntry = { tag: string; param: string; count: number };
@@ -106,6 +106,6 @@ export function getTagIndex(): TagIndexEntry[] {
 
 export function getPostsByTagParam(tagParam: string): Post[] {
   return getPublishedPosts().filter((p) =>
-    p.tags.some((t) => tagToParam(t) === tagParam),
+    p.tags.some((t) => tagToParam(t) === tagParam)
   );
 }

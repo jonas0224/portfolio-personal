@@ -1,8 +1,7 @@
 {
   "intro": [
-    "Hello! I’m Jonas Paul Yambao, a Senior Frontend/Mobile Developer with 7+ years of professional experience (since 2018) building and shipping web and mobile applications.",
-    "I specialize in React, Next.js, TypeScript, and frontend architecture, with strong exposure to CI/CD, cloud deployments, testing, and API integration.",
-    "I’ve worked across banking, analytics, logistics, and enterprise systems, leading frontend initiatives, mentoring developers, and partnering closely with product, design, and backend teams."
+    "I’m Jonas — a Senior Frontend Developer with 7+ years in web and mobile, focused on React, Next.js, and TypeScript. I care about product quality: clear architecture, accessible UI, and delivery practices that hold up under real scrutiny.",
+    "I’ve shipped across banking, analytics, logistics, and enterprise systems — leading frontend initiatives, mentoring engineers, and partnering closely with product, design, and backend teams."
   ],
   "companies": [
     {
@@ -19,44 +18,76 @@
     },
     {
       "name": "Entrego",
-      "url": "https://www.entrego.com.ph/"
+      "url": "https://entrego.com.ph/"
     },
     {
       "name": "Accenture",
       "url": "https://www.accenture.com/"
     }
   ],
-  "companiesSummary": "where I led delivery, improved engineering quality through reviews and mentoring, and helped modernize frontend systems.",
-  "skills": [
-    "ReactJS",
-    "NextJS",
-    "JavaScript",
-    "TypeScript",
-    "HTML5/CSS3",
-    "Tailwind CSS",
-    "MUI",
-    "Redux",
-    "Redux-Saga",
-    "Zustand",
-    "React Native",
-    "GraphQL",
-    "REST APIs",
-    "Jest",
-    "React Testing Library",
-    "Playwright",
-    "Chart.js",
-    "D3.js",
-    "Spring Boot",
-    "Oracle SQL",
-    "SQL",
-    "AWS",
-    "Azure DevOps",
-    "Docker",
-    "GitHub Actions",
-    "Jenkins",
-    "GitHub/GitLab",
-    "Agile Delivery",
-    "Technical Mentoring",
-    "Code Reviews"
+  "companiesSummary": "where I owned frontend delivery, raised quality through reviews and mentoring, and modernized UI systems.",
+  "skillGroups": [
+    {
+      "label": "Core",
+      "skills": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "React Native",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "label": "State & data",
+      "skills": [
+        "Redux",
+        "Zustand",
+        "Context API",
+        "Redux-Saga",
+        "Chart.js",
+        "D3.js",
+        "React Flow"
+      ]
+    },
+    {
+      "label": "UI systems",
+      "skills": [
+        "Tailwind CSS",
+        "MUI",
+        "Bootstrap",
+        "SCSS",
+        "Design tokens",
+        "Figma"
+      ]
+    },
+    {
+      "label": "Quality",
+      "skills": [
+        "Jest",
+        "React Testing Library",
+        "Playwright",
+        "Postman",
+        "ESLint",
+        "Accessibility"
+      ]
+    },
+    {
+      "label": "APIs & backend",
+      "skills": ["REST", "GraphQL", "Spring Boot", "SQL", "Oracle SQL"]
+    },
+    {
+      "label": "Delivery",
+      "skills": [
+        "GitHub Actions",
+        "Azure DevOps",
+        "Jenkins",
+        "Docker",
+        "AWS",
+        "CI/CD",
+        "Mentoring",
+        "Agile"
+      ]
+    }
   ]
 }

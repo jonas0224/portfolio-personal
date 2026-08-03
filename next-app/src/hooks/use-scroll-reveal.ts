@@ -37,7 +37,8 @@ export function useScrollReveal(options: RevealOptions = {}) {
       },
       {
         threshold,
-      },
+        rootMargin: '0px 0px -8% 0px',
+      }
     );
 
     observer.observe(node);

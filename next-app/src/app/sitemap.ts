@@ -1,46 +1,32 @@
-import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
-import { getPublishedPosts, getTagIndex } from "@/lib/posts";
+import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site';
+import { featuredProjects } from '@/data/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = SITE_URL.replace(/\/$/, "");
+  const base = SITE_URL.replace(/\/$/, '');
 
   const entries: MetadataRoute.Sitemap = [
     {
       url: base,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: `${base}/pensieve`,
+      url: `${base}/writing`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/pensieve/tags`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.6,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ];
 
-  for (const post of getPublishedPosts()) {
+  for (const project of featuredProjects) {
+    if (!project.slug || !project.caseStudy) continue;
     entries.push({
-      url: `${base}/pensieve/${post.slugSegment}`,
-      lastModified: new Date(post.date),
-      changeFrequency: "yearly",
-      priority: 0.7,
-    });
-  }
-
-  for (const { param } of getTagIndex()) {
-    entries.push({
-      url: `${base}/pensieve/tags/${param}`,
+      url: `${base}/projects/${project.slug}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
+      changeFrequency: 'yearly',
+      priority: 0.7,
     });
   }
 

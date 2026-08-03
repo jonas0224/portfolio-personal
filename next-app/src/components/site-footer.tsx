@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from '@/lib/site-contact';
 import type { SocialIconName } from '@/components/icons/social-icon';
 import { SocialIcon } from '@/components/icons/social-icon';
 
-const GITHUB_REPO = 'jonasyambao/portfolio';
+const GITHUB_REPO = 'jonas0224/portfolio-personal';
 
 function iconFor(name: string): SocialIconName {
   if (name === 'GitHub' || name === 'Instagram' || name === 'Linkedin') {
@@ -15,9 +15,10 @@ function iconFor(name: string): SocialIconName {
 }
 
 export function SiteFooter() {
-  const [githubInfo, setGithubInfo] = useState<{ stars: number; forks: number } | null>(
-    null,
-  );
+  const [githubInfo, setGithubInfo] = useState<{
+    stars: number;
+    forks: number;
+  } | null>(null);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
@@ -74,6 +75,9 @@ export function SiteFooter() {
             </div>
           ) : null}
         </a>
+        <p className="portfolio-footer-notes">
+          <a href="/writing">Notes</a>
+        </p>
       </div>
     </footer>
   );

@@ -5,9 +5,9 @@
     "range": "February 2025 – Present",
     "url": "https://www.nri.com/en/company/profile/offices/worldwide/boq",
     "highlights": [
-      "Currently assigned to the Bank of Queensland (BOQ) project, leading frontend initiatives for banking applications.",
-      "Mentor and onboard developers, and run code reviews to improve delivery quality.",
-      "Improve CI/CD workflows and collaborate with cross-functional teams to align architecture with business goals."
+      "Lead frontend initiatives for Bank of Queensland banking applications — security, scalability, and delivery in a regulated environment.",
+      "Mentor and onboard developers; run code reviews that raise reliability and accessibility standards.",
+      "Streamline release flow with CI/CD improvements across GitHub and Azure DevOps (Functions / Web Apps)."
     ]
   },
   {
@@ -16,9 +16,9 @@
     "range": "February 2024 – November 2024",
     "url": "https://helika.io",
     "highlights": [
-      "Delivered analytics dashboards using ReactJS/NextJS and data visualization libraries.",
-      "Conducted code reviews and supported recruitment and onboarding activities.",
-      "Improved platform maintainability and deployment workflows for faster release cycles."
+      "Delivered analytics dashboards in React/Next.js with Chart.js and D3.js for data-heavy product surfaces.",
+      "Owned frontend patterns and reviews that kept dashboard work consistent under fast iteration.",
+      "Supported recruitment and onboarding so new engineers could ship safely sooner."
     ]
   },
   {
@@ -27,9 +27,9 @@
     "range": "March 2023 – March 2024",
     "url": "https://twistresources.com",
     "highlights": [
-      "Modernized legacy systems using ReactJS/NextJS to improve maintainability and performance.",
-      "Mentored developers through code reviews and technical guidance.",
-      "Designed SQL solutions and API integrations for backend systems."
+      "Modernized legacy systems with React and Next.js to improve maintainability for operations teams.",
+      "Mentored developers through reviews and technical guidance across frontend and shared TypeScript models.",
+      "Designed SQL-backed solutions and API integrations that kept daily workflows reliable."
     ]
   },
   {
@@ -38,9 +38,9 @@
     "range": "May 2021 – March 2023",
     "url": "https://entrego.com.ph",
     "highlights": [
-      "Supervised frontend/mobile team while balancing delivery and mentoring responsibilities.",
-      "Modernized tech stacks, reducing technical debt and boosting performance.",
-      "Facilitated Agile ceremonies to improve planning and execution efficiency."
+      "Supervised the frontend/mobile team — balancing delivery with mentoring on React Native and React.",
+      "Modernized the stack to cut technical debt and improve performance on logistics product surfaces.",
+      "Facilitated Agile ceremonies so release cadence stayed predictable under growth."
     ]
   },
   {
@@ -49,9 +49,9 @@
     "range": "October 2018 – May 2020",
     "url": "https://accenture.com",
     "highlights": [
-      "Designed SQL-based solutions and automation for enterprise operations.",
-      "Maintained and optimized batch processing pipelines.",
-      "Delivered enhancements for client systems with strict reliability requirements."
+      "Built enterprise solutions with Spring Boot and Oracle SQL for reliability-critical client systems.",
+      "Improved database performance and application stability under strict delivery requirements.",
+      "Delivered REST integrations and enhancements inside large-team Agile engagements."
     ]
   }
 ]

@@ -23,13 +23,13 @@ npm run sync-content
 
 ## Scripts (run from repo root)
 
-| Command            | Description                |
-| ------------------ | -------------------------- |
-| `npm run dev`      | Next.js dev server         |
-| `npm run build`    | Production build           |
-| `npm run start`    | Start production server    |
-| `npm run lint`     | ESLint in `next-app`       |
-| `npm run format`   | Prettier (repo-wide)       |
+| Command                | Description                  |
+| ---------------------- | ---------------------------- |
+| `npm run dev`          | Next.js dev server           |
+| `npm run build`        | Production build             |
+| `npm run start`        | Start production server      |
+| `npm run lint`         | ESLint in `next-app`         |
+| `npm run format`       | Prettier (repo-wide)         |
 | `npm run sync-content` | Sync `content/` → `next-app` |
 
 See `next-app/README.md` for app-specific details.

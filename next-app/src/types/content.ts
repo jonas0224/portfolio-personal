@@ -4,20 +4,27 @@ export interface CompanyLink {
 }
 
 export interface HeroContent {
-  greeting: string;
+  eyebrow: string;
   name: string;
   tagline: string;
   description: string;
   companies: CompanyLink[];
+  proofChips?: string[];
   ctaLabel: string;
+  ctaSecondaryLabel: string;
   ctaEmail: string;
+}
+
+export interface SkillGroup {
+  label: string;
+  skills: string[];
 }
 
 export interface AboutContent {
   intro: string[];
   companies: CompanyLink[];
   companiesSummary: string;
-  skills: string[];
+  skillGroups: SkillGroup[];
 }
 
 export interface ProjectContent {
@@ -28,7 +35,7 @@ export interface ProjectContent {
   github: string | null;
   external: string;
   image?: string;
-  status?: "Built" | "Roadmap";
+  status?: 'Built' | 'Roadmap' | 'Parked';
   impact?: string[];
   caseStudy?: {
     role: string;
@@ -63,4 +70,22 @@ export interface LeadershipHighlight {
 export interface QualitySignal {
   title: string;
   proof: string;
+}
+
+export interface WritingTopic {
+  title: string;
+  status: string;
+  blurb: string;
+  /** Full note body shown on /writing */
+  body?: string[];
+}
+
+
+export interface WritingContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+  topics: WritingTopic[];
 }

@@ -12,10 +12,7 @@
       "Playwright"
     ],
     "status": "Built",
-    "impact": [
-      "Token-driven primitives",
-      "Storybook + CI coverage"
-    ],
+    "impact": ["Token-driven primitives", "Storybook + CI coverage"],
     "github": "https://github.com/jonas0224/frontend-design-system-migration",
     "external": "https://github.com/jonas0224/frontend-design-system-migration"
   },
@@ -37,7 +34,7 @@
       "More reliable stock + consignment tracking"
     ],
     "github": "https://github.com/jonas0224/pos-inventory-system",
-    "external": "https://github.com/jonas0224/pos-inventory-system"
+    "external": "https://archive-room.vercel.app/login"
   },
   {
     "title": "FLASHCUT",
@@ -51,12 +48,9 @@
       "Vitest"
     ],
     "status": "Built",
-    "impact": [
-      "Sync for ~20 remote players",
-      "Speed-based round scoring"
-    ],
+    "impact": ["Sync for ~20 remote players", "Speed-based round scoring"],
     "github": "https://github.com/jonas0224/flashcut",
-    "external": "https://github.com/jonas0224/flashcut"
+    "external": "https://flashcut-nine.vercel.app/"
   },
   {
     "title": "Realtime Operations Dashboard",
@@ -70,10 +64,7 @@
       "Redis"
     ],
     "status": "Built",
-    "impact": [
-      "Faster incident awareness",
-      "Resilient realtime sync patterns"
-    ],
+    "impact": ["Faster incident awareness", "Resilient realtime sync patterns"],
     "github": "https://github.com/jonas0224/realtime-operations-dashboard",
     "external": "https://github.com/jonas0224/realtime-operations-dashboard"
   },
@@ -99,73 +90,41 @@
   {
     "title": "Document Keeper",
     "description": "Roadmap: a documentation keeper that indexes and renders markdown across personal projects — release plans, roadmaps, runbooks, and specs — with search and links back to source repos (Archive Room, CMS, design system).",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "Markdown",
-      "GitHub API"
-    ],
+    "tech": ["Next.js", "TypeScript", "Markdown", "GitHub API"],
     "status": "Roadmap",
-    "impact": [
-      "Faster doc discovery",
-      "Single index for project knowledge"
-    ],
+    "impact": ["Faster doc discovery", "Single index for project knowledge"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
     "title": "Developer Productivity Portal",
     "description": "Roadmap: centralize CI health, release notes, and service status into a single developer portal to reduce context switching and improve release confidence.",
-    "tech": [
-      "Next.js",
-      "Node.js",
-      "GraphQL",
-      "Docker"
-    ],
+    "tech": ["Next.js", "Node.js", "GraphQL", "Docker"],
     "status": "Roadmap",
-    "impact": [
-      "Less context switching",
-      "Higher release confidence"
-    ],
+    "impact": ["Less context switching", "Higher release confidence"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
     "title": "Mobile Delivery Companion",
     "description": "Roadmap: build a React Native companion app with offline-first workflows, sync conflict handling, and resilient retry logic for field operations.",
-    "tech": [
-      "React Native",
-      "TypeScript",
-      "SQLite",
-      "Expo"
-    ],
+    "tech": ["React Native", "TypeScript", "SQLite", "Expo"],
     "status": "Roadmap",
-    "impact": [
-      "Better task completion reliability",
-      "Fewer sync failures"
-    ],
+    "impact": ["Better task completion reliability", "Fewer sync failures"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
     "title": "AI-Assisted Incident Triage UI",
     "description": "Roadmap: design an AI-assisted triage interface for incident classification, runbook suggestions, and ownership routing with human override and auditability.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "OpenAI APIs",
-      "Redis"
-    ],
+    "tech": ["Next.js", "TypeScript", "OpenAI APIs", "Redis"],
     "status": "Roadmap",
-    "impact": [
-      "Faster incident triage",
-      "More accurate routing"
-    ],
+    "impact": ["Faster incident triage", "More accurate routing"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
-    "slug": "portfolio-cms-publishing-workflow",
+    "slug": "portfolio-content-management",
     "title": "Portfolio CMS + Publishing Workflow",
     "description": "Built a dedicated CMS with draft preview and PR-based publishing for portfolio content. Added role-aware workflows, validation, and release guardrails, significantly reducing content update turnaround with auditable change history.",
     "tech": [
