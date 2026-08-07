@@ -1,9 +1,9 @@
 export type NavItem = {
-  name: string;
-  href: string;
+  name: string
+  href: string
   /** Home-page section id for scroll-spy highlighting */
-  sectionId?: string;
-};
+  sectionId?: string
+}
 
 /**
  * Primary nav.
@@ -15,4 +15,4 @@ export const NAV_LINKS: NavItem[] = [
   { name: 'Work', href: '/#work', sectionId: 'work' },
   { name: 'Notes', href: '/writing' },
   { name: 'Contact', href: '/#contact', sectionId: 'contact' },
-];
+]

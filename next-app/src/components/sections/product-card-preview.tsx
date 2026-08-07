@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
 import {
   OPS_PREVIEW_SERVICES,
   POS_PREVIEW_ITEMS,
   previewLabelForSlug,
-} from '@/lib/product-previews';
+} from '@/lib/product-previews'
 
 type Props = {
-  slug?: string;
-  title: string;
-};
+  slug?: string
+  title: string
+}
 
 export function ProductCardPreview({ slug, title }: Props) {
   return (
@@ -18,13 +18,11 @@ export function ProductCardPreview({ slug, title }: Props) {
         <span className="product-card-preview-dot" />
         <span className="product-card-preview-dot" />
         <span className="product-card-preview-dot" />
-        <span className="product-card-preview-label">
-          {previewLabelForSlug(slug, title)}
-        </span>
+        <span className="product-card-preview-label">{previewLabelForSlug(slug, title)}</span>
       </div>
       <div className="product-card-preview-scene">{renderScene(slug)}</div>
     </div>
-  );
+  )
 }
 
 function renderScene(slug?: string) {
@@ -38,10 +36,7 @@ function renderScene(slug?: string) {
           </div>
           <div className="gp-pos-grid">
             {POS_PREVIEW_ITEMS.map((item, index) => (
-              <div
-                key={item.sku}
-                className={`gp-pos-card${index === 0 ? ' is-active' : ''}`}
-              >
+              <div key={item.sku} className={`gp-pos-card${index === 0 ? ' is-active' : ''}`}>
                 <span className="gp-pos-thumb" />
                 <span>{item.name}</span>
                 <strong>{item.price}</strong>
@@ -49,7 +44,7 @@ function renderScene(slug?: string) {
             ))}
           </div>
         </div>
-      );
+      )
     case 'frontend-design-system':
       return (
         <div className="gp-ds">
@@ -72,7 +67,7 @@ function renderScene(slug?: string) {
             </div>
           </div>
         </div>
-      );
+      )
     case 'flashcut':
       return (
         <div className="gp-fc">
@@ -83,7 +78,7 @@ function renderScene(slug?: string) {
             <span className="gp-fc-cta">Create game</span>
           </div>
         </div>
-      );
+      )
     case 'realtime-operations-dashboard':
       return (
         <div className="gp-ops">
@@ -95,9 +90,7 @@ function renderScene(slug?: string) {
             {OPS_PREVIEW_SERVICES.map((service) => (
               <div
                 key={service.name}
-                className={`gp-ops-tile${
-                  service.status === 'degraded' ? ' is-warn' : ' is-ok'
-                }`}
+                className={`gp-ops-tile${service.status === 'degraded' ? ' is-warn' : ' is-ok'}`}
               >
                 <i />
                 {service.name.replace(' sync', '')}
@@ -106,7 +99,25 @@ function renderScene(slug?: string) {
             ))}
           </div>
         </div>
-      );
+      )
+    case 'ai-incident-triage':
+      return (
+        <div className="gp-triage">
+          <div className="gp-triage-bar">
+            <span>Incident triage</span>
+            <span className="gp-triage-pill">Gemini</span>
+          </div>
+          <div className="gp-triage-card">
+            <strong>Checkout charges failing</strong>
+            <em>SEV2 · payments-oncall</em>
+            <span className="gp-triage-conf">Confidence 86%</span>
+          </div>
+          <div className="gp-triage-actions">
+            <span>Override</span>
+            <span className="gp-triage-cta">Accept</span>
+          </div>
+        </div>
+      )
     case 'portfolio-content-management':
       return (
         <div className="gp-cms">
@@ -133,7 +144,7 @@ function renderScene(slug?: string) {
             <span className="gp-cms-cta">Open PR</span>
           </div>
         </div>
-      );
+      )
     default:
       return (
         <div className="gp-fallback">
@@ -141,6 +152,6 @@ function renderScene(slug?: string) {
           <span />
           <span />
         </div>
-      );
+      )
   }
 }

@@ -1,7 +1,7 @@
 type LogoMarkProps = {
-  className?: string;
-  title?: string;
-};
+  className?: string
+  title?: string
+}
 
 /** Brand mark from the actual logo SVG (donut). */
 export function LogoMark({ className, title = 'Jonas Yambao' }: LogoMarkProps) {
@@ -378,5 +378,5 @@ M262.032837,459.357422
 z"
       />
     </svg>
-  );
+  )
 }

@@ -1,30 +1,28 @@
-'use client';
+'use client'
 
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import { ScrollProgress } from '@/components/scroll-progress';
-import { SiteFooter } from '@/components/site-footer';
-import { SiteHeader } from '@/components/site-header';
+import { usePathname } from 'next/navigation'
+import { useEffect } from 'react'
+import { ScrollProgress } from '@/components/scroll-progress'
+import { SiteFooter } from '@/components/site-footer'
+import { SiteHeader } from '@/components/site-header'
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isHome = pathname === '/';
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
-    const hash = window.location.hash;
+    const hash = window.location.hash
     if (!hash) {
-      return;
+      return
     }
     requestAnimationFrame(() => {
       document.getElementById(hash.slice(1))?.scrollIntoView({
         behavior: 'smooth',
-      });
-    });
-  }, [pathname]);
+      })
+    })
+  }, [pathname])
 
-  const mainClassName = isHome
-    ? 'portfolio-main portfolio-main--fill-height'
-    : 'portfolio-main';
+  const mainClassName = isHome ? 'portfolio-main portfolio-main--fill-height' : 'portfolio-main'
 
   return (
     <>
@@ -40,5 +38,5 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <SiteFooter />
       </div>
     </>
-  );
+  )
 }

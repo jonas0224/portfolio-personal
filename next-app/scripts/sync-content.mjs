@@ -5,69 +5,69 @@
  *
  * Run from `next-app`: `npm run sync-content`
  */
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const nextAppRoot = path.resolve(__dirname, '..');
-const repoRoot = path.resolve(nextAppRoot, '..');
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const nextAppRoot = path.resolve(__dirname, '..')
+const repoRoot = path.resolve(nextAppRoot, '..')
 
 function copySiteJson() {
-  const srcDir = path.join(repoRoot, 'content', 'site');
-  const destDir = path.join(nextAppRoot, 'src', 'content', 'site');
+  const srcDir = path.join(repoRoot, 'content', 'site')
+  const destDir = path.join(nextAppRoot, 'src', 'content', 'site')
 
   if (!fs.existsSync(srcDir)) {
-    console.warn(`sync-content: skip site JSON (missing ${srcDir})`);
-    return;
+    console.warn(`sync-content: skip site JSON (missing ${srcDir})`)
+    return
   }
 
   for (const name of fs.readdirSync(srcDir)) {
     if (!name.endsWith('.json')) {
-      continue;
+      continue
     }
-    fs.copyFileSync(path.join(srcDir, name), path.join(destDir, name));
+    fs.copyFileSync(path.join(srcDir, name), path.join(destDir, name))
   }
-  process.stdout.write('sync-content: site JSON ✓\n');
+  process.stdout.write('sync-content: site JSON ✓\n')
 }
 
 function syncPostsAndAssets() {
-  const srcPosts = path.join(repoRoot, 'content', 'posts');
-  const destPosts = path.join(nextAppRoot, 'content', 'posts');
-  const destStatic = path.join(nextAppRoot, 'public', 'posts-static');
+  const srcPosts = path.join(repoRoot, 'content', 'posts')
+  const destPosts = path.join(nextAppRoot, 'content', 'posts')
+  const destStatic = path.join(nextAppRoot, 'public', 'posts-static')
 
   if (!fs.existsSync(srcPosts)) {
-    console.warn(`sync-content: skip posts (missing ${srcPosts})`);
-    return;
+    console.warn(`sync-content: skip posts (missing ${srcPosts})`)
+    return
   }
 
-  fs.rmSync(destPosts, { recursive: true, force: true });
-  fs.cpSync(srcPosts, destPosts, { recursive: true });
+  fs.rmSync(destPosts, { recursive: true, force: true })
+  fs.cpSync(srcPosts, destPosts, { recursive: true })
 
-  fs.rmSync(destStatic, { recursive: true, force: true });
-  fs.mkdirSync(destStatic, { recursive: true });
+  fs.rmSync(destStatic, { recursive: true, force: true })
+  fs.mkdirSync(destStatic, { recursive: true })
 
   for (const ent of fs.readdirSync(destPosts, { withFileTypes: true })) {
     if (!ent.isDirectory()) {
-      continue;
+      continue
     }
-    const folder = ent.name;
-    const from = path.join(destPosts, folder);
-    const to = path.join(destStatic, folder);
-    fs.mkdirSync(to, { recursive: true });
+    const folder = ent.name
+    const from = path.join(destPosts, folder)
+    const to = path.join(destStatic, folder)
+    fs.mkdirSync(to, { recursive: true })
     for (const file of fs.readdirSync(from)) {
       if (file === 'index.md') {
-        continue;
+        continue
       }
-      const fp = path.join(from, file);
+      const fp = path.join(from, file)
       if (fs.statSync(fp).isFile()) {
-        fs.copyFileSync(fp, path.join(to, file));
+        fs.copyFileSync(fp, path.join(to, file))
       }
     }
   }
 
-  process.stdout.write('sync-content: posts + posts-static ✓\n');
+  process.stdout.write('sync-content: posts + posts-static ✓\n')
 }
 
-copySiteJson();
-syncPostsAndAssets();
+copySiteJson()
+syncPostsAndAssets()

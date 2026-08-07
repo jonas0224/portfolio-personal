@@ -13,4 +13,4 @@ export const KEY_CODES = {
   SPACE: ' ',
   SPACE_IE11: 'Spacebar',
   ENTER: 'Enter',
-} as const;
+} as const

@@ -1,24 +1,23 @@
-'use client';
+'use client'
 
-import Image from 'next/image';
-import type { AboutContent, JobContent } from '@/types/content';
-import { ExternalLink } from '@/components/external-link';
-import { RevealItem, RevealSection } from '@/components/reveal-section';
-import { SECTION_SHELL } from '@/components/sections/constants';
+import Image from 'next/image'
+import type { AboutContent, JobContent } from '@/types/content'
+import { ExternalLink } from '@/components/external-link'
+import { RevealItem, RevealSection } from '@/components/reveal-section'
+import { SECTION_SHELL } from '@/components/sections/constants'
 
 type Props = {
-  jobs: JobContent[];
-  about: AboutContent;
-};
+  jobs: JobContent[]
+  about: AboutContent
+}
 
 export function JobsSection({ jobs, about }: Props) {
   return (
     <RevealSection id="jobs" className={SECTION_SHELL} delayMs={40}>
       <h2 className="section-heading">Experience</h2>
       <p className="experience-lede">
-        {about.intro[0]} From banking to analytics and logistics, I own frontend
-        delivery end to end — architecture, reviews, and the UI people actually
-        use.
+        {about.intro[0]} From banking to analytics and logistics, I own frontend delivery end to end
+        — architecture, reviews, and the UI people actually use.
       </p>
 
       <div className="experience-layout">
@@ -47,10 +46,7 @@ export function JobsSection({ jobs, about }: Props) {
         </ol>
 
         <aside className="experience-aside">
-          <RevealItem
-            delayMs={120}
-            className="experience-photo portfolio-about-photo"
-          >
+          <RevealItem delayMs={120} className="experience-photo portfolio-about-photo">
             <div className="portfolio-about-photo-frame">
               <Image
                 src="/me.png"
@@ -81,5 +77,5 @@ export function JobsSection({ jobs, about }: Props) {
         </aside>
       </div>
     </RevealSection>
-  );
+  )
 }

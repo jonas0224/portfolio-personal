@@ -1,90 +1,84 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
-import { KEY_CODES } from '@/lib/key-codes';
-import { NAV_LINKS } from '@/lib/nav';
-import { useOnClickOutside } from '@/hooks/use-on-click-outside';
-import { ButtonLink } from '@/ui/button';
+import Link from 'next/link'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { KEY_CODES } from '@/lib/key-codes'
+import { NAV_LINKS } from '@/lib/nav'
+import { useOnClickOutside } from '@/hooks/use-on-click-outside'
+import { ButtonLink } from '@/ui/button'
 
 export function MobileMenu() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen((o) => !o);
+  const [menuOpen, setMenuOpen] = useState(false)
+  const toggleMenu = () => setMenuOpen((o) => !o)
 
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const navRef = useRef<HTMLElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const navRef = useRef<HTMLElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (menuOpen) {
-      document.body.classList.add('portfolio-body-blur');
+      document.body.classList.add('portfolio-body-blur')
     } else {
-      document.body.classList.remove('portfolio-body-blur');
+      document.body.classList.remove('portfolio-body-blur')
     }
-    return () => document.body.classList.remove('portfolio-body-blur');
-  }, [menuOpen]);
+    return () => document.body.classList.remove('portfolio-body-blur')
+  }, [menuOpen])
 
   const getFocusables = useCallback(() => {
-    const btn = buttonRef.current;
+    const btn = buttonRef.current
     const links = navRef.current
       ? Array.from(navRef.current.querySelectorAll<HTMLElement>('a'))
-      : [];
-    return [btn, ...links].filter(Boolean) as HTMLElement[];
-  }, []);
+      : []
+    return [btn, ...links].filter(Boolean) as HTMLElement[]
+  }, [])
 
   useLayoutEffect(() => {
-    if (!menuOpen) return;
-    const focusables = getFocusables();
-    focusables[0]?.focus();
-  }, [menuOpen, getFocusables]);
+    if (!menuOpen) return
+    const focusables = getFocusables()
+    focusables[0]?.focus()
+  }, [menuOpen, getFocusables])
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (!menuOpen) return;
+      if (!menuOpen) return
 
       if (e.key === KEY_CODES.ESCAPE || e.key === KEY_CODES.ESCAPE_IE11) {
-        setMenuOpen(false);
-        return;
+        setMenuOpen(false)
+        return
       }
 
-      if (e.key !== KEY_CODES.TAB) return;
+      if (e.key !== KEY_CODES.TAB) return
 
-      const focusables = getFocusables();
-      if (focusables.length === 0) return;
+      const focusables = getFocusables()
+      if (focusables.length === 0) return
 
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
 
       if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
+        e.preventDefault()
+        last.focus()
       } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
+        e.preventDefault()
+        first.focus()
       }
-    };
+    }
 
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [menuOpen, getFocusables]);
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [menuOpen, getFocusables])
 
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth > 768) {
-        setMenuOpen(false);
+        setMenuOpen(false)
       }
-    };
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
-  useOnClickOutside(wrapperRef, () => setMenuOpen(false));
+  useOnClickOutside(wrapperRef, () => setMenuOpen(false))
 
   return (
     <div className="portfolio-mobile-wrap">
@@ -136,5 +130,5 @@ export function MobileMenu() {
         </aside>
       </div>
     </div>
-  );
+  )
 }

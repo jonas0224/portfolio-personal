@@ -1,12 +1,9 @@
-import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-type ExternalLinkProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'href'
-> & {
-  href: string;
-  children: ReactNode;
-};
+type ExternalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
+  href: string
+  children: ReactNode
+}
 
 export function ExternalLink({
   children,
@@ -16,7 +13,7 @@ export function ExternalLink({
   className,
   ...props
 }: ExternalLinkProps) {
-  const merged = ['inline-link', className].filter(Boolean).join(' ');
+  const merged = ['inline-link', className].filter(Boolean).join(' ')
   return (
     <a
       {...props}
@@ -27,5 +24,5 @@ export function ExternalLink({
     >
       {children}
     </a>
-  );
+  )
 }

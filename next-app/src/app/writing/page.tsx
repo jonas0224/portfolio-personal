@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { SECTION_SHELL } from '@/components/sections/constants';
-import { writing } from '@/data/site';
-import { OutlineLink } from '@/ui/outline-link';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { SECTION_SHELL } from '@/components/sections/constants'
+import { writing } from '@/data/site'
+import { OutlineLink } from '@/ui/outline-link'
 
 export const metadata: Metadata = {
   title: 'Notes',
   description: writing.description,
-};
+}
 
 export default function WritingPage() {
   return (
@@ -16,9 +16,7 @@ export default function WritingPage() {
       <h1 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(32px,5vw,48px)] font-semibold tracking-tight text-[var(--lightest-slate)]">
         {writing.title}
       </h1>
-      <p className="mt-4 max-w-2xl text-[var(--light-slate)]">
-        {writing.description}
-      </p>
+      <p className="mt-4 max-w-2xl text-[var(--light-slate)]">{writing.description}</p>
 
       <div className="writing-notes mt-12">
         {writing.topics.map((topic) => (
@@ -49,5 +47,5 @@ export default function WritingPage() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

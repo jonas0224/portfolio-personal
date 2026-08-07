@@ -13,7 +13,8 @@
     "sync-content": "npm run sync-content --prefix next-app",
     "lint-staged": "lint-staged",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,mjs}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format:check": "prettier --check ."
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,json,md,mjs}": [
@@ -23,7 +24,7 @@
   "devDependencies": {
     "husky": "^6.0.0",
     "lint-staged": "^10.1.2",
-    "prettier": "^2.2.1"
+    "prettier": "^3.9.6"
   },
   "engines": {
     "node": ">=20 <23"

@@ -1,33 +1,29 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
-import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
+import { useEffect, useState } from 'react'
+import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
 import {
   OPS_PREVIEW_SERVICES,
   POS_PREVIEW_ITEMS,
   PRODUCT_PREVIEWS,
   type PreviewId,
-} from '@/lib/product-previews';
+} from '@/lib/product-previews'
 
-const PREVIEWS = PRODUCT_PREVIEWS;
-const POS_ITEMS = POS_PREVIEW_ITEMS;
-const OPS_SERVICES = OPS_PREVIEW_SERVICES;
+const PREVIEWS = PRODUCT_PREVIEWS
+const POS_ITEMS = POS_PREVIEW_ITEMS
+const OPS_SERVICES = OPS_PREVIEW_SERVICES
 
-function PreviewArchiveRoom({
-  prefersReducedMotion,
-}: {
-  prefersReducedMotion: boolean;
-}) {
-  const [cart, setCart] = useState(1);
-  const [active, setActive] = useState(0);
+function PreviewArchiveRoom({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
+  const [cart, setCart] = useState(1)
+  const [active, setActive] = useState(0)
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) return
     const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % POS_ITEMS.length);
-    }, 2600);
-    return () => window.clearInterval(id);
-  }, [prefersReducedMotion]);
+      setActive((i) => (i + 1) % POS_ITEMS.length)
+    }, 2600)
+    return () => window.clearInterval(id)
+  }, [prefersReducedMotion])
 
   return (
     <div className="hp-pos">
@@ -36,11 +32,7 @@ function PreviewArchiveRoom({
           <p className="hp-pos-brand">Archive Room</p>
           <p className="hp-pos-sub">Point of Sale · {cart} in cart</p>
         </div>
-        <button
-          type="button"
-          className="hp-pos-pay"
-          onClick={() => setCart((c) => c + 1)}
-        >
+        <button type="button" className="hp-pos-pay" onClick={() => setCart((c) => c + 1)}>
           Charge
         </button>
       </div>
@@ -51,8 +43,8 @@ function PreviewArchiveRoom({
             type="button"
             className={`hp-pos-card${active === i ? ' is-active' : ''}`}
             onClick={() => {
-              setActive(i);
-              setCart((c) => c + 1);
+              setActive(i)
+              setCart((c) => c + 1)
             }}
           >
             <span className="hp-pos-thumb" />
@@ -69,12 +61,12 @@ function PreviewArchiveRoom({
         <strong>₱{cart > 1 ? (1290 + (cart - 1) * 680).toLocaleString() : '1,290'}</strong>
       </div>
     </div>
-  );
+  )
 }
 
 function PreviewDesignSystem() {
-  const [radius, setRadius] = useState(10);
-  const [tone, setTone] = useState<'cyan' | 'zinc'>('cyan');
+  const [radius, setRadius] = useState(10)
+  const [tone, setTone] = useState<'cyan' | 'zinc'>('cyan')
 
   return (
     <div className="hp-ds">
@@ -95,11 +87,7 @@ function PreviewDesignSystem() {
           >
             Primary action
           </button>
-          <button
-            type="button"
-            className="hp-ds-btn is-ghost"
-            style={{ borderRadius: radius }}
-          >
+          <button type="button" className="hp-ds-btn is-ghost" style={{ borderRadius: radius }}>
             Ghost
           </button>
         </div>
@@ -120,30 +108,22 @@ function PreviewDesignSystem() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-function PreviewFlashcut({
-  prefersReducedMotion,
-}: {
-  prefersReducedMotion: boolean;
-}) {
-  const [phase, setPhase] = useState<'peek' | 'blackout' | 'guess'>('peek');
+function PreviewFlashcut({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
+  const [phase, setPhase] = useState<'peek' | 'blackout' | 'guess'>('peek')
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-    const order: Array<'peek' | 'blackout' | 'guess'> = [
-      'peek',
-      'blackout',
-      'guess',
-    ];
-    let i = 0;
+    if (prefersReducedMotion) return
+    const order: Array<'peek' | 'blackout' | 'guess'> = ['peek', 'blackout', 'guess']
+    let i = 0
     const id = window.setInterval(() => {
-      i = (i + 1) % order.length;
-      setPhase(order[i]);
-    }, 1800);
-    return () => window.clearInterval(id);
-  }, [prefersReducedMotion]);
+      i = (i + 1) % order.length
+      setPhase(order[i])
+    }, 1800)
+    return () => window.clearInterval(id)
+  }, [prefersReducedMotion])
 
   return (
     <div className="hp-fc">
@@ -165,21 +145,17 @@ function PreviewFlashcut({
       </div>
       <p className="hp-fc-meta">10 rounds · ~12 minutes · live scoring</p>
     </div>
-  );
+  )
 }
 
-function PreviewOps({
-  prefersReducedMotion,
-}: {
-  prefersReducedMotion: boolean;
-}) {
-  const [pulse, setPulse] = useState(0);
+function PreviewOps({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
+  const [pulse, setPulse] = useState(0)
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
-    const id = window.setInterval(() => setPulse((n) => n + 1), 2200);
-    return () => window.clearInterval(id);
-  }, [prefersReducedMotion]);
+    if (prefersReducedMotion) return
+    const id = window.setInterval(() => setPulse((n) => n + 1), 2200)
+    return () => window.clearInterval(id)
+  }, [prefersReducedMotion])
 
   return (
     <div className="hp-ops">
@@ -189,82 +165,69 @@ function PreviewOps({
       </div>
       <div className="hp-ops-grid">
         {OPS_SERVICES.map((service) => (
-          <div
-            key={service.name}
-            className={`hp-ops-tile is-${service.status}`}
-          >
+          <div key={service.name} className={`hp-ops-tile is-${service.status}`}>
             <span className="hp-ops-dot" />
             <span className="hp-ops-name">{service.name}</span>
             <span className="hp-ops-latency">{service.latency}</span>
           </div>
         ))}
       </div>
-      <div className="hp-ops-alert">
-        Payments latency elevated — reconnect healthy
-      </div>
+      <div className="hp-ops-alert">Payments latency elevated — reconnect healthy</div>
     </div>
-  );
+  )
 }
 
 function PreviewBody({
   id,
   prefersReducedMotion,
 }: {
-  id: PreviewId;
-  prefersReducedMotion: boolean;
+  id: PreviewId
+  prefersReducedMotion: boolean
 }) {
   switch (id) {
     case 'design':
-      return <PreviewDesignSystem />;
+      return <PreviewDesignSystem />
     case 'flashcut':
-      return <PreviewFlashcut prefersReducedMotion={prefersReducedMotion} />;
+      return <PreviewFlashcut prefersReducedMotion={prefersReducedMotion} />
     case 'ops':
-      return <PreviewOps prefersReducedMotion={prefersReducedMotion} />;
+      return <PreviewOps prefersReducedMotion={prefersReducedMotion} />
     case 'pos':
     default:
-      return <PreviewArchiveRoom prefersReducedMotion={prefersReducedMotion} />;
+      return <PreviewArchiveRoom prefersReducedMotion={prefersReducedMotion} />
   }
 }
 
 export function HeroProductVisual() {
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const [activeId, setActiveId] = useState<PreviewId>('pos');
-  const active = PREVIEWS.find((p) => p.id === activeId) ?? PREVIEWS[0];
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const [activeId, setActiveId] = useState<PreviewId>('pos')
+  const active = PREVIEWS.find((p) => p.id === activeId) ?? PREVIEWS[0]
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) return
     const id = window.setInterval(() => {
       setActiveId((current) => {
-        const index = PREVIEWS.findIndex((p) => p.id === current);
-        return PREVIEWS[(index + 1) % PREVIEWS.length].id;
-      });
-    }, 7000);
-    return () => window.clearInterval(id);
-  }, [prefersReducedMotion]);
+        const index = PREVIEWS.findIndex((p) => p.id === current)
+        return PREVIEWS[(index + 1) % PREVIEWS.length].id
+      })
+    }, 7000)
+    return () => window.clearInterval(id)
+  }, [prefersReducedMotion])
 
   return (
-    <div
-      className={`hero-visual${prefersReducedMotion ? '' : ' hero-enter hero-enter-delay-5'}`}
-    >
+    <div className={`hero-visual${prefersReducedMotion ? '' : ' hero-enter hero-enter-delay-5'}`}>
       <div className="hero-visual-frame hero-visual-frame--live">
         <div className="hero-visual-chrome">
           <span className="hero-visual-dot" />
           <span className="hero-visual-dot" />
           <span className="hero-visual-dot" />
-          <div
-            className="hero-visual-tabs"
-            role="tablist"
-            aria-label="Product previews"
-          >
+          <div className="hero-visual-tabs" role="tablist" aria-label="Product previews">
             {PREVIEWS.map((preview) => (
               <button
                 key={preview.id}
                 type="button"
                 role="tab"
                 aria-selected={activeId === preview.id}
-                className={`hero-visual-tab${
-                  activeId === preview.id ? ' is-active' : ''
-                }`}
+                className={`hero-visual-tab${activeId === preview.id ? ' is-active' : ''}`}
                 onClick={() => setActiveId(preview.id)}
               >
                 {preview.label}
@@ -276,11 +239,7 @@ export function HeroProductVisual() {
             className="hero-visual-open"
             href={active.href}
             target={active.href.startsWith('http') ? '_blank' : undefined}
-            rel={
-              active.href.startsWith('http')
-                ? 'noopener noreferrer'
-                : undefined
-            }
+            rel={active.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           >
             {active.hrefLabel}
           </a>
@@ -288,10 +247,7 @@ export function HeroProductVisual() {
         <div className="hero-visual-live-body">
           <p className="hero-visual-url">{active.title}</p>
           <div className="hero-visual-stage" key={active.id}>
-            <PreviewBody
-              id={active.id}
-              prefersReducedMotion={prefersReducedMotion}
-            />
+            <PreviewBody id={active.id} prefersReducedMotion={prefersReducedMotion} />
           </div>
           <div className="hero-visual-live-footer">
             <span className="hero-visual-stat">{active.stack}</span>
@@ -300,5 +256,5 @@ export function HeroProductVisual() {
         </div>
       </div>
     </div>
-  );
+  )
 }

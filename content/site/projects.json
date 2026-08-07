@@ -2,15 +2,7 @@
   {
     "title": "Frontend Design System Migration",
     "description": "Next.js workspace with semantic design tokens, reusable primitives (forms, feedback, overlay), a live component playground, and Storybook + Vitest quality gates—including CI—so consuming apps can migrate away from one-off UI drift.",
-    "tech": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Storybook",
-      "Vitest",
-      "Playwright"
-    ],
+    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest", "Playwright"],
     "status": "Built",
     "impact": ["Token-driven primitives", "Storybook + CI coverage"],
     "github": "https://github.com/jonas0224/frontend-design-system-migration",
@@ -18,35 +10,17 @@
   },
   {
     "title": "POS & Inventory Management System",
-    "description": "Web-based POS and inventory system for consigned clothing stores, with tablet-friendly checkout, stock tracking, and reporting (PDF/XLSX) built on Next.js, Prisma, and PostgreSQL.",
-    "tech": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "PostgreSQL",
-      "Prisma",
-      "NextAuth",
-      "Tailwind CSS"
-    ],
-    "status": "Built",
-    "impact": [
-      "Faster checkout on tablet",
-      "More reliable stock + consignment tracking"
-    ],
+    "description": "Archive Room — live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, and platform ops. Deployed and in continuous development/support.",
+    "tech": ["Next.js", "React", "TypeScript", "PostgreSQL", "Prisma", "NextAuth", "Tailwind CSS"],
+    "status": "Live",
+    "impact": ["Production deploy in use", "Ongoing feature and support work"],
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
   },
   {
     "title": "FLASHCUT",
     "description": "Real-time team party game: a quick image peek, blackout flashcut phase, then Kahoot-style speed scoring across 15 rounds. Built with Next.js, Redis-backed rooms, HTTP polling for Vercel serverless, and host-editable funny image packs.",
-    "tech": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Upstash Redis",
-      "Tailwind CSS",
-      "Vitest"
-    ],
+    "tech": ["Next.js", "React", "TypeScript", "Upstash Redis", "Tailwind CSS", "Vitest"],
     "status": "Built",
     "impact": ["Sync for ~20 remote players", "Speed-based round scoring"],
     "github": "https://github.com/jonas0224/flashcut",
@@ -55,14 +29,7 @@
   {
     "title": "Realtime Operations Dashboard",
     "description": "Realtime operations dashboard with WebSocket event streams, service health tiles, alert states, and reconnect/stale-data UX — demo e-commerce platform monitoring with a self-contained event simulator.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "WebSockets",
-      "PostgreSQL",
-      "Prisma",
-      "Redis"
-    ],
+    "tech": ["Next.js", "TypeScript", "WebSockets", "PostgreSQL", "Prisma", "Redis"],
     "status": "Built",
     "impact": ["Faster incident awareness", "Resilient realtime sync patterns"],
     "github": "https://github.com/jonas0224/realtime-operations-dashboard",
@@ -71,19 +38,9 @@
   {
     "title": "RC Crawler PH — Builder & Community",
     "description": "Parked product bet: MN82 1:12 rig builder in PHP (presets, shareable builds, community pricing) plus PH crawler community — gallery, spots, events, clubs. Desktop 3D rig viewer started; accurate per-part models and production deploy still open.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Prisma",
-      "Tailwind CSS",
-      "React Three Fiber"
-    ],
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "React Three Fiber"],
     "status": "Parked",
-    "impact": [
-      "PH budget build planning in pesos",
-      "Community hub beyond Facebook groups"
-    ],
+    "impact": ["PH budget build planning in pesos", "Community hub beyond Facebook groups"],
     "github": "https://github.com/jonas0224/rc-crawler-ph",
     "external": "https://github.com/jonas0224/rc-crawler-ph"
   },
@@ -115,31 +72,22 @@
     "external": "https://jonasyambao.com"
   },
   {
+    "slug": "ai-incident-triage",
     "title": "AI-Assisted Incident Triage UI",
-    "description": "Roadmap: design an AI-assisted triage interface for incident classification, runbook suggestions, and ownership routing with human override and auditability.",
-    "tech": ["Next.js", "TypeScript", "OpenAI APIs", "Redis"],
-    "status": "Roadmap",
-    "impact": ["Faster incident triage", "More accurate routing"],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "description": "AI-assisted incident triage console with Gemini (or rule-based) severity/category suggestions, seeded runbooks, human override, and an audit trail — free-tier Next.js + Prisma portfolio demo.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Gemini API", "Zod"],
+    "status": "Built",
+    "impact": ["Faster incident triage", "Safer human-in-the-loop routing"],
+    "github": "https://github.com/jonas0224/ai-incident-triage",
+    "external": "https://github.com/jonas0224/ai-incident-triage"
   },
   {
     "slug": "portfolio-content-management",
     "title": "Portfolio CMS + Publishing Workflow",
     "description": "Built a dedicated CMS with draft preview and PR-based publishing for portfolio content. Added role-aware workflows, validation, and release guardrails, significantly reducing content update turnaround with auditable change history.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth",
-      "GitHub API"
-    ],
+    "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "GitHub API"],
     "status": "Built",
-    "impact": [
-      "Faster content publishing turnaround",
-      "More reliable publishing workflow"
-    ],
+    "impact": ["Faster content publishing turnaround", "More reliable publishing workflow"],
     "github": "https://github.com/jonas0224/portfolio-content-management",
     "external": "https://github.com/jonas0224/portfolio-content-management"
   }

@@ -27,9 +27,9 @@ Dark mode toggle without the flash of default theme. Important bits:
     ...
     <script>
       // If there's a theme stored in localStorage, use it on the <html>
-      const localStorageTheme = localStorage.getItem('theme');
+      const localStorageTheme = localStorage.getItem('theme')
       if (localStorageTheme) {
-        document.documentElement.setAttribute('data-theme', localStorageTheme);
+        document.documentElement.setAttribute('data-theme', localStorageTheme)
       }
     </script>
   </head>

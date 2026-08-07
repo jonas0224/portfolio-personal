@@ -2,36 +2,29 @@
   {
     "slug": "pos-inventory-system",
     "title": "POS & Inventory Management",
-    "description": "Tablet-friendly consignment POS built with Next.js — checkout, stock tracking, and PDF/XLSX reporting on Prisma and PostgreSQL. Designed for real shop-floor use, not demo polish.",
-    "tech": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth"
-    ],
-    "status": "Built",
-    "impact": ["Tablet checkout flows", "Consignment stock tracking"],
+    "description": "Archive Room — production consignment POS on Vercel + Neon. Tablet checkout, multi-tenant shops, inventory, and reporting; actively developed and supported for real shop-floor use.",
+    "tech": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "NextAuth"],
+    "status": "Live",
+    "impact": ["Deployed for shop use", "Ongoing feature support"],
     "caseStudy": {
-      "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS.",
-      "challenge": "Shop staff needed fast tablet checkout and reliable stock/consignment tracking without a heavyweight ERP.",
+      "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS — still shipping releases after go-live.",
+      "challenge": "Shop staff needed fast tablet checkout and reliable stock/consignment tracking without a heavyweight ERP, then ongoing support once the pilot went live.",
       "approach": [
         "Designed checkout and inventory screens for touch-first tablet use.",
         "Modeled consignment and stock states with typed Prisma schemas.",
-        "Added PDF/XLSX reporting for operators who still live in spreadsheets."
+        "Shipped multi-tenant shops, offline POS, and platform ops while keeping production stable."
       ],
       "architecture": [
-        "Next.js App Router with server actions and role-aware routes.",
-        "PostgreSQL via Prisma for durable inventory and sales history.",
-        "NextAuth session boundaries for staff vs admin workflows."
+        "Next.js App Router with role-aware API routes and JWT sessions.",
+        "PostgreSQL via Prisma on Neon for durable inventory and sales history.",
+        "Vercel deploy with Blob uploads, PWA offline queue, and contract automation."
       ],
       "quality": [
-        "Critical path coverage around checkout and stock mutations.",
-        "Defensive UI for stale stock and concurrent edits.",
-        "Operational reporting that matches how shops actually reconcile."
+        "Smoke tests and CI around login, POS sale, and day close.",
+        "Defensive UI for stale stock, suspended shops, and concurrent edits.",
+        "Ops docs for pilot onboard, backups, and release gates."
       ],
-      "outcome": "A shippable POS surface that prioritizes speed on tablet and trustworthy consignment inventory."
+      "outcome": "A live POS (Archive Room) in continuous development — not a parked demo — prioritizing tablet speed and trustworthy consignment inventory."
     },
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
@@ -40,14 +33,7 @@
     "slug": "frontend-design-system",
     "title": "Frontend Design System Migration",
     "description": "Token-driven Next.js workspace with reusable primitives, a live playground, and Storybook + Vitest gates — so apps migrate off one-off UI drift.",
-    "tech": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Storybook",
-      "Vitest"
-    ],
+    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest"],
     "status": "Built",
     "impact": ["Token-driven primitives", "Storybook + CI coverage"],
     "caseStudy": {
@@ -134,22 +120,42 @@
     "external": "https://github.com/jonas0224/realtime-operations-dashboard"
   },
   {
+    "slug": "ai-incident-triage",
+    "title": "AI-Assisted Incident Triage",
+    "description": "Ops triage console where Gemini suggests severity, ownership, and runbooks — with keyword fallback, confidence UX, human override, and a full audit trail. Portfolio demo on free-tier stack.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Gemini API", "Zod"],
+    "status": "Built",
+    "impact": ["Human-in-the-loop AI", "Safer routing with audit"],
+    "caseStudy": {
+      "role": "Full-stack owner for AI-assisted triage UX, suggestion pipeline, and safety/fallback behavior.",
+      "challenge": "AI triage demos often auto-apply model output. Real ops need suggestions inside a workflow with override, confidence, and auditability when the model fails.",
+      "approach": [
+        "Built intake → suggest → override → accept as one operator path.",
+        "Used Gemini for structured JSON triage with Zod validation against a seeded runbook catalog.",
+        "Added deterministic keyword rules when the key is missing, rate-limited, or invalid."
+      ],
+      "architecture": [
+        "Next.js App Router APIs for incidents, suggest, and triage decisions.",
+        "PostgreSQL + Prisma for incidents, suggestions, runbooks, and audit events.",
+        "Server-only Gemini key with IP rate limits, daily budget, and per-incident caps."
+      ],
+      "quality": [
+        "Vitest coverage for rule triage and guard helpers.",
+        "Sanitized client fallback copy (no raw provider quota leaks).",
+        "Confidence bar and low-confidence warning before accept."
+      ],
+      "outcome": "A demo-ready triage console that treats AI as an assistant — humans still decide, and failures degrade to rules instead of breaking the flow."
+    },
+    "github": "https://github.com/jonas0224/ai-incident-triage",
+    "external": "https://github.com/jonas0224/ai-incident-triage"
+  },
+  {
     "slug": "portfolio-content-management",
     "title": "Portfolio CMS + Publishing Workflow",
     "description": "Next.js CMS for portfolio content in PostgreSQL — draft preview, role-aware admin, and GitHub PR publishing so content updates stay auditable and reviewable.",
-    "tech": [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth",
-      "GitHub API"
-    ],
+    "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "GitHub API"],
     "status": "Built",
-    "impact": [
-      "PR-based content publishing",
-      "Draft preview before merge"
-    ],
+    "impact": ["PR-based content publishing", "Draft preview before merge"],
     "caseStudy": {
       "role": "Solo builder owning auth, document model, preview, and GitHub publish flow for a separate portfolio repo.",
       "challenge": "Portfolio content lived in the site repo with no safe draft/preview path — updates were either manual commits or risky direct edits.",

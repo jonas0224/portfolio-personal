@@ -29,37 +29,15 @@
   "skillGroups": [
     {
       "label": "Core",
-      "skills": [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript",
-        "React Native",
-        "HTML/CSS"
-      ]
+      "skills": ["React", "Next.js", "TypeScript", "JavaScript", "React Native", "HTML/CSS"]
     },
     {
       "label": "State & data",
-      "skills": [
-        "Redux",
-        "Zustand",
-        "Context API",
-        "Redux-Saga",
-        "Chart.js",
-        "D3.js",
-        "React Flow"
-      ]
+      "skills": ["Redux", "Zustand", "Context API", "Redux-Saga", "Chart.js", "D3.js", "React Flow"]
     },
     {
       "label": "UI systems",
-      "skills": [
-        "Tailwind CSS",
-        "MUI",
-        "Bootstrap",
-        "SCSS",
-        "Design tokens",
-        "Figma"
-      ]
+      "skills": ["Tailwind CSS", "MUI", "Bootstrap", "SCSS", "Design tokens", "Figma"]
     },
     {
       "label": "Quality",

@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import { SECTION_SHELL } from '@/components/sections/constants';
-import { SITE_TITLE } from '@/lib/site';
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import { SECTION_SHELL } from '@/components/sections/constants'
+import { SITE_TITLE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Tags',
   description: `Writing tags — ${SITE_TITLE}`,
   robots: { index: false, follow: false },
-};
+}
 
 export default function PensieveTagsPage() {
   return (
@@ -30,5 +30,5 @@ export default function PensieveTagsPage() {
         </Link>
       </p>
     </div>
-  );
+  )
 }

@@ -1,38 +1,31 @@
-'use client';
+'use client'
 
-import type { HTMLAttributes, PropsWithChildren } from 'react';
-import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import type { HTMLAttributes, PropsWithChildren } from 'react'
+import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 
 type RevealSectionProps = PropsWithChildren<
   HTMLAttributes<HTMLElement> & {
-    delayMs?: number;
+    delayMs?: number
   }
->;
+>
 
-export function RevealSection({
-  children,
-  className,
-  delayMs,
-  ...props
-}: RevealSectionProps) {
-  const { ref, isRevealed } = useScrollReveal({ delayMs });
-  const mergedClassName = `${className ?? ''} sr-reveal ${
-    isRevealed ? 'is-revealed' : ''
-  }`.trim();
+export function RevealSection({ children, className, delayMs, ...props }: RevealSectionProps) {
+  const { ref, isRevealed } = useScrollReveal({ delayMs })
+  const mergedClassName = `${className ?? ''} sr-reveal ${isRevealed ? 'is-revealed' : ''}`.trim()
 
   return (
     <section ref={ref} className={mergedClassName} {...props}>
       {children}
     </section>
-  );
+  )
 }
 
 type RevealItemProps = PropsWithChildren<
   Omit<HTMLAttributes<HTMLElement>, 'ref'> & {
-    delayMs?: number;
-    as?: 'div' | 'li' | 'article';
+    delayMs?: number
+    as?: 'div' | 'li' | 'article'
   }
->;
+>
 
 export function RevealItem({
   children,
@@ -45,10 +38,10 @@ export function RevealItem({
   const { ref, isRevealed } = useScrollReveal({
     delayMs,
     threshold: 0.12,
-  });
+  })
   const mergedClassName = `${className ?? ''} sr-reveal sr-reveal--item ${
     isRevealed ? 'is-revealed' : ''
-  }`.trim();
+  }`.trim()
 
   if (as === 'li') {
     return (
@@ -60,7 +53,7 @@ export function RevealItem({
       >
         {children}
       </li>
-    );
+    )
   }
 
   if (as === 'article') {
@@ -73,7 +66,7 @@ export function RevealItem({
       >
         {children}
       </article>
-    );
+    )
   }
 
   return (
@@ -85,5 +78,5 @@ export function RevealItem({
     >
       {children}
     </div>
-  );
+  )
 }

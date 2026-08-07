@@ -1,29 +1,24 @@
-import { IconFork } from '@/components/icons/icon-fork';
-import { IconGitHub } from '@/components/icons/icon-github';
-import { IconInstagram } from '@/components/icons/icon-instagram';
-import { IconLinkedin } from '@/components/icons/icon-linkedin';
-import { IconStar } from '@/components/icons/icon-star';
+import { IconFork } from '@/components/icons/icon-fork'
+import { IconGitHub } from '@/components/icons/icon-github'
+import { IconInstagram } from '@/components/icons/icon-instagram'
+import { IconLinkedin } from '@/components/icons/icon-linkedin'
+import { IconStar } from '@/components/icons/icon-star'
 
-export type SocialIconName =
-  | 'GitHub'
-  | 'Instagram'
-  | 'Linkedin'
-  | 'Star'
-  | 'Fork';
+export type SocialIconName = 'GitHub' | 'Instagram' | 'Linkedin' | 'Star' | 'Fork'
 
 export function SocialIcon({ name }: { name: SocialIconName }) {
   switch (name) {
     case 'GitHub':
-      return <IconGitHub />;
+      return <IconGitHub />
     case 'Instagram':
-      return <IconInstagram />;
+      return <IconInstagram />
     case 'Linkedin':
-      return <IconLinkedin />;
+      return <IconLinkedin />
     case 'Star':
-      return <IconStar />;
+      return <IconStar />
     case 'Fork':
-      return <IconFork />;
+      return <IconFork />
     default:
-      return null;
+      return null
   }
 }

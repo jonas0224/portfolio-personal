@@ -1,32 +1,31 @@
-'use client';
+'use client'
 
-import type { ProjectContent } from '@/types/content';
-import { OutlineLink } from '@/ui/outline-link';
-import { ExternalLink } from '@/components/external-link';
-import { RevealItem, RevealSection } from '@/components/reveal-section';
-import { SECTION_SHELL } from '@/components/sections/constants';
-import { ProductCardPreview } from '@/components/sections/product-card-preview';
+import type { ProjectContent } from '@/types/content'
+import { OutlineLink } from '@/ui/outline-link'
+import { ExternalLink } from '@/components/external-link'
+import { RevealItem, RevealSection } from '@/components/reveal-section'
+import { SECTION_SHELL } from '@/components/sections/constants'
+import { ProductCardPreview } from '@/components/sections/product-card-preview'
 
 type Props = {
-  projects: ProjectContent[];
-};
+  projects: ProjectContent[]
+}
 
 const HOME_SLUGS = [
   'pos-inventory-system',
   'frontend-design-system',
   'flashcut',
   'realtime-operations-dashboard',
+  'ai-incident-triage',
   'portfolio-content-management',
-];
+]
 
 export function FeaturedProjectsSection({ projects }: Props) {
-  const primary = HOME_SLUGS.map((slug) =>
-    projects.find((p) => p.slug === slug)
-  ).filter(Boolean) as ProjectContent[];
+  const primary = HOME_SLUGS.map((slug) => projects.find((p) => p.slug === slug)).filter(
+    Boolean,
+  ) as ProjectContent[]
 
-  const more = projects.filter(
-    (p) => p.slug && p.caseStudy && !HOME_SLUGS.includes(p.slug)
-  );
+  const more = projects.filter((p) => p.slug && p.caseStudy && !HOME_SLUGS.includes(p.slug))
 
   return (
     <RevealSection id="work" className={SECTION_SHELL} delayMs={40}>
@@ -44,12 +43,12 @@ export function FeaturedProjectsSection({ projects }: Props) {
               <p className="portfolio-work-overline">
                 {project.status === 'Built'
                   ? 'Shipped'
-                  : project.status ?? 'Project'}
+                  : project.status === 'Live'
+                    ? 'Live · maintained'
+                    : (project.status ?? 'Project')}
               </p>
               <h3 className="product-card-title">
-                <ExternalLink href={project.external}>
-                  {project.title}
-                </ExternalLink>
+                <ExternalLink href={project.external}>{project.title}</ExternalLink>
               </h3>
               {project.impact?.length ? (
                 <ul className="portfolio-work-impact">
@@ -65,9 +64,7 @@ export function FeaturedProjectsSection({ projects }: Props) {
                 ))}
               </ul>
               {project.slug && project.caseStudy ? (
-                <OutlineLink href={`/projects/${project.slug}`}>
-                  Read case study
-                </OutlineLink>
+                <OutlineLink href={`/projects/${project.slug}`}>Read case study</OutlineLink>
               ) : null}
             </div>
           </RevealItem>
@@ -85,5 +82,5 @@ export function FeaturedProjectsSection({ projects }: Props) {
         </p>
       ) : null}
     </RevealSection>
-  );
+  )
 }

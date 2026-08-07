@@ -1,54 +1,54 @@
-'use client';
+'use client'
 
-import { useEffect, useRef, useState } from 'react';
-import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
+import { useEffect, useRef, useState } from 'react'
+import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
 
 type RevealOptions = {
-  delayMs?: number;
-  threshold?: number;
-};
+  delayMs?: number
+  threshold?: number
+}
 
 export function useScrollReveal(options: RevealOptions = {}) {
-  const { delayMs = 0, threshold = 0.25 } = options;
-  const ref = useRef<HTMLElement | null>(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const [isRevealed, setIsRevealed] = useState(false);
+  const { delayMs = 0, threshold = 0.25 } = options
+  const ref = useRef<HTMLElement | null>(null)
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const [isRevealed, setIsRevealed] = useState(false)
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      const id = window.setTimeout(() => setIsRevealed(true), 0);
-      return () => window.clearTimeout(id);
+      const id = window.setTimeout(() => setIsRevealed(true), 0)
+      return () => window.clearTimeout(id)
     }
 
-    const node = ref.current;
+    const node = ref.current
     if (!node) {
-      return;
+      return
     }
 
-    let timeoutId: number | undefined;
+    let timeoutId: number | undefined
     const observer = new IntersectionObserver(
       (entries) => {
-        const [entry] = entries;
+        const [entry] = entries
         if (!entry?.isIntersecting) {
-          return;
+          return
         }
-        timeoutId = window.setTimeout(() => setIsRevealed(true), delayMs);
-        observer.disconnect();
+        timeoutId = window.setTimeout(() => setIsRevealed(true), delayMs)
+        observer.disconnect()
       },
       {
         threshold,
         rootMargin: '0px 0px -8% 0px',
-      }
-    );
+      },
+    )
 
-    observer.observe(node);
+    observer.observe(node)
     return () => {
-      observer.disconnect();
+      observer.disconnect()
       if (timeoutId) {
-        window.clearTimeout(timeoutId);
+        window.clearTimeout(timeoutId)
       }
-    };
-  }, [delayMs, prefersReducedMotion, threshold]);
+    }
+  }, [delayMs, prefersReducedMotion, threshold])
 
-  return { ref, isRevealed };
+  return { ref, isRevealed }
 }

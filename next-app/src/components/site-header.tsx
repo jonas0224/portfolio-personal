@@ -1,21 +1,21 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useEffect, useRef, useState } from 'react';
-import { LOADER_DELAY_MS } from '@/lib/timing';
-import { NAV_LINKS } from '@/lib/nav';
-import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
-import { useActiveNavHref } from '@/hooks/use-active-nav-href';
-import { MobileMenu } from '@/components/mobile-menu';
-import { LogoMark } from '@/components/logo-mark';
-import { ButtonLink } from '@/ui/button';
+import Link from 'next/link'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { useEffect, useRef, useState } from 'react'
+import { LOADER_DELAY_MS } from '@/lib/timing'
+import { NAV_LINKS } from '@/lib/nav'
+import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
+import { useActiveNavHref } from '@/hooks/use-active-nav-href'
+import { MobileMenu } from '@/components/mobile-menu'
+import { LogoMark } from '@/components/logo-mark'
+import { ButtonLink } from '@/ui/button'
 
 type SiteHeaderProps = {
-  isHome: boolean;
-};
+  isHome: boolean
+}
 
-type NavLinkItem = (typeof NAV_LINKS)[number];
+type NavLinkItem = (typeof NAV_LINKS)[number]
 
 function NavFadeLi({
   link,
@@ -24,19 +24,15 @@ function NavFadeLi({
   transitionClassNames,
   isActive,
 }: {
-  link: NavLinkItem;
-  delayMs: number;
-  timeout: number;
-  transitionClassNames: string;
-  isActive: boolean;
+  link: NavLinkItem
+  delayMs: number
+  timeout: number
+  transitionClassNames: string
+  isActive: boolean
 }) {
-  const nodeRef = useRef<HTMLLIElement>(null);
+  const nodeRef = useRef<HTMLLIElement>(null)
   return (
-    <CSSTransition
-      nodeRef={nodeRef}
-      classNames={transitionClassNames}
-      timeout={timeout}
-    >
+    <CSSTransition nodeRef={nodeRef} classNames={transitionClassNames} timeout={timeout}>
       <li ref={nodeRef} style={{ transitionDelay: `${delayMs}ms` }}>
         <Link
           href={link.href}
@@ -47,48 +43,47 @@ function NavFadeLi({
         </Link>
       </li>
     </CSSTransition>
-  );
+  )
 }
 
 export function SiteHeader({ isHome }: SiteHeaderProps) {
-  const [scrolledToTop, setScrolledToTop] = useState(true);
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const [isMounted, setIsMounted] = useState(false);
-  const activeHref = useActiveNavHref(isHome);
+  const [scrolledToTop, setScrolledToTop] = useState(true)
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const [isMounted, setIsMounted] = useState(false)
+  const activeHref = useActiveNavHref(isHome)
 
-  const logoNodeRef = useRef<HTMLDivElement>(null);
-  const resumeNodeRef = useRef<HTMLDivElement>(null);
-  const menuNodeRef = useRef<HTMLDivElement>(null);
+  const logoNodeRef = useRef<HTMLDivElement>(null)
+  const resumeNodeRef = useRef<HTMLDivElement>(null)
+  const menuNodeRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolledToTop(window.scrollY < 50);
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setScrolledToTop(window.scrollY < 50)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      const id = window.setTimeout(() => setIsMounted(true), 0);
-      return () => window.clearTimeout(id);
+      const id = window.setTimeout(() => setIsMounted(true), 0)
+      return () => window.clearTimeout(id)
     }
-    const timeoutId = window.setTimeout(() => setIsMounted(true), 100);
-    return () => window.clearTimeout(timeoutId);
-  }, [prefersReducedMotion]);
+    const timeoutId = window.setTimeout(() => setIsMounted(true), 100)
+    return () => window.clearTimeout(timeoutId)
+  }, [prefersReducedMotion])
 
-  const timeout = isHome ? LOADER_DELAY_MS : 0;
-  const fadeClass = isHome ? 'fade' : '';
-  const fadeDownClass = isHome ? 'fadedown' : '';
+  const timeout = isHome ? LOADER_DELAY_MS : 0
+  const fadeClass = isHome ? 'fade' : ''
+  const fadeDownClass = isHome ? 'fadedown' : ''
 
-  let motionAttr: 'none' | 'compact-up' = 'none';
+  let motionAttr: 'none' | 'compact-up' = 'none'
   if (!prefersReducedMotion && !scrolledToTop) {
-    motionAttr = 'compact-up';
+    motionAttr = 'compact-up'
   }
 
-  const headerMods =
-    !prefersReducedMotion && !scrolledToTop ? 'portfolio-nav--motion' : '';
+  const headerMods = !prefersReducedMotion && !scrolledToTop ? 'portfolio-nav--motion' : ''
 
   const logo = (
     <div className="portfolio-logo-wrap" tabIndex={-1}>
@@ -96,7 +91,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
         <LogoMark className="portfolio-logo-mark" />
       </Link>
     </div>
-  );
+  )
 
   const resume = (
     <ButtonLink
@@ -109,12 +104,12 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
     >
       Resume
     </ButtonLink>
-  );
+  )
 
   const linkList = (
     <ol>
       {NAV_LINKS.map((link) => {
-        const isActive = activeHref === link.href;
+        const isActive = activeHref === link.href
         return (
           <li key={link.href}>
             <Link
@@ -125,16 +120,13 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
               {link.name}
             </Link>
           </li>
-        );
+        )
       })}
     </ol>
-  );
+  )
 
   return (
-    <header
-      className={`portfolio-nav ${headerMods}`}
-      data-motion-state={motionAttr}
-    >
+    <header className={`portfolio-nav ${headerMods}`} data-motion-state={motionAttr}>
       <nav className="portfolio-nav-inner" aria-label="Primary">
         {prefersReducedMotion ? (
           <>
@@ -152,11 +144,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
             <div className="portfolio-nav-left">
               <TransitionGroup component={null}>
                 {isMounted && (
-                  <CSSTransition
-                    nodeRef={logoNodeRef}
-                    classNames={fadeClass}
-                    timeout={timeout}
-                  >
+                  <CSSTransition nodeRef={logoNodeRef} classNames={fadeClass} timeout={timeout}>
                     <div ref={logoNodeRef}>{logo}</div>
                   </CSSTransition>
                 )}
@@ -191,9 +179,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
                       <div
                         ref={resumeNodeRef}
                         style={{
-                          transitionDelay: `${
-                            isHome ? NAV_LINKS.length * 100 : 0
-                          }ms`,
+                          transitionDelay: `${isHome ? NAV_LINKS.length * 100 : 0}ms`,
                         }}
                       >
                         {resume}
@@ -205,11 +191,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
 
               <TransitionGroup component={null}>
                 {isMounted && (
-                  <CSSTransition
-                    nodeRef={menuNodeRef}
-                    classNames={fadeClass}
-                    timeout={timeout}
-                  >
+                  <CSSTransition nodeRef={menuNodeRef} classNames={fadeClass} timeout={timeout}>
                     <div ref={menuNodeRef}>
                       <MobileMenu />
                     </div>
@@ -221,5 +203,5 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
         )}
       </nav>
     </header>
-  );
+  )
 }

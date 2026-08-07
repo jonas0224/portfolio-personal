@@ -1,49 +1,49 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
-import { SOCIAL_LINKS } from '@/lib/site-contact';
-import type { SocialIconName } from '@/components/icons/social-icon';
-import { SocialIcon } from '@/components/icons/social-icon';
+import { useEffect, useState } from 'react'
+import { SOCIAL_LINKS } from '@/lib/site-contact'
+import type { SocialIconName } from '@/components/icons/social-icon'
+import { SocialIcon } from '@/components/icons/social-icon'
 
-const GITHUB_REPO = 'jonas0224/portfolio-personal';
+const GITHUB_REPO = 'jonas0224/portfolio-personal'
 
 function iconFor(name: string): SocialIconName {
   if (name === 'GitHub' || name === 'Instagram' || name === 'Linkedin') {
-    return name;
+    return name
   }
-  return 'GitHub';
+  return 'GitHub'
 }
 
 export function SiteFooter() {
   const [githubInfo, setGithubInfo] = useState<{
-    stars: number;
-    forks: number;
-  } | null>(null);
+    stars: number
+    forks: number
+  } | null>(null)
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
-      return;
+      return
     }
 
-    let cancelled = false;
+    let cancelled = false
     fetch(`https://api.github.com/repos/${GITHUB_REPO}`)
       .then((response) => response.json())
       .then((json: { stargazers_count?: number; forks_count?: number }) => {
-        if (cancelled) return;
-        const stars = json.stargazers_count;
-        const forks = json.forks_count;
+        if (cancelled) return
+        const stars = json.stargazers_count
+        const forks = json.forks_count
         if (typeof stars === 'number' && typeof forks === 'number') {
-          setGithubInfo({ stars, forks });
+          setGithubInfo({ stars, forks })
         }
       })
-      .catch(() => {});
+      .catch(() => {})
 
     return () => {
-      cancelled = true;
-    };
-  }, []);
+      cancelled = true
+    }
+  }, [])
 
-  const githubUrl = `https://github.com/${GITHUB_REPO}`;
+  const githubUrl = `https://github.com/${GITHUB_REPO}`
 
   return (
     <footer className="portfolio-footer">
@@ -80,5 +80,5 @@ export function SiteFooter() {
         </p>
       </div>
     </footer>
-  );
+  )
 }

@@ -25,8 +25,7 @@
   --blue: #38bdf8;
 
   --font-sans: var(--font-body), 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-display: var(--font-display), 'Plus Jakarta Sans', system-ui,
-    sans-serif;
+  --font-display: var(--font-display), 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', ui-monospace, monospace;
 
   --fz-xxs: 12px;
@@ -51,10 +50,9 @@
   --hamburger-width: 28px;
   --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
   --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
-  --ham-after: bottom 0.1s ease-in 0.25s,
-    transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  --ham-after-active: bottom 0.1s ease-out,
-    transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+  --ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ham-after-active:
+    bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 }
 
 .text-slate-100,
@@ -136,21 +134,10 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background: radial-gradient(
-        ellipse 75% 50% at 8% -5%,
-        rgba(34, 211, 238, 0.2),
-        transparent 55%
-      ),
-      radial-gradient(
-        ellipse 55% 45% at 88% 8%,
-        rgba(34, 211, 238, 0.1),
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse 40% 35% at 70% 40%,
-        rgba(56, 189, 248, 0.06),
-        transparent 55%
-      ),
+    background:
+      radial-gradient(ellipse 75% 50% at 8% -5%, rgba(34, 211, 238, 0.2), transparent 55%),
+      radial-gradient(ellipse 55% 45% at 88% 8%, rgba(34, 211, 238, 0.1), transparent 50%),
+      radial-gradient(ellipse 40% 35% at 70% 40%, rgba(56, 189, 248, 0.06), transparent 55%),
       linear-gradient(180deg, #09090b 0%, #0c0c0e 50%, #09090b 100%);
   }
 
@@ -161,17 +148,11 @@
     pointer-events: none;
     z-index: 0;
     opacity: 0.55;
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.04) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
-    mask-image: radial-gradient(
-      ellipse 80% 60% at 55% 18%,
-      #000 20%,
-      transparent 72%
-    );
+    mask-image: radial-gradient(ellipse 80% 60% at 55% 18%, #000 20%, transparent 72%);
   }
 
   body.portfolio-body-blur {
@@ -504,10 +485,9 @@ section[id] {
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid transparent;
-  background: linear-gradient(rgba(24, 24, 27, 0.92), rgba(24, 24, 27, 0.92))
-      padding-box,
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08))
-      border-box;
+  background:
+    linear-gradient(rgba(24, 24, 27, 0.92), rgba(24, 24, 27, 0.92)) padding-box,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)) border-box;
 }
 
 /* One chip at a time: highlight travels left → right, then moves to the next chip. */
@@ -533,8 +513,12 @@ section[id] {
   background-size: 280% 100%;
   background-position: 100% 0;
   background-repeat: no-repeat;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: proof-border-pass 10s linear infinite;
@@ -612,11 +596,7 @@ section[id] {
   position: absolute;
   inset: 8% -6% -8% 8%;
   border-radius: 40%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(34, 211, 238, 0.22),
-    transparent 65%
-  );
+  background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.22), transparent 65%);
   filter: blur(28px);
   pointer-events: none;
   z-index: 0;
@@ -629,18 +609,22 @@ section[id] {
   border-radius: 14px;
   border: 1px solid rgba(34, 211, 238, 0.2);
   background: linear-gradient(165deg, #18181b 0%, #111113 100%);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
     0 28px 56px -28px rgba(0, 0, 0, 0.7),
     0 0 80px -48px rgba(34, 211, 238, 0.35);
   overflow: hidden;
   transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
-  transition: transform 0.6s var(--easing), box-shadow 0.6s var(--easing);
+  transition:
+    transform 0.6s var(--easing),
+    box-shadow 0.6s var(--easing);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-visual-frame:hover {
     transform: perspective(1200px) rotateY(-1deg) rotateX(0deg) translateY(-4px);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
       0 36px 64px -24px rgba(0, 0, 0, 0.75),
       0 0 90px -40px rgba(34, 211, 238, 0.45);
   }
@@ -690,7 +674,9 @@ section[id] {
   border-radius: 6px;
   padding: 5px 9px;
   cursor: pointer;
-  transition: color 0.25s var(--easing), border-color 0.25s var(--easing),
+  transition:
+    color 0.25s var(--easing),
+    border-color 0.25s var(--easing),
     background-color 0.25s var(--easing);
 }
 
@@ -843,7 +829,9 @@ section[id] {
   background: rgba(255, 255, 255, 0.03);
   color: inherit;
   cursor: pointer;
-  transition: border-color 0.25s var(--easing), transform 0.25s var(--easing);
+  transition:
+    border-color 0.25s var(--easing),
+    transform 0.25s var(--easing);
 }
 
 .hp-pos-card.is-active,
@@ -1000,12 +988,8 @@ section[id] {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(
-      circle at 50% 20%,
-      rgba(34, 211, 238, 0.12),
-      transparent 45%
-    ),
-    #07080c;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(34, 211, 238, 0.12), transparent 45%), #07080c;
 }
 
 .hp-fc-logo {
@@ -1031,7 +1015,9 @@ section[id] {
   border: 1px solid rgba(255, 255, 255, 0.08);
   font-weight: 600;
   letter-spacing: 0.04em;
-  transition: background 0.35s var(--easing), color 0.35s var(--easing);
+  transition:
+    background 0.35s var(--easing),
+    color 0.35s var(--easing);
 }
 
 .hp-fc-stage.is-peek {
@@ -1292,11 +1278,7 @@ section[id] {
 .hero-visual-card-img {
   height: 48px;
   border-radius: 6px;
-  background: linear-gradient(
-    135deg,
-    rgba(34, 211, 238, 0.25),
-    rgba(56, 189, 248, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(56, 189, 248, 0.1));
 }
 
 .hero-visual-card-line {
@@ -1453,8 +1435,11 @@ section[id] {
   font-size: var(--fz-xs);
   color: var(--light-slate);
   cursor: default;
-  transition: transform 0.35s var(--easing), border-color 0.35s var(--easing),
-    box-shadow 0.35s var(--easing), background-color 0.35s var(--easing),
+  transition:
+    transform 0.35s var(--easing),
+    border-color 0.35s var(--easing),
+    box-shadow 0.35s var(--easing),
+    background-color 0.35s var(--easing),
     color 0.35s var(--easing);
 }
 
@@ -1463,7 +1448,8 @@ section[id] {
   color: var(--copper-bright);
   border-color: rgba(34, 211, 238, 0.55);
   background: var(--copper-tint);
-  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2),
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.2),
     0 10px 22px -14px rgba(34, 211, 238, 0.55);
   transform: translateY(-2px);
   outline: none;
@@ -1489,9 +1475,12 @@ section[id] {
   border-radius: 16px;
   overflow: hidden;
   background: linear-gradient(160deg, #27272a, #18181b 55%, #111113);
-  box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.55),
+  box-shadow:
+    0 24px 48px -28px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.08);
-  transition: transform 0.55s var(--easing), box-shadow 0.55s var(--easing);
+  transition:
+    transform 0.55s var(--easing),
+    box-shadow 0.55s var(--easing);
 }
 
 .portfolio-about-photo .portfolio-about-photo-frame::before {
@@ -1517,7 +1506,8 @@ section[id] {
 .portfolio-about-photo .portfolio-about-photo-frame:hover,
 .portfolio-about-photo .portfolio-about-photo-frame:focus-within {
   transform: translateY(-6px);
-  box-shadow: 0 32px 56px -26px rgba(34, 211, 238, 0.28),
+  box-shadow:
+    0 32px 56px -26px rgba(34, 211, 238, 0.28),
     0 0 0 1px rgba(34, 211, 238, 0.18);
 }
 
@@ -1538,12 +1528,8 @@ section[id] {
 
 .portfolio-about-photo .portfolio-about-photo-frame:hover img,
 .portfolio-about-photo .portfolio-about-photo-frame:focus-within img,
-.portfolio-about-photo
-  .portfolio-about-photo-frame:hover
-  .portfolio-about-photo-img,
-.portfolio-about-photo
-  .portfolio-about-photo-frame:focus-within
-  .portfolio-about-photo-img {
+.portfolio-about-photo .portfolio-about-photo-frame:hover .portfolio-about-photo-img,
+.portfolio-about-photo .portfolio-about-photo-frame:focus-within .portfolio-about-photo-img {
   transform: scale(1.06);
 }
 
@@ -1586,9 +1572,10 @@ section[id] {
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(145deg, rgba(34, 211, 238, 0.1), transparent 55%),
-    #111113;
-  transition: transform 0.55s var(--easing), border-color 0.55s var(--easing),
+  background: linear-gradient(145deg, rgba(34, 211, 238, 0.1), transparent 55%), #111113;
+  transition:
+    transform 0.55s var(--easing),
+    border-color 0.55s var(--easing),
     box-shadow 0.55s var(--easing);
   box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.55);
 }
@@ -1608,16 +1595,9 @@ section[id] {
   flex-direction: column;
   justify-content: flex-end;
   padding: 20px;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(34, 211, 238, 0.16),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 80% 60%,
-      rgba(14, 165, 233, 0.12),
-      transparent 40%
-    ),
+  background:
+    radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.16), transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(14, 165, 233, 0.12), transparent 40%),
     linear-gradient(180deg, #18181b 30%, #111113 100%);
 }
 
@@ -1735,8 +1715,11 @@ section[id] {
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: var(--fz-xs);
-  transition: color 0.3s var(--easing), border-color 0.3s var(--easing),
-    background-color 0.3s var(--easing), transform 0.3s var(--easing);
+  transition:
+    color 0.3s var(--easing),
+    border-color 0.3s var(--easing),
+    background-color 0.3s var(--easing),
+    transform 0.3s var(--easing);
 }
 
 .portfolio-contact-social a:hover,
@@ -1846,7 +1829,9 @@ section[id] {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  transition: color 0.35s var(--easing), transform 0.35s var(--easing);
+  transition:
+    color 0.35s var(--easing),
+    transform 0.35s var(--easing);
 }
 
 .portfolio-logo-wrap a:focus-visible {
@@ -2194,7 +2179,9 @@ section[id] {
 .fadedown-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.4s var(--easing), transform 0.4s var(--easing);
+  transition:
+    opacity 0.4s var(--easing),
+    transform 0.4s var(--easing);
 }
 
 .fadeup-enter {
@@ -2204,7 +2191,9 @@ section[id] {
 .fadeup-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.5s var(--easing), transform 0.5s var(--easing);
+  transition:
+    opacity 0.5s var(--easing),
+    transform 0.5s var(--easing);
 }
 
 .reveal-hidden {
@@ -2215,14 +2204,18 @@ section[id] {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.6s var(--easing), transform 0.6s var(--easing);
+  transition:
+    opacity 0.6s var(--easing),
+    transform 0.6s var(--easing);
 }
 
 /* Scroll reveal (wired to RevealSection / RevealItem) */
 .sr-reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.65s var(--easing), transform 0.65s var(--easing);
+  transition:
+    opacity 0.65s var(--easing),
+    transform 0.65s var(--easing);
   will-change: opacity, transform;
 }
 
@@ -2260,8 +2253,6 @@ section[id] {
 }
 
 /* Tilt cards */
-
-
 
 .portfolio-work-media-wrap {
   width: 100%;
@@ -2357,7 +2348,9 @@ section[id] {
   background: var(--copper);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s var(--easing), opacity 0.3s var(--easing);
+  transition:
+    transform 0.3s var(--easing),
+    opacity 0.3s var(--easing);
   opacity: 0.85;
 }
 
@@ -2392,7 +2385,9 @@ section[id] {
   background: #18181b;
   overflow: hidden;
   box-shadow: 0 14px 28px -22px rgba(15, 23, 42, 0.2);
-  transition: transform 0.45s var(--easing), border-color 0.45s var(--easing),
+  transition:
+    transform 0.45s var(--easing),
+    border-color 0.45s var(--easing),
     box-shadow 0.45s var(--easing);
 }
 
@@ -2499,7 +2494,6 @@ section[id] {
   .hero-enter,
   .craft-lab-card,
   .writing-topic-card,
-
   .scroll-progress {
     display: none;
   }
@@ -2638,8 +2632,11 @@ section[id] {
   font-size: var(--fz-xxs);
   color: var(--light-slate);
   cursor: default;
-  transition: transform 0.3s var(--easing), border-color 0.3s var(--easing),
-    box-shadow 0.3s var(--easing), background-color 0.3s var(--easing),
+  transition:
+    transform 0.3s var(--easing),
+    border-color 0.3s var(--easing),
+    box-shadow 0.3s var(--easing),
+    background-color 0.3s var(--easing),
     color 0.3s var(--easing);
 }
 
@@ -2648,7 +2645,8 @@ section[id] {
   color: var(--copper-bright);
   border-color: rgba(34, 211, 238, 0.55);
   background: var(--copper-tint);
-  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2),
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.2),
     0 10px 22px -14px rgba(34, 211, 238, 0.55);
   transform: translateY(-2px);
   outline: none;
@@ -2677,7 +2675,9 @@ section[id] {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: var(--light-navy);
   overflow: hidden;
-  transition: transform 0.4s var(--easing), border-color 0.4s var(--easing),
+  transition:
+    transform 0.4s var(--easing),
+    border-color 0.4s var(--easing),
     box-shadow 0.4s var(--easing);
 }
 
@@ -2738,6 +2738,7 @@ section[id] {
 .gp-ds,
 .gp-fc,
 .gp-ops,
+.gp-triage,
 .gp-cms,
 .gp-fallback {
   height: 100%;
@@ -2882,12 +2883,8 @@ section[id] {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(
-      circle at 50% 18%,
-      rgba(34, 211, 238, 0.12),
-      transparent 42%
-    ),
-    #07080c;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(34, 211, 238, 0.12), transparent 42%), #07080c;
 }
 
 .gp-fc-logo {
@@ -2983,6 +2980,73 @@ section[id] {
   font-family: var(--font-mono);
   font-size: 9px;
   color: var(--slate);
+}
+
+.gp-triage {
+  background: #0a1014;
+}
+
+.gp-triage-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--lightest-slate);
+}
+
+.gp-triage-pill {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(45, 212, 191, 0.16);
+  color: #5eead4;
+}
+
+.gp-triage-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.gp-triage-card strong {
+  font-size: 12px;
+  color: var(--lightest-slate);
+}
+
+.gp-triage-card em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #fbbf24;
+}
+
+.gp-triage-conf {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #5eead4;
+}
+
+.gp-triage-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--slate);
+}
+
+.gp-triage-cta {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #2dd4bf;
+  color: #041016;
+  font-weight: 600;
 }
 
 .gp-cms {

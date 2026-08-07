@@ -1,14 +1,14 @@
-export type PreviewId = 'pos' | 'design' | 'flashcut' | 'ops';
+export type PreviewId = 'pos' | 'design' | 'flashcut' | 'ops'
 
 export type PreviewMeta = {
-  id: PreviewId;
-  label: string;
-  title: string;
-  href: string;
-  hrefLabel: string;
-  stack: string;
-  slug: string;
-};
+  id: PreviewId
+  label: string
+  title: string
+  href: string
+  hrefLabel: string
+  stack: string
+  slug: string
+}
 
 export const PRODUCT_PREVIEWS: PreviewMeta[] = [
   {
@@ -47,37 +47,36 @@ export const PRODUCT_PREVIEWS: PreviewMeta[] = [
     hrefLabel: 'Case study',
     stack: 'WebSockets · Next.js · Redis',
   },
-];
+]
 
 export const POS_PREVIEW_ITEMS = [
   { name: 'Linen Shirt', sku: 'LN-204', price: '₱1,290', stock: 12 },
   { name: 'Denim Jacket', sku: 'DJ-088', price: '₱2,450', stock: 4 },
   { name: 'Canvas Tote', sku: 'CT-015', price: '₱680', stock: 28 },
-] as const;
+] as const
 
 export const OPS_PREVIEW_SERVICES = [
   { name: 'Checkout API', status: 'healthy' as const, latency: '42ms' },
   { name: 'Inventory sync', status: 'healthy' as const, latency: '88ms' },
   { name: 'Payments', status: 'degraded' as const, latency: '310ms' },
   { name: 'Notifier', status: 'healthy' as const, latency: '51ms' },
-];
+]
 
-export function previewLabelForSlug(
-  slug: string | undefined,
-  fallback: string
-) {
+export function previewLabelForSlug(slug: string | undefined, fallback: string) {
   switch (slug) {
     case 'pos-inventory-system':
-      return 'Archive Room · POS';
+      return 'Archive Room · POS'
     case 'frontend-design-system':
-      return 'Design system · playground';
+      return 'Design system · playground'
     case 'flashcut':
-      return 'FLASHCUT · lobby';
+      return 'FLASHCUT · lobby'
     case 'realtime-operations-dashboard':
-      return 'Ops board · live';
+      return 'Ops board · live'
+    case 'ai-incident-triage':
+      return 'Incident triage · AI assist'
     case 'portfolio-content-management':
-      return 'Portfolio CMS · publish';
+      return 'Portfolio CMS · publish'
     default:
-      return fallback;
+      return fallback
   }
 }

@@ -4,13 +4,15 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 
 ## Current status snapshot
 
-| Track           | Status                                                                                        |
-| --------------- | --------------------------------------------------------------------------------------------- |
-| **Shipped**     | Portfolio CMS + Publishing Workflow                                                           |
-| **Shipped**     | Frontend Design System Migration (library + `portfolio-personal` adoption)                    |
-| **In progress** | POS & Inventory System — MVP done; pilot deploy via `pos-inventory-system/docs/operations.md` |
-| **Parked**      | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`                    |
-| **Planned**     | 4 showcase projects + 2 future apps (see lists below)                                         |
+| Track       | Status                                                                              |
+| ----------- | ----------------------------------------------------------------------------------- |
+| **Shipped** | Portfolio CMS + Publishing Workflow                                                 |
+| **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption)          |
+| **Shipped** | Realtime Operations Dashboard                                                       |
+| **Shipped** | AI-Assisted Incident Triage UI — GitHub `ai-incident-triage` + portfolio case study |
+| **Live**    | POS & Inventory (Archive Room) — deployed; continuous development and support       |
+| **Parked**  | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`          |
+| **Planned** | 2 remaining showcase projects + 2 future apps (see lists below)                     |
 
 ---
 
@@ -20,24 +22,20 @@ These are real tools you maintain alongside showcase repos. They share the works
 
 ### POS & Inventory System
 
-**Status:** MVP complete; **pilot deploy** (Neon + Vercel) per release plan  
-**Repo:** `pos-inventory-system` (sibling folder under `personal/`)  
+**Status:** **Live** — deployed (Neon + Vercel); continuous development and support  
+**Repo:** `pos-inventory-system` (sibling folder under `personal/`) · live: [archive-room.vercel.app](https://archive-room.vercel.app/login)  
 **Role:** Web POS + inventory + reports + consignee portal for a consigned clothing business
 
 **Done (high level):**
 
 - Admin, cashier, and consignee roles; POS checkout; inventory CRUD; CSV/PDF reports
-- shadcn/ui migration; Next.js 16 + Prisma 7; API smoke tests (2026-05-07)
-- Security basics: headers, login rate limiting, `/api/health`
+- Multi-tenant shops, uploads (Blob), offline PWA, contract schedule, platform footer/trust UX
+- shadcn/ui; Next.js 16 + Prisma 7; CI + smoke tests
 
-**Current focus (deploy-time):**
+**Ongoing:**
 
-- Staging/production env (`JWT_SECRET`, `DATABASE_URL`, HTTPS)
-- `npx prisma migrate deploy` + backup
-- `npm run smoke` after deploy
-- See `pos-inventory-system/docs/operations.md`
-
-**Recently added in repo:** Multi-tenant shops, PIN lock, tablet POS, CI, smoke script
+- Shop onboard / tablet QA, feature requests from operators, release hardening
+- See `pos-inventory-system/docs/operations.md` and `docs/roadmap.md`
 
 **Docs:** `pos-inventory-system/docs/operations.md` (deploy), `docs/roadmap.md` (features), `docs/security.md` (auth)
 
@@ -46,15 +44,15 @@ These are real tools you maintain alongside showcase repos. They share the works
 ## Priority order (portfolio showcase projects)
 
 1. **Realtime Operations Dashboard** — **shipped** (see `realtime-operations-dashboard/`)
-2. **AI-Assisted Incident Triage UI**
+2. **AI-Assisted Incident Triage UI** — **shipped** (see `ai-incident-triage/` · case study `/projects/ai-incident-triage`)
 3. **Developer Productivity Portal**
 4. **Mobile Delivery Companion**
 
 _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-reference)).
 
-Rationale: design system is done; next project adds realtime full-stack depth for interviews.
+Rationale: triage showcase is done (GitHub + portfolio case study); next showcase is Developer Productivity Portal.
 
-**Note:** POS uses its own UI stack (shadcn/ui) and is tracked separately above.
+**Note:** Archive Room (POS) is a **live product** under continuous development — tracked separately above, not as a parked project.
 
 ---
 
@@ -164,24 +162,31 @@ Strong full-stack signal (realtime + reliability + UX), very demo-friendly for i
 
 ## 2) AI-Assisted Incident Triage UI
 
+**Status:** Shipped (portfolio showcase)  
+**Repo:** [`jonas0224/ai-incident-triage`](https://github.com/jonas0224/ai-incident-triage)  
+**Case study:** `/projects/ai-incident-triage` on the portfolio site
+
 **Description**  
-Interface for classifying incidents, suggesting runbooks, and routing ownership based on historical patterns.
+Interface for classifying incidents, suggesting runbooks, and routing ownership with human override and auditability.
 
-**Why third**  
-Adds AI product relevance while building on stronger frontend/system foundations.
+**Why it mattered**  
+Adds AI product relevance on top of the realtime ops foundation — suggestions inside a workflow, not a chat toy.
 
-**Suggested MVP**
+**Shipped MVP**
 
-- Incident intake form
-- Suggested severity/category from AI
-- Runbook recommendation panel
-- Human override + audit trail in UI
+- Incident intake form + queue
+- Gemini structured suggestions (free API) with keyword rule fallback
+- Runbook recommendation panel from seeded catalog
+- Human override + audit trail (`CREATED` / `SUGGESTED` / `OVERRIDDEN` / `ACCEPTED`)
+- Key safeguards: rate limits, daily budget, per-incident cap, production fail-closed `GEMINI_ENABLED`
 
 **Success criteria**
 
 - AI suggestions integrated into workflow, not standalone toy output
 - Clear fallback behavior when model/API fails
 - Case study explains safety and confidence handling
+
+**Optional later:** Vercel Hobby live demo URL
 
 ---
 

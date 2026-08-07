@@ -1,10 +1,10 @@
-import type { ReactNode } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import type { ReactNode } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card'
 
 type Props = {
-  title: string;
-  children: ReactNode;
-};
+  title: string
+  children: ReactNode
+}
 
 export function CaseStudySection({ title, children }: Props) {
   return (
@@ -14,9 +14,7 @@ export function CaseStudySection({ title, children }: Props) {
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-0 text-[var(--light-slate)]">
-        {children}
-      </CardContent>
+      <CardContent className="p-0 text-[var(--light-slate)]">{children}</CardContent>
     </Card>
-  );
+  )
 }
