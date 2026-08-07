@@ -56,7 +56,7 @@
   {
     "slug": "developer-productivity-portal",
     "title": "Developer Productivity Portal",
-    "description": "Demo ship desk that centralizes CI status, release notes, and service health — with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
+    "description": "Ship desk that centralizes CI status, release notes, and service health — with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
     "status": "Built",
     "impact": ["Less context switching", "Actionable release workflow"],

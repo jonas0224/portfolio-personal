@@ -152,15 +152,15 @@
   {
     "slug": "developer-productivity-portal",
     "title": "Developer Productivity Portal",
-    "description": "Internal ship-desk demo: CI rollups, release notes, and service health with acknowledge/publish actions — fixture data plus optional GitHub Actions and Releases sync.",
+    "description": "Internal ship desk: CI rollups, release notes, and service health with acknowledge/publish actions — fixture data plus optional GitHub Actions and Releases sync.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
     "status": "Built",
     "impact": ["Two data sources end-to-end", "Actionable, not dashboard-only"],
     "caseStudy": {
       "role": "Full-stack owner for a platform-engineering portal: CI insights, release workflow, and service health with clear data-source boundaries.",
-      "challenge": "Developer dashboards often stop at read-only status tiles. Interview demos need an actionable workflow and honest auth/data-boundary documentation without paid integrations.",
+      "challenge": "Developer dashboards often stop at read-only status tiles. Teams need an actionable workflow and clear auth/data-boundary documentation without paid integrations.",
       "approach": [
-        "Shipped a Harbor Commerce fixture seed so the demo works offline.",
+        "Shipped a Harbor Commerce fixture seed so the portal works without external credentials.",
         "Unified CI runs and release notes in shared tables with fixture + optional GitHub adapters.",
         "Made acknowledge failing checks, acknowledge degradation, and draft/publish release notes first-class actions with an activity trail."
       ],
@@ -170,11 +170,11 @@
         "Server-only GitHub token; Zod-validated Actions/Releases payloads upserted by external id."
       ],
       "quality": [
-        "Demo path documented: ack CI → draft/publish release → activity feed.",
+        "Walkthrough documented: ack CI → draft/publish release → activity feed.",
         "ARCHITECTURE.md covers adapters, tradeoffs, and v1 auth boundaries (no login).",
         "Sync fails closed to fixture-only when token or repo list is missing."
       ],
-      "outcome": "A portfolio-ready ship desk that proves platform signal with two data sources and operator actions — demo-only, not a multi-tenant product."
+      "outcome": "A ship desk with two data sources and operator actions — CI, releases, and health in one workflow instead of a read-only dashboard."
     },
     "github": "https://github.com/jonas0224/developer-productivity-portal",
     "external": "https://github.com/jonas0224/developer-productivity-portal"
