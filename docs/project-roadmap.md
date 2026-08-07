@@ -11,6 +11,7 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 | **Shipped** | Realtime Operations Dashboard                                                       |
 | **Shipped** | AI-Assisted Incident Triage UI — GitHub `ai-incident-triage` + portfolio case study |
 | **Live**    | POS & Inventory (Archive Room) — deployed; continuous development and support       |
+| **Planned** | Dental Management System — production clinic product (see Active products)          |
 | **Parked**  | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`          |
 | **Shipped** | Developer Productivity Portal — GitHub `developer-productivity-portal` + portfolio case study |
 | **Shipped** | Mobile Delivery Companion — GitHub `mobile-delivery-companion` (DropRoute) + portfolio case study |
@@ -37,9 +38,46 @@ These are real tools you maintain alongside showcase repos. They share the works
 **Ongoing:**
 
 - Shop onboard / tablet QA, feature requests from operators, release hardening
-- See `pos-inventory-system/docs/operations.md` and `docs/roadmap.md`
+- **Growth / SaaS:** close pilot trust → daily-loop delight → consignee magnet → retention → sell to shop #2+ — see `pos-inventory-system/docs/growth-roadmap.md`
+- Status at a glance: `pos-inventory-system/docs/roadmap.md`
 
-**Docs:** `pos-inventory-system/docs/operations.md` (deploy), `docs/roadmap.md` (features), `docs/security.md` (auth)
+**Docs:** `pos-inventory-system/docs/operations.md` (deploy), `docs/roadmap.md` (status), `docs/growth-roadmap.md` (adoption & SaaS), `docs/security.md` (auth)
+
+---
+
+### Dental Management System
+
+**Status:** **Planned** — production product for a real dental clinic (not a portfolio demo)  
+**Repo:** TBD (`dental-management-system` sibling folder under `personal/` when started)  
+**Role:** End-to-end clinic operations for front desk, dentists, and owner — patients, scheduling, clinical charting, billing, and day close
+
+**Product bar:** Production-ready and complete enough for daily clinic use — auth, backups, deploy, auditability, and operator docs — same seriousness as Archive Room (POS), not a thin showcase MVP.
+
+**Target capabilities (v1 go-live)**
+
+- **Access & roles** — owner/admin, dentist, front desk (least-privilege); secure login; session hardening
+- **Patients** — registry, contact, medical/dental notes, allergies, attachments (x-rays/consent) with private storage
+- **Appointments** — calendar by chair/provider; book, reschedule, cancel, no-show, completed; SMS/email reminders if clinic wants them later
+- **Clinical** — per-visit treatment chart (procedures, tooth notation, clinical notes); history timeline per patient
+- **Billing** — fee schedule, invoices, partial payments, balances; cash / GCash / card recording; day sheet and receivables
+- **Inventory (light)** — consumables stock optional in v1.1 if clinic needs it
+- **Reporting** — daily collections, appointments completed, outstanding balances; CSV/PDF export
+- **Ops** — Neon + Vercel (or equivalent) deploy, migrations, backups, smoke tests/CI, `operations.md` + `security.md`
+
+**Success criteria (clinic go-live)**
+
+- Front desk runs a full day without paper appointment books
+- Dentist opens a patient and sees chart + prior visits without asking the desk
+- Owner can reconcile daily collections and receivables from the app
+- Auth, data privacy, and restore path documented and tested before real patient data
+
+**Out of scope for first clinic**
+
+- Multi-clinic franchise / marketplace
+- Full Philippine e-claims / HMO clearinghouse (unless clinic requires a specific integration)
+- Patient self-service mobile app (portal can be phase 2)
+
+**Next:** staff discovery with the clinic (roles, fee schedule, chair count), then scaffold repo and delivery plan.
 
 ---
 
@@ -52,9 +90,9 @@ These are real tools you maintain alongside showcase repos. They share the works
 
 _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-reference)).
 
-Rationale: showcase track complete for planned portfolio projects; future apps and live POS support remain separate.
+Rationale: showcase track complete for planned portfolio projects; live POS support, Dental Management (production clinic product), and future personal tools remain separate.
 
-**Note:** Archive Room (POS) is a **live product** under continuous development — tracked separately above, not as a parked project.
+**Note:** Archive Room (POS) is a **live product** under continuous development — tracked separately above, not as a parked project. Dental Management is the next **production product** bet (clinic use), not a portfolio demo.
 
 ---
 

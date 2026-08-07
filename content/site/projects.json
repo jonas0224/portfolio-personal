@@ -54,6 +54,15 @@
     "external": "https://jonasyambao.com"
   },
   {
+    "title": "Dental Management System",
+    "description": "Production clinic product (planned): end-to-end dental practice ops — role-aware access, patients, appointments, clinical charting, billing/day sheet, and deploy/ops hardening for real clinic use.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "NextAuth"],
+    "status": "Roadmap",
+    "impact": ["Daily clinic operations", "Production-ready clinic software"],
+    "github": null,
+    "external": "https://jonasyambao.com"
+  },
+  {
     "slug": "developer-productivity-portal",
     "title": "Developer Productivity Portal",
     "description": "Ship desk that centralizes CI status, release notes, and service health — with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
