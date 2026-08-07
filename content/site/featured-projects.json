@@ -150,6 +150,36 @@
     "external": "https://github.com/jonas0224/ai-incident-triage"
   },
   {
+    "slug": "developer-productivity-portal",
+    "title": "Developer Productivity Portal",
+    "description": "Internal ship-desk demo: CI rollups, release notes, and service health with acknowledge/publish actions — fixture data plus optional GitHub Actions and Releases sync.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
+    "status": "Built",
+    "impact": ["Two data sources end-to-end", "Actionable, not dashboard-only"],
+    "caseStudy": {
+      "role": "Full-stack owner for a platform-engineering portal: CI insights, release workflow, and service health with clear data-source boundaries.",
+      "challenge": "Developer dashboards often stop at read-only status tiles. Interview demos need an actionable workflow and honest auth/data-boundary documentation without paid integrations.",
+      "approach": [
+        "Shipped a Harbor Commerce fixture seed so the demo works offline.",
+        "Unified CI runs and release notes in shared tables with fixture + optional GitHub adapters.",
+        "Made acknowledge failing checks, acknowledge degradation, and draft/publish release notes first-class actions with an activity trail."
+      ],
+      "architecture": [
+        "Next.js App Router pages (RSC) with mutation APIs for acknowledge, publish, and sync.",
+        "PostgreSQL + Prisma for services, CI runs, releases, quick links, and activity events.",
+        "Server-only GitHub token; Zod-validated Actions/Releases payloads upserted by external id."
+      ],
+      "quality": [
+        "Demo path documented: ack CI → draft/publish release → activity feed.",
+        "ARCHITECTURE.md covers adapters, tradeoffs, and v1 auth boundaries (no login).",
+        "Sync fails closed to fixture-only when token or repo list is missing."
+      ],
+      "outcome": "A portfolio-ready ship desk that proves platform signal with two data sources and operator actions — demo-only, not a multi-tenant product."
+    },
+    "github": "https://github.com/jonas0224/developer-productivity-portal",
+    "external": "https://github.com/jonas0224/developer-productivity-portal"
+  },
+  {
     "slug": "portfolio-content-management",
     "title": "Portfolio CMS + Publishing Workflow",
     "description": "Next.js CMS for portfolio content in PostgreSQL — draft preview, role-aware admin, and GitHub PR publishing so content updates stay auditable and reviewable.",

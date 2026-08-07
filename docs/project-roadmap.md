@@ -12,7 +12,8 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 | **Shipped** | AI-Assisted Incident Triage UI — GitHub `ai-incident-triage` + portfolio case study |
 | **Live**    | POS & Inventory (Archive Room) — deployed; continuous development and support       |
 | **Parked**  | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`          |
-| **Planned** | 2 remaining showcase projects + 2 future apps (see lists below)                     |
+| **Shipped** | Developer Productivity Portal — GitHub `developer-productivity-portal` + portfolio case study |
+| **Planned** | 1 remaining showcase project + 2 future apps (see lists below)                      |
 
 ---
 
@@ -45,12 +46,12 @@ These are real tools you maintain alongside showcase repos. They share the works
 
 1. **Realtime Operations Dashboard** — **shipped** (see `realtime-operations-dashboard/`)
 2. **AI-Assisted Incident Triage UI** — **shipped** (see `ai-incident-triage/` · case study `/projects/ai-incident-triage`)
-3. **Developer Productivity Portal**
+3. **Developer Productivity Portal** — **shipped** (see `developer-productivity-portal/` · case study `/projects/developer-productivity-portal`)
 4. **Mobile Delivery Companion**
 
 _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-reference)).
 
-Rationale: triage showcase is done (GitHub + portfolio case study); next showcase is Developer Productivity Portal.
+Rationale: portal showcase is done (GitHub + portfolio case study); next showcase is Mobile Delivery Companion.
 
 **Note:** Archive Room (POS) is a **live product** under continuous development — tracked separately above, not as a parked project.
 
@@ -192,24 +193,31 @@ Adds AI product relevance on top of the realtime ops foundation — suggestions 
 
 ## 3) Developer Productivity Portal
 
+**Status:** Shipped (portfolio showcase)  
+**Repo:** [`jonas0224/developer-productivity-portal`](https://github.com/jonas0224/developer-productivity-portal)  
+**Case study:** `/projects/developer-productivity-portal` on the portfolio site
+
 **Description**  
 Centralize CI insights, release notes, and service health into one internal portal.
 
-**Why fourth**  
-Great platform-engineering signal, but higher integration overhead than earlier projects.
+**Why it mattered**  
+Platform-engineering signal after realtime + AI triage — two data sources, actionable acknowledge/publish workflows, documented auth/data boundaries.
 
-**Suggested MVP**
+**Shipped MVP**
 
-- CI status summary cards
-- Release notes feed
-- Service health panel
-- Quick links/actions for common dev tasks
+- CI status summary cards + acknowledge failing runs
+- Release notes feed with draft / publish actions
+- Service health panel + degradation acknowledgement
+- Quick links + activity feed
+- Fixture Harbor Commerce seed + optional GitHub Actions/Releases sync
 
 **Success criteria**
 
 - At least two data sources integrated end-to-end
 - Actionable workflow (not dashboard-only)
 - Documentation of auth/data boundaries
+
+**Optional later:** Vercel Hobby live demo URL
 
 ---
 

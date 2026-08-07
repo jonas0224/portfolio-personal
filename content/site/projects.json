@@ -54,13 +54,14 @@
     "external": "https://jonasyambao.com"
   },
   {
+    "slug": "developer-productivity-portal",
     "title": "Developer Productivity Portal",
-    "description": "Roadmap: centralize CI health, release notes, and service status into a single developer portal to reduce context switching and improve release confidence.",
-    "tech": ["Next.js", "Node.js", "GraphQL", "Docker"],
-    "status": "Roadmap",
-    "impact": ["Less context switching", "Higher release confidence"],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "description": "Demo ship desk that centralizes CI status, release notes, and service health — with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
+    "status": "Built",
+    "impact": ["Less context switching", "Actionable release workflow"],
+    "github": "https://github.com/jonas0224/developer-productivity-portal",
+    "external": "https://github.com/jonas0224/developer-productivity-portal"
   },
   {
     "title": "Mobile Delivery Companion",

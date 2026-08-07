@@ -74,6 +74,8 @@ export function previewLabelForSlug(slug: string | undefined, fallback: string) 
       return 'Ops board · live'
     case 'ai-incident-triage':
       return 'Incident triage · AI assist'
+    case 'developer-productivity-portal':
+      return 'Dev portal · ship desk'
     case 'portfolio-content-management':
       return 'Portfolio CMS · publish'
     default:
