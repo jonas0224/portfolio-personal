@@ -13,7 +13,8 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 | **Live**    | POS & Inventory (Archive Room) — deployed; continuous development and support       |
 | **Parked**  | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`          |
 | **Shipped** | Developer Productivity Portal — GitHub `developer-productivity-portal` + portfolio case study |
-| **Planned** | 1 remaining showcase project + 2 future apps (see lists below)                      |
+| **Shipped** | Mobile Delivery Companion — GitHub `mobile-delivery-companion` (DropRoute) + portfolio case study |
+| **Planned** | 2 future apps (see lists below)                      |
 
 ---
 
@@ -47,11 +48,11 @@ These are real tools you maintain alongside showcase repos. They share the works
 1. **Realtime Operations Dashboard** — **shipped** (see `realtime-operations-dashboard/`)
 2. **AI-Assisted Incident Triage UI** — **shipped** (see `ai-incident-triage/` · case study `/projects/ai-incident-triage`)
 3. **Developer Productivity Portal** — **shipped** (see `developer-productivity-portal/` · case study `/projects/developer-productivity-portal`)
-4. **Mobile Delivery Companion**
+4. **Mobile Delivery Companion** — **shipped** (see `mobile-delivery-companion/` · case study `/projects/mobile-delivery-companion`)
 
 _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-reference)).
 
-Rationale: portal showcase is done (GitHub + portfolio case study); next showcase is Mobile Delivery Companion.
+Rationale: showcase track complete for planned portfolio projects; future apps and live POS support remain separate.
 
 **Note:** Archive Room (POS) is a **live product** under continuous development — tracked separately above, not as a parked project.
 
@@ -223,24 +224,31 @@ Platform-engineering signal after realtime + AI triage — two data sources, act
 
 ## 4) Mobile Delivery Companion
 
+**Status:** Shipped (portfolio showcase)  
+**Repo:** [`jonas0224/mobile-delivery-companion`](https://github.com/jonas0224/mobile-delivery-companion) · product name **DropRoute**  
+**Case study:** `/projects/mobile-delivery-companion` on the portfolio site
+
 **Description**  
 React Native companion app for field workflows with offline-first behavior and sync conflict handling.
 
-**Why fifth**  
-Largest scope and additional platform complexity; best tackled after core web projects are shipped.
+**Why it mattered**  
+Adds mobile + offline/sync signal after the web platform showcases — local writes, outbox retry, and explicit conflict resolution.
 
-**Suggested MVP**
+**Shipped MVP**
 
-- Offline queue for core actions
-- Background sync + retry strategy
-- Conflict resolution UI
-- One complete field-user flow
+- Offline queue for core actions (SQLite outbox)
+- Sync + retry with backoff; forced offline / fail-next controls
+- Conflict resolution UI (keep device vs take dispatch)
+- One complete field-user flow on a Manila morning route
+- Distinct field-courier UI + Reanimated motion
 
 **Success criteria**
 
-- Offline flow demonstrated in video
+- Offline → act → sync → conflict walkthrough documented
 - Sync/conflict handling is explicit and testable
 - Clear separation of local vs server state
+
+**Optional later:** short walkthrough GIF/video
 
 ---
 

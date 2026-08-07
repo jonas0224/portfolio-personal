@@ -64,13 +64,14 @@
     "external": "https://github.com/jonas0224/developer-productivity-portal"
   },
   {
+    "slug": "mobile-delivery-companion",
     "title": "Mobile Delivery Companion",
-    "description": "Roadmap: build a React Native companion app with offline-first workflows, sync conflict handling, and resilient retry logic for field operations.",
-    "tech": ["React Native", "TypeScript", "SQLite", "Expo"],
-    "status": "Roadmap",
-    "impact": ["Better task completion reliability", "Fewer sync failures"],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "description": "DropRoute — Expo field companion with offline-first stop updates, SQLite outbox sync/retry, and explicit local-vs-dispatch conflict resolution for a Manila morning route.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Reanimated"],
+    "status": "Built",
+    "impact": ["Offline-first field writes", "Explicit sync conflict handling"],
+    "github": "https://github.com/jonas0224/mobile-delivery-companion",
+    "external": "https://github.com/jonas0224/mobile-delivery-companion"
   },
   {
     "slug": "ai-incident-triage",

@@ -180,6 +180,36 @@
     "external": "https://github.com/jonas0224/developer-productivity-portal"
   },
   {
+    "slug": "mobile-delivery-companion",
+    "title": "Mobile Delivery Companion",
+    "description": "DropRoute field companion: offline stop updates, outbox sync with retry, and a SPLITS screen to resolve device vs dispatch changes — Expo + SQLite with a distinct courier UI.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Reanimated"],
+    "status": "Built",
+    "impact": ["Offline-first reliability", "Human conflict resolution"],
+    "caseStudy": {
+      "role": "Solo mobile engineer for an offline-first courier workflow: local writes, sync engine, and conflict UX.",
+      "challenge": "Field apps fail when the network drops mid-route. Dashboards that assume online-only hide queue depth, retries, and divergent device vs dispatch state.",
+      "approach": [
+        "Made every stop mutation succeed on-device and enqueue an outbox upsert.",
+        "Built sync with FIFO drain, exponential backoff, and controls to simulate offline or a failed push.",
+        "Surfaced conflicts as an explicit keep-mine / take-theirs choice instead of silent auto-merge."
+      ],
+      "architecture": [
+        "Expo Router screens for route, stop detail, sync, and splits.",
+        "SQLite tables for local stops, remote mirror, outbox, conflicts, and sync prefs.",
+        "Reanimated motion for route strip pulse, ticket stagger, sync radar, and conflict entry."
+      ],
+      "quality": [
+        "Walkthrough documented: offline deliver → online sync → inject remote → resolve splits.",
+        "ARCHITECTURE.md documents local vs remote rules and tradeoffs.",
+        "Field-courier visual system kept distinct from the dark web showcase apps."
+      ],
+      "outcome": "A mobile showcase that proves offline-first product thinking — reliable local action plus honest sync and conflict handling."
+    },
+    "github": "https://github.com/jonas0224/mobile-delivery-companion",
+    "external": "https://github.com/jonas0224/mobile-delivery-companion"
+  },
+  {
     "slug": "portfolio-content-management",
     "title": "Portfolio CMS + Publishing Workflow",
     "description": "Next.js CMS for portfolio content in PostgreSQL — draft preview, role-aware admin, and GitHub PR publishing so content updates stay auditable and reviewable.",
