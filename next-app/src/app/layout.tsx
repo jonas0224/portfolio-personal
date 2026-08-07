@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google'
 import { OG_IMAGE_PATH, SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_SITE } from '@/lib/site'
 import { SiteAnalytics } from '@/components/site-analytics'
+import { ClearLegacyServiceWorker } from '@/components/clear-legacy-service-worker'
 import { SiteShell } from '@/components/site-shell'
 import './globals.css'
 
@@ -65,6 +66,7 @@ export default function RootLayout({
       data-theme="portfolio"
     >
       <body className="min-h-full font-[family-name:var(--font-body)]">
+        <ClearLegacyServiceWorker />
         <SiteShell>{children}</SiteShell>
         <SiteAnalytics />
       </body>
