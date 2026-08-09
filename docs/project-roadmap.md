@@ -38,7 +38,7 @@ These are real tools you maintain alongside showcase repos. They share the works
 **Ongoing:**
 
 - Shop onboard / tablet QA, feature requests from operators, release hardening
-- **Growth / SaaS:** close pilot trust → daily-loop delight → consignee magnet → retention → sell to shop #2+ — see `pos-inventory-system/docs/growth-roadmap.md`
+- **Growth / SaaS:** G1 product updates now (no pilot shop yet) → G0 when first shop → consignee magnet → retention → sell — see `pos-inventory-system/docs/growth-roadmap.md`
 - Status at a glance: `pos-inventory-system/docs/roadmap.md`
 
 **Docs:** `pos-inventory-system/docs/operations.md` (deploy), `docs/roadmap.md` (status), `docs/growth-roadmap.md` (adoption & SaaS), `docs/security.md` (auth)
