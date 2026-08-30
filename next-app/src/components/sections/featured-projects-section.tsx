@@ -18,6 +18,7 @@ const HOME_SLUGS = [
   'realtime-operations-dashboard',
   'ai-incident-triage',
   'portfolio-content-management',
+  'kasama-wfh-companion',
 ]
 
 export function FeaturedProjectsSection({ projects }: Props) {
@@ -45,7 +46,9 @@ export function FeaturedProjectsSection({ projects }: Props) {
                   ? 'Shipped'
                   : project.status === 'Live'
                     ? 'Live · maintained'
-                    : (project.status ?? 'Project')}
+                    : project.status === 'MVP'
+                      ? 'Personal MVP'
+                      : (project.status ?? 'Project')}
               </p>
               <h3 className="product-card-title">
                 <ExternalLink href={project.external}>{project.title}</ExternalLink>

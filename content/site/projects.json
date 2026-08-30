@@ -10,10 +10,14 @@
   },
   {
     "title": "POS & Inventory Management System",
-    "description": "Archive Room — live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, and platform ops. Deployed and in continuous development/support.",
+    "description": "Archive Room — live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing. Deployed and in continuous development/support.",
     "tech": ["Next.js", "React", "TypeScript", "PostgreSQL", "Prisma", "NextAuth", "Tailwind CSS"],
     "status": "Live",
-    "impact": ["Production deploy in use", "Ongoing feature and support work"],
+    "impact": [
+      "Live production product",
+      "Audited sales and funds workflows",
+      "Ongoing feature support"
+    ],
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
   },
@@ -81,6 +85,16 @@
     "impact": ["Offline-first field writes", "Explicit sync conflict handling"],
     "github": "https://github.com/jonas0224/mobile-delivery-companion",
     "external": "https://github.com/jonas0224/mobile-delivery-companion"
+  },
+  {
+    "slug": "kasama-wfh-companion",
+    "title": "KASAMA — WFH Companion",
+    "description": "Local-first mobile companion for remote-work rituals: start the day with intentions, protect focus blocks, close with wins and blockers, and review honest weekly focus trends.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Zustand", "Reanimated"],
+    "status": "MVP",
+    "impact": ["Personal MVP implemented", "Offline-first local data", "Store release still ahead"],
+    "github": "https://github.com/jonas0224/wfh-companion",
+    "external": "https://github.com/jonas0224/wfh-companion"
   },
   {
     "slug": "ai-incident-triage",

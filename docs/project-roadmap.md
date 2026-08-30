@@ -4,18 +4,19 @@ Prioritized list of planned portfolio projects, active products, and delivery or
 
 ## Current status snapshot
 
-| Track       | Status                                                                              |
-| ----------- | ----------------------------------------------------------------------------------- |
-| **Shipped** | Portfolio CMS + Publishing Workflow                                                 |
-| **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption)          |
-| **Shipped** | Realtime Operations Dashboard                                                       |
-| **Shipped** | AI-Assisted Incident Triage UI — GitHub `ai-incident-triage` + portfolio case study |
-| **Live**    | POS & Inventory (Archive Room) — deployed; continuous development and support       |
-| **Planned** | Dental Management System — production clinic product (see Active products)          |
-| **Parked**  | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`          |
-| **Shipped** | Developer Productivity Portal — GitHub `developer-productivity-portal` + portfolio case study |
+| Track       | Status                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| **Shipped** | Portfolio CMS + Publishing Workflow                                                               |
+| **Shipped** | Frontend Design System Migration (library + `portfolio-personal` adoption)                        |
+| **Shipped** | Realtime Operations Dashboard                                                                     |
+| **Shipped** | AI-Assisted Incident Triage UI — GitHub `ai-incident-triage` + portfolio case study               |
+| **Live**    | POS & Inventory (Archive Room) — deployed; continuous development and support                     |
+| **Planned** | Dental Management System — production clinic product (see Active products)                        |
+| **Parked**  | RC Crawler PH — MVP in `rc-crawler-ph`; see `rc-crawler-ph/docs/STATUS.md`                        |
+| **Shipped** | Developer Productivity Portal — GitHub `developer-productivity-portal` + portfolio case study     |
 | **Shipped** | Mobile Delivery Companion — GitHub `mobile-delivery-companion` (DropRoute) + portfolio case study |
-| **Planned** | 2 future apps (see lists below)                      |
+| **MVP**     | KASAMA (WFH Companion) — personal MVP implemented; store release not yet ready                    |
+| **Planned** | 2 other future apps (see lists below)                                                             |
 
 ---
 
@@ -87,10 +88,11 @@ These are real tools you maintain alongside showcase repos. They share the works
 2. **AI-Assisted Incident Triage UI** — **shipped** (see `ai-incident-triage/` · case study `/projects/ai-incident-triage`)
 3. **Developer Productivity Portal** — **shipped** (see `developer-productivity-portal/` · case study `/projects/developer-productivity-portal`)
 4. **Mobile Delivery Companion** — **shipped** (see `mobile-delivery-companion/` · case study `/projects/mobile-delivery-companion`)
+5. **KASAMA (WFH Companion)** — **personal MVP implemented** (see `wfh-companion/` · case study `/projects/kasama-wfh-companion`)
 
 _Shipped:_ Frontend Design System Migration (see [Shipped reference](#shipped-reference)).
 
-Rationale: showcase track complete for planned portfolio projects; live POS support, Dental Management (production clinic product), and future personal tools remain separate.
+Rationale: showcase track is complete for the planned portfolio projects; KASAMA is now represented as a personal MVP case study, while live POS support and Dental Management (a production clinic product) remain separate tracks.
 
 **Note:** Archive Room (POS) is a **live product** under continuous development — tracked separately above, not as a parked project. Dental Management is the next **production product** bet (clinic use), not a portfolio demo.
 
@@ -136,6 +138,39 @@ Rationale: showcase track complete for planned portfolio projects; live POS supp
 ## Future app ideas (side projects)
 
 Practical tools for personal or small-business use — separate from interview showcase repos; ship when capacity allows.
+
+### KASAMA (WFH Companion)
+
+**Status:** **Personal MVP implemented** — core screens, local-first data layer, optional assistant, and walkthrough are complete; store release is not ready
+**Repo:** `wfh-companion` (sibling folder under `personal/`)
+**Product name:** KASAMA (provisional working name)
+
+**Description**
+Mobile companion for remote work **daily rituals** — start day with intentions, Pomodoro focus blocks, end day with shutdown notes, and weekly focus analytics. Personal use first; App Store / Play Store release planned after daily-driver validation.
+
+**Implemented MVP**
+
+- Start day: 3 intentions + standup notes
+- Focus timer: Pomodoro (25/5 default), task label, short/long breaks
+- End day: wins, blockers, tomorrow’s top priority
+- Week view: focus minutes per day (Mon–Sun)
+- Local-only SQLite — no account, no backend cost
+- Optional assistant with explicit consent, server-side key handling, and deterministic local fallback
+
+**Stack (free-tier)**
+
+- Expo 57 + Expo Router + TypeScript (same generation as DropRoute)
+- expo-sqlite, Zustand, Reanimated, local notifications
+
+**Success criteria**
+
+- Full offline loop: start → focus → break → end day
+- Used on 10+ workdays before store submission
+- Docs: `PLAN.md`, `ARCHITECTURE.md`, `STACK.md` in repo
+
+**Docs:** `wfh-companion/docs/PLAN.md` · `ARCHITECTURE.md` · `STACK.md`
+
+---
 
 ### Training & Certification Tracker
 
@@ -287,6 +322,27 @@ Adds mobile + offline/sync signal after the web platform showcases — local wri
 - Clear separation of local vs server state
 
 **Optional later:** short walkthrough GIF/video
+
+---
+
+## 5) KASAMA (WFH Companion)
+
+**Status:** Personal MVP implemented; not store-ready
+**Repo:** [`jonas0224/wfh-companion`](https://github.com/jonas0224/wfh-companion)
+**Case study:** `/projects/kasama-wfh-companion` on the portfolio site
+
+**Description**
+Local-first mobile companion for remote-work rituals: start the day with intentions, protect focus blocks, end with shutdown notes, and review weekly focus trends.
+
+**What it demonstrates**
+
+- Expo / React Native product delivery with a distinct calm visual system
+- SQLite persistence and Zustand timer state with no required network dependency
+- Explicitly bounded optional assistant flow with editable output and local fallback
+
+**Remaining before a store release**
+
+- Daily-driver validation, onboarding, export/delete controls, production assets, privacy policy, and device/store testing
 
 ---
 

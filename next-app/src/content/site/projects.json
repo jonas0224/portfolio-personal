@@ -10,10 +10,14 @@
   },
   {
     "title": "POS & Inventory Management System",
-    "description": "Archive Room — live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, and platform ops. Deployed and in continuous development/support.",
+    "description": "Archive Room — live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing. Deployed and in continuous development/support.",
     "tech": ["Next.js", "React", "TypeScript", "PostgreSQL", "Prisma", "NextAuth", "Tailwind CSS"],
     "status": "Live",
-    "impact": ["Production deploy in use", "Ongoing feature and support work"],
+    "impact": [
+      "Live production product",
+      "Audited sales and funds workflows",
+      "Ongoing feature support"
+    ],
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
   },
@@ -54,22 +58,43 @@
     "external": "https://jonasyambao.com"
   },
   {
-    "title": "Developer Productivity Portal",
-    "description": "Roadmap: centralize CI health, release notes, and service status into a single developer portal to reduce context switching and improve release confidence.",
-    "tech": ["Next.js", "Node.js", "GraphQL", "Docker"],
+    "title": "Dental Management System",
+    "description": "Production clinic product (planned): end-to-end dental practice ops — role-aware access, patients, appointments, clinical charting, billing/day sheet, and deploy/ops hardening for real clinic use.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "NextAuth"],
     "status": "Roadmap",
-    "impact": ["Less context switching", "Higher release confidence"],
+    "impact": ["Daily clinic operations", "Production-ready clinic software"],
     "github": null,
     "external": "https://jonasyambao.com"
   },
   {
+    "slug": "developer-productivity-portal",
+    "title": "Developer Productivity Portal",
+    "description": "Ship desk that centralizes CI status, release notes, and service health — with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
+    "status": "Built",
+    "impact": ["Less context switching", "Actionable release workflow"],
+    "github": "https://github.com/jonas0224/developer-productivity-portal",
+    "external": "https://github.com/jonas0224/developer-productivity-portal"
+  },
+  {
+    "slug": "mobile-delivery-companion",
     "title": "Mobile Delivery Companion",
-    "description": "Roadmap: build a React Native companion app with offline-first workflows, sync conflict handling, and resilient retry logic for field operations.",
-    "tech": ["React Native", "TypeScript", "SQLite", "Expo"],
-    "status": "Roadmap",
-    "impact": ["Better task completion reliability", "Fewer sync failures"],
-    "github": null,
-    "external": "https://jonasyambao.com"
+    "description": "DropRoute — Expo field companion with offline-first stop updates, SQLite outbox sync/retry, and explicit local-vs-dispatch conflict resolution for a Manila morning route.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Reanimated"],
+    "status": "Built",
+    "impact": ["Offline-first field writes", "Explicit sync conflict handling"],
+    "github": "https://github.com/jonas0224/mobile-delivery-companion",
+    "external": "https://github.com/jonas0224/mobile-delivery-companion"
+  },
+  {
+    "slug": "kasama-wfh-companion",
+    "title": "KASAMA — WFH Companion",
+    "description": "Local-first mobile companion for remote-work rituals: start the day with intentions, protect focus blocks, close with wins and blockers, and review honest weekly focus trends.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Zustand", "Reanimated"],
+    "status": "MVP",
+    "impact": ["Personal MVP implemented", "Offline-first local data", "Store release still ahead"],
+    "github": "https://github.com/jonas0224/wfh-companion",
+    "external": "https://github.com/jonas0224/wfh-companion"
   },
   {
     "slug": "ai-incident-triage",

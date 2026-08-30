@@ -2,29 +2,35 @@
   {
     "slug": "pos-inventory-system",
     "title": "POS & Inventory Management",
-    "description": "Archive Room — production consignment POS on Vercel + Neon. Tablet checkout, multi-tenant shops, inventory, and reporting; actively developed and supported for real shop-floor use.",
+    "description": "Archive Room — production consignment POS on Vercel + Neon. Tablet checkout, multi-tenant shops, inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing; actively developed and supported.",
     "tech": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "NextAuth"],
     "status": "Live",
-    "impact": ["Deployed for shop use", "Ongoing feature support"],
+    "impact": [
+      "Live production product",
+      "Audited sales and funds workflows",
+      "Ongoing feature support"
+    ],
     "caseStudy": {
       "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS — still shipping releases after go-live.",
-      "challenge": "Shop staff needed fast tablet checkout and reliable stock/consignment tracking without a heavyweight ERP, then ongoing support once the pilot went live.",
+      "challenge": "Shop staff needed fast tablet checkout and reliable stock/consignment tracking without a heavyweight ERP. As the product matured, sales corrections, refunds, cash movements, and brand-specific pricing also needed an auditable home.",
       "approach": [
         "Designed checkout and inventory screens for touch-first tablet use.",
         "Modeled consignment and stock states with typed Prisma schemas.",
+        "Added transaction history, refund flows, payment accounts, cash movements, and per-brand markups without rewriting shelf prices.",
         "Shipped multi-tenant shops, offline POS, and platform ops while keeping production stable."
       ],
       "architecture": [
         "Next.js App Router with role-aware API routes and JWT sessions.",
         "PostgreSQL via Prisma on Neon for durable inventory and sales history.",
-        "Vercel deploy with Blob uploads, PWA offline queue, and contract automation."
+        "Vercel deploy with Blob uploads, PWA offline queue, contract automation, and schema-backed funds/refund ledgers."
       ],
       "quality": [
         "Smoke tests and CI around login, POS sale, and day close.",
+        "Audited mutation paths for sales, refunds, voids, payment receipt, and funds movements.",
         "Defensive UI for stale stock, suspended shops, and concurrent edits.",
         "Ops docs for pilot onboard, backups, and release gates."
       ],
-      "outcome": "A live POS (Archive Room) in continuous development — not a parked demo — prioritizing tablet speed and trustworthy consignment inventory."
+      "outcome": "A live POS (Archive Room) in continuous development — not a parked demo — now extending trustworthy consignment inventory with financial traceability while the first real-shop pilot remains ahead."
     },
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
@@ -148,6 +154,96 @@
     },
     "github": "https://github.com/jonas0224/ai-incident-triage",
     "external": "https://github.com/jonas0224/ai-incident-triage"
+  },
+  {
+    "slug": "developer-productivity-portal",
+    "title": "Developer Productivity Portal",
+    "description": "Internal ship desk: CI rollups, release notes, and service health with acknowledge/publish actions — fixture data plus optional GitHub Actions and Releases sync.",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
+    "status": "Built",
+    "impact": ["Two data sources end-to-end", "Actionable, not dashboard-only"],
+    "caseStudy": {
+      "role": "Full-stack owner for a platform-engineering portal: CI insights, release workflow, and service health with clear data-source boundaries.",
+      "challenge": "Developer dashboards often stop at read-only status tiles. Teams need an actionable workflow and clear auth/data-boundary documentation without paid integrations.",
+      "approach": [
+        "Shipped a Harbor Commerce fixture seed so the portal works without external credentials.",
+        "Unified CI runs and release notes in shared tables with fixture + optional GitHub adapters.",
+        "Made acknowledge failing checks, acknowledge degradation, and draft/publish release notes first-class actions with an activity trail."
+      ],
+      "architecture": [
+        "Next.js App Router pages (RSC) with mutation APIs for acknowledge, publish, and sync.",
+        "PostgreSQL + Prisma for services, CI runs, releases, quick links, and activity events.",
+        "Server-only GitHub token; Zod-validated Actions/Releases payloads upserted by external id."
+      ],
+      "quality": [
+        "Walkthrough documented: ack CI → draft/publish release → activity feed.",
+        "ARCHITECTURE.md covers adapters, tradeoffs, and v1 auth boundaries (no login).",
+        "Sync fails closed to fixture-only when token or repo list is missing."
+      ],
+      "outcome": "A ship desk with two data sources and operator actions — CI, releases, and health in one workflow instead of a read-only dashboard."
+    },
+    "github": "https://github.com/jonas0224/developer-productivity-portal",
+    "external": "https://github.com/jonas0224/developer-productivity-portal"
+  },
+  {
+    "slug": "mobile-delivery-companion",
+    "title": "Mobile Delivery Companion",
+    "description": "DropRoute field companion: offline stop updates, outbox sync with retry, and a SPLITS screen to resolve device vs dispatch changes — Expo + SQLite with a distinct courier UI.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Reanimated"],
+    "status": "Built",
+    "impact": ["Offline-first reliability", "Human conflict resolution"],
+    "caseStudy": {
+      "role": "Solo mobile engineer for an offline-first courier workflow: local writes, sync engine, and conflict UX.",
+      "challenge": "Field apps fail when the network drops mid-route. Dashboards that assume online-only hide queue depth, retries, and divergent device vs dispatch state.",
+      "approach": [
+        "Made every stop mutation succeed on-device and enqueue an outbox upsert.",
+        "Built sync with FIFO drain, exponential backoff, and controls to simulate offline or a failed push.",
+        "Surfaced conflicts as an explicit keep-mine / take-theirs choice instead of silent auto-merge."
+      ],
+      "architecture": [
+        "Expo Router screens for route, stop detail, sync, and splits.",
+        "SQLite tables for local stops, remote mirror, outbox, conflicts, and sync prefs.",
+        "Reanimated motion for route strip pulse, ticket stagger, sync radar, and conflict entry."
+      ],
+      "quality": [
+        "Walkthrough documented: offline deliver → online sync → inject remote → resolve splits.",
+        "ARCHITECTURE.md documents local vs remote rules and tradeoffs.",
+        "Field-courier visual system kept distinct from the dark web showcase apps."
+      ],
+      "outcome": "A mobile showcase that proves offline-first product thinking — reliable local action plus honest sync and conflict handling."
+    },
+    "github": "https://github.com/jonas0224/mobile-delivery-companion",
+    "external": "https://github.com/jonas0224/mobile-delivery-companion"
+  },
+  {
+    "slug": "kasama-wfh-companion",
+    "title": "KASAMA — WFH Companion",
+    "description": "Local-first mobile companion for remote-work rituals: start the day with intentions, protect focus blocks, close with wins and blockers, and review honest weekly focus trends.",
+    "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Zustand", "Reanimated"],
+    "status": "MVP",
+    "impact": ["Personal MVP implemented", "Offline-first local data", "Store release still ahead"],
+    "caseStudy": {
+      "role": "Solo product engineer for a calm, local-first mobile workflow that turns a remote workday into a deliberate start → focus → shutdown ritual.",
+      "challenge": "Remote work blurs the boundary between starting and ending the day. Existing productivity tools optimize for task volume or scheduling, while this app needed to make a small daily ritual useful without accounts, cloud sync, or a heavy task manager.",
+      "approach": [
+        "Built Today, Focus, Week, Start day, End day, Settings, and optional Assistant flows around one coherent workday loop.",
+        "Made start-day intentions, focus sessions, breaks, and shutdown notes work fully offline on the device.",
+        "Kept the assistant opt-in and editable, with a deterministic local fallback when its optional Worker is unavailable."
+      ],
+      "architecture": [
+        "Expo Router + React Native screens with a calm Fraunces / Nunito Sans visual system.",
+        "SQLite stores daily logs, focus sessions, and settings; Zustand owns the ephemeral timer state.",
+        "Absolute timer end timestamps recover foreground timing accurately, while local notifications handle focus and break transitions."
+      ],
+      "quality": [
+        "Unit coverage for date helpers, database totals, timer behavior, and assistant fallback logic.",
+        "Explicit local-versus-network boundary: the core workflow has no network dependency.",
+        "Store-release work remains separate: onboarding, export/delete controls, production assets, privacy policy, and device validation."
+      ],
+      "outcome": "A working personal MVP that demonstrates mobile product thinking beyond a timer: local-first persistence, honest focus history, and a complete daily ritual without pretending it is store-ready."
+    },
+    "github": "https://github.com/jonas0224/wfh-companion",
+    "external": "https://github.com/jonas0224/wfh-companion"
   },
   {
     "slug": "portfolio-content-management",

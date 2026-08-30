@@ -145,6 +145,24 @@ function renderScene(slug?: string) {
           </div>
         </div>
       )
+    case 'kasama-wfh-companion':
+      return (
+        <div className="gp-kasama">
+          <div className="gp-kasama-head">
+            <span>Today</span>
+            <em>Tuesday · 8:42 AM</em>
+          </div>
+          <div className="gp-kasama-intentions">
+            <span className="is-done">01 · Ship the next slice</span>
+            <span>02 · Protect a focus block</span>
+            <span>03 · End the day cleanly</span>
+          </div>
+          <div className="gp-kasama-footer">
+            <strong>25:00</strong>
+            <span>Start focus</span>
+          </div>
+        </div>
+      )
     default:
       return (
         <div className="gp-fallback">

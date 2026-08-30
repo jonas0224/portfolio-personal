@@ -35,7 +35,7 @@ export interface ProjectContent {
   github: string | null
   external: string
   image?: string
-  status?: 'Built' | 'Live' | 'Roadmap' | 'Parked'
+  status?: 'Built' | 'Live' | 'MVP' | 'Roadmap' | 'Parked'
   impact?: string[]
   caseStudy?: {
     role: string

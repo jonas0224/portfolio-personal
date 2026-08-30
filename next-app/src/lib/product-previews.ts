@@ -78,6 +78,8 @@ export function previewLabelForSlug(slug: string | undefined, fallback: string) 
       return 'Dev portal · ship desk'
     case 'mobile-delivery-companion':
       return 'DropRoute · field courier'
+    case 'kasama-wfh-companion':
+      return 'KASAMA · today'
     case 'portfolio-content-management':
       return 'Portfolio CMS · publish'
     default:

@@ -2740,6 +2740,7 @@ section[id] {
 .gp-ops,
 .gp-triage,
 .gp-cms,
+.gp-kasama,
 .gp-fallback {
   height: 100%;
   padding: 10px 12px 12px;
@@ -3123,6 +3124,68 @@ section[id] {
   color: #041016;
   font-weight: 600;
   font-size: 11px;
+}
+
+.gp-kasama {
+  background: #f7f5f0;
+  color: #2c2825;
+}
+
+.gp-kasama-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+
+.gp-kasama-head em {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-style: normal;
+  color: #7d756d;
+}
+
+.gp-kasama-intentions {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  font-size: 10px;
+}
+
+.gp-kasama-intentions span {
+  padding: 7px 8px;
+  border-radius: 7px;
+  border: 1px solid rgba(91, 123, 106, 0.22);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.gp-kasama-intentions .is-done {
+  color: #5b7b6a;
+  text-decoration: line-through;
+}
+
+.gp-kasama-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gp-kasama-footer strong {
+  color: #4a6741;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.gp-kasama-footer span {
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #5b7b6a;
+  color: #f7f5f0;
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .gp-fallback {
