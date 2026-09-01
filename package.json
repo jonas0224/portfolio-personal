@@ -7,9 +7,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "npm run dev --prefix next-app",
-    "build": "npm ci --prefix next-app && npm run build --prefix next-app",
+    "build": "npm ci --prefix next-app && npm run sync-content --prefix next-app && npm run build --prefix next-app",
+    "typecheck": "npm run typecheck --prefix next-app",
+    "verify-content": "npm run verify-content --prefix next-app",
     "start": "npm run start --prefix next-app",
     "lint": "npm run lint --prefix next-app",
+    "test": "npm run test --prefix next-app",
     "sync-content": "npm run sync-content --prefix next-app",
     "lint-staged": "lint-staged",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,mjs}\"",
@@ -19,6 +22,9 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,json,md,mjs}": [
       "prettier --write"
+    ],
+    "next-app/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint --prefix next-app -- --max-warnings=0"
     ]
   },
   "devDependencies": {

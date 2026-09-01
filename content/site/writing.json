@@ -1,7 +1,7 @@
 {
   "eyebrow": "Notes",
   "title": "Notes from shipping frontend",
-  "description": "Short write-ups from real delivery work — banking UI under release pressure, design-system adoption, and realtime surfaces that have to stay honest when the network lies.",
+  "description": "Short write-ups from real delivery work, banking UI under release pressure, design-system adoption, and realtime surfaces that have to stay honest when the network lies.",
   "ctaLabel": "Browse notes",
   "ctaHref": "/writing",
   "topics": [
@@ -10,9 +10,9 @@
       "status": "Note",
       "blurb": "PR checks, Playwright smoke paths, and rollout patterns I use when a bad ship is not an option.",
       "body": [
-        "On banking surfaces under NRI ANZ, “ship it” is never just a merge. The UI has to survive accessibility review, regression smoke, and a release train that does not forgive silent breakage. The guardrail that matters most is making the risky path expensive to skip — not burying quality in a wiki nobody opens.",
+        "On banking surfaces under NRI ANZ, “ship it” is never just a merge. The UI has to survive accessibility review, regression smoke, and a release train that does not forgive silent breakage. The guardrail that matters most is making the risky path expensive to skip, not burying quality in a wiki nobody opens.",
         "I keep a thin Playwright set aimed at money-adjacent flows and auth boundaries, wired so CI fails loud on the same paths humans care about. Unit tests cover the pure logic; e2e covers the contracts between screens. Review culture does the rest: every PR answers what could break for a customer, and whether we can detect it before production.",
-        "Rollouts stay boring on purpose — feature flags when the change is behavioral, staged environments before a wide push, and a rollback story that does not depend on heroic redeploys. Regulated UI rewards discipline more than cleverness."
+        "Rollouts stay boring on purpose, feature flags when the change is behavioral, staged environments before a wide push, and a rollback story that does not depend on heroic redeploys. Regulated UI rewards discipline more than cleverness."
       ]
     },
     {
@@ -20,7 +20,7 @@
       "status": "Note",
       "blurb": "Semantic tokens, remapping, and teaching apps to adopt a system instead of forking styles.",
       "body": [
-        "A design system fails quietly when tokens are just hex variables with nicer names. The durable pattern is semantic roles — color-text-primary, color-brand, space-4 — mapped once per host theme. Portfolio Ship Surface, Archive Room, and a consumer app can disagree on brand hue without rewriting every Button.",
+        "A design system fails quietly when tokens are just hex variables with nicer names. The durable pattern is semantic roles (color-text-primary, color-brand, space-4) mapped once per host theme. Portfolio Ship Surface, Archive Room, and a consumer app can disagree on brand hue without rewriting every Button.",
         "I separate reference tokens (raw scale) from semantic aliases (intent), then expose primitives that only speak semantics. Storybook becomes the contract: if a component needs a one-off gray, that is a smell, not a feature. Vitest and visual checks catch drift before migration teams invent local CSS.",
         "Adoption is the real product. Document the remap path, ship a playground that proves the tokens under a dark and light host, and treat breaking token renames like API breaks. The system wins when the easy path is the consistent path."
       ]
@@ -28,11 +28,11 @@
     {
       "title": "Realtime UX when sockets go quiet",
       "status": "Note",
-      "blurb": "Stale data, reconnect states, and treating connection health as part of the UI — not a console error.",
+      "blurb": "Stale data, reconnect states, and treating connection health as part of the UI, not a console error.",
       "body": [
-        "Ops dashboards and live games fail the same way: the socket drops, the UI keeps smiling, and operators trust a ghost. I treat connection state as first-class UI — last-updated timestamps, explicit reconnecting banners, and degraded modes that stay readable instead of freezing mid-animation.",
+        "Ops dashboards and live games fail the same way: the socket drops, the UI keeps smiling, and operators trust a ghost. I treat connection state as first-class UI, last-updated timestamps, explicit reconnecting banners, and degraded modes that stay readable instead of freezing mid-animation.",
         "On the realtime operations board, health tiles and alert copy change when the feed is stale. On FLASHCUT, polling on serverless means you design for missed ticks: idempotent room state, graceful mid-round reconnects, and scoring that does not double-count a late packet.",
-        "The craft is honesty under pressure. If the network lied, the interface should say so — then recover without making the user guess whether the number on screen is still true."
+        "The craft is honesty under pressure. If the network lied, the interface should say so, then recover without making the user guess whether the number on screen is still true."
       ]
     }
   ]

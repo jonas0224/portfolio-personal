@@ -2,7 +2,7 @@
   {
     "slug": "pos-inventory-system",
     "title": "POS & Inventory Management",
-    "description": "Archive Room — production consignment POS on Vercel + Neon. Tablet checkout, multi-tenant shops, inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing; actively developed and supported.",
+    "description": "Archive Room: production consignment POS on Vercel + Neon. Tablet checkout, multi-tenant shops, inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing; actively developed and supported.",
     "tech": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "NextAuth"],
     "status": "Live",
     "impact": [
@@ -11,7 +11,7 @@
       "Ongoing feature support"
     ],
     "caseStudy": {
-      "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS — still shipping releases after go-live.",
+      "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS, still shipping releases after go-live.",
       "challenge": "Shop staff needed fast tablet checkout and reliable stock/consignment tracking without a heavyweight ERP. As the product matured, sales corrections, refunds, cash movements, and brand-specific pricing also needed an auditable home.",
       "approach": [
         "Designed checkout and inventory screens for touch-first tablet use.",
@@ -30,7 +30,7 @@
         "Defensive UI for stale stock, suspended shops, and concurrent edits.",
         "Ops docs for pilot onboard, backups, and release gates."
       ],
-      "outcome": "A live POS (Archive Room) in continuous development — not a parked demo — now extending trustworthy consignment inventory with financial traceability while the first real-shop pilot remains ahead."
+      "outcome": "A live POS (Archive Room) in continuous development, not a parked demo, now extending trustworthy consignment inventory with financial traceability while the first real-shop pilot remains ahead."
     },
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
@@ -38,7 +38,7 @@
   {
     "slug": "frontend-design-system",
     "title": "Frontend Design System Migration",
-    "description": "Token-driven Next.js workspace with reusable primitives, a live playground, and Storybook + Vitest gates — so apps migrate off one-off UI drift.",
+    "description": "Token-driven Next.js workspace with reusable primitives, a live playground, and Storybook + Vitest gates, so apps migrate off one-off UI drift.",
     "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest"],
     "status": "Built",
     "impact": ["Token-driven primitives", "Storybook + CI coverage"],
@@ -68,7 +68,7 @@
   {
     "slug": "flashcut",
     "title": "FLASHCUT",
-    "description": "Real-time party game: peek an image, survive the flashcut blackout, then race Kahoot-style scoring across 15 rounds — Next.js, Redis rooms, and Vercel-friendly polling.",
+    "description": "Real-time party game: peek an image, survive the flashcut blackout, then race Kahoot-style scoring across 15 rounds, Next.js, Redis rooms, and Vercel-friendly polling.",
     "tech": ["Next.js", "React", "TypeScript", "Upstash Redis", "Vitest"],
     "status": "Built",
     "impact": ["~20 player sync", "Speed-based scoring"],
@@ -98,7 +98,7 @@
   {
     "slug": "realtime-operations-dashboard",
     "title": "Realtime Operations Dashboard",
-    "description": "WebSocket-driven ops board with health tiles, alerts, and reconnect/stale-data UX — plus a self-contained event simulator for demos.",
+    "description": "WebSocket-driven ops board with health tiles, alerts, and reconnect/stale-data UX, plus a self-contained event simulator for demos.",
     "tech": ["Next.js", "TypeScript", "WebSockets", "PostgreSQL", "Redis"],
     "status": "Built",
     "impact": ["Faster incident awareness", "Resilient sync UX"],
@@ -128,7 +128,7 @@
   {
     "slug": "ai-incident-triage",
     "title": "AI-Assisted Incident Triage",
-    "description": "Ops triage console where Gemini suggests severity, ownership, and runbooks — with keyword fallback, confidence UX, human override, and a full audit trail. Portfolio demo on free-tier stack.",
+    "description": "Ops triage console where Gemini suggests severity, ownership, and runbooks, with keyword fallback, confidence UX, human override, and a full audit trail. Portfolio demo on free-tier stack.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Gemini API", "Zod"],
     "status": "Built",
     "impact": ["Human-in-the-loop AI", "Safer routing with audit"],
@@ -150,7 +150,7 @@
         "Sanitized client fallback copy (no raw provider quota leaks).",
         "Confidence bar and low-confidence warning before accept."
       ],
-      "outcome": "A demo-ready triage console that treats AI as an assistant — humans still decide, and failures degrade to rules instead of breaking the flow."
+      "outcome": "A demo-ready triage console that treats AI as an assistant, humans still decide, and failures degrade to rules instead of breaking the flow."
     },
     "github": "https://github.com/jonas0224/ai-incident-triage",
     "external": "https://github.com/jonas0224/ai-incident-triage"
@@ -158,7 +158,7 @@
   {
     "slug": "developer-productivity-portal",
     "title": "Developer Productivity Portal",
-    "description": "Internal ship desk: CI rollups, release notes, and service health with acknowledge/publish actions — fixture data plus optional GitHub Actions and Releases sync.",
+    "description": "Internal ship desk: CI rollups, release notes, and service health with acknowledge/publish actions, fixture data plus optional GitHub Actions and Releases sync.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
     "status": "Built",
     "impact": ["Two data sources end-to-end", "Actionable, not dashboard-only"],
@@ -180,7 +180,7 @@
         "ARCHITECTURE.md covers adapters, tradeoffs, and v1 auth boundaries (no login).",
         "Sync fails closed to fixture-only when token or repo list is missing."
       ],
-      "outcome": "A ship desk with two data sources and operator actions — CI, releases, and health in one workflow instead of a read-only dashboard."
+      "outcome": "A ship desk with two data sources and operator actions, CI, releases, and health in one workflow instead of a read-only dashboard."
     },
     "github": "https://github.com/jonas0224/developer-productivity-portal",
     "external": "https://github.com/jonas0224/developer-productivity-portal"
@@ -188,7 +188,7 @@
   {
     "slug": "mobile-delivery-companion",
     "title": "Mobile Delivery Companion",
-    "description": "DropRoute field companion: offline stop updates, outbox sync with retry, and a SPLITS screen to resolve device vs dispatch changes — Expo + SQLite with a distinct courier UI.",
+    "description": "DropRoute field companion: offline stop updates, outbox sync with retry, and a SPLITS screen to resolve device vs dispatch changes, Expo + SQLite with a distinct courier UI.",
     "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Reanimated"],
     "status": "Built",
     "impact": ["Offline-first reliability", "Human conflict resolution"],
@@ -210,14 +210,14 @@
         "ARCHITECTURE.md documents local vs remote rules and tradeoffs.",
         "Field-courier visual system kept distinct from the dark web showcase apps."
       ],
-      "outcome": "A mobile showcase that proves offline-first product thinking — reliable local action plus honest sync and conflict handling."
+      "outcome": "A mobile showcase that proves offline-first product thinking, reliable local action plus honest sync and conflict handling."
     },
     "github": "https://github.com/jonas0224/mobile-delivery-companion",
     "external": "https://github.com/jonas0224/mobile-delivery-companion"
   },
   {
     "slug": "kasama-wfh-companion",
-    "title": "KASAMA — WFH Companion",
+    "title": "KASAMA: WFH Companion",
     "description": "Local-first mobile companion for remote-work rituals: start the day with intentions, protect focus blocks, close with wins and blockers, and review honest weekly focus trends.",
     "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Zustand", "Reanimated"],
     "status": "MVP",
@@ -248,13 +248,13 @@
   {
     "slug": "portfolio-content-management",
     "title": "Portfolio CMS + Publishing Workflow",
-    "description": "Next.js CMS for portfolio content in PostgreSQL — draft preview, role-aware admin, and GitHub PR publishing so content updates stay auditable and reviewable.",
+    "description": "Next.js CMS for portfolio content in PostgreSQL, draft preview, role-aware admin, and GitHub PR publishing so content updates stay auditable and reviewable.",
     "tech": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth", "GitHub API"],
     "status": "Built",
     "impact": ["PR-based content publishing", "Draft preview before merge"],
     "caseStudy": {
       "role": "Solo builder owning auth, document model, preview, and GitHub publish flow for a separate portfolio repo.",
-      "challenge": "Portfolio content lived in the site repo with no safe draft/preview path — updates were either manual commits or risky direct edits.",
+      "challenge": "Portfolio content lived in the site repo with no safe draft/preview path, updates were either manual commits or risky direct edits.",
       "approach": [
         "Modeled content documents with slug, JSON payload, and workflow status in Postgres.",
         "Built ADMIN edit/publish and draft preview routes behind NextAuth.",
@@ -278,7 +278,7 @@
   {
     "slug": "boq-digital-banking-platform",
     "title": "BOQ Digital Banking Platform",
-    "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ — reusable UI patterns and release guardrails in regulated workflows.",
+    "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ, reusable UI patterns and release guardrails in regulated workflows.",
     "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
     "status": "Built",
     "impact": ["Lower production risk", "Stronger release readiness"],
@@ -300,7 +300,7 @@
         "PR checklists for reliability and accessibility.",
         "Post-release validation for faster issue detection."
       ],
-      "outcome": "Improved release confidence while keeping delivery sustainable in regulated workflows."
+      "outcome": "Improved release confidence for regulated banking journeys, reusable UI patterns, stronger automated checks, and clearer rollout guardrails across squads."
     },
     "github": null,
     "external": "https://www.boq.com.au"
@@ -308,7 +308,7 @@
   {
     "slug": "helika-analytics-platform",
     "title": "Helika Analytics Platform",
-    "description": "Frontend architecture for a data-heavy analytics product — dashboard performance, shared patterns, and team delivery standards.",
+    "description": "Frontend architecture for a data-heavy analytics product, dashboard performance, shared patterns, and team delivery standards.",
     "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
     "status": "Built",
     "impact": ["Faster dashboards", "Fewer regressions"],
@@ -330,9 +330,9 @@
         "Component-level tests for critical interactions.",
         "Structured reviews to prevent pattern drift."
       ],
-      "outcome": "Faster dashboards and more reliable releases for a data-heavy product."
+      "outcome": "Faster analytics dashboards with fewer regressions, shared visualization patterns, performance budgets on primary pages, and review standards that kept iteration from drifting."
     },
-    "github": "https://github.com/helika-io",
+    "github": null,
     "external": "https://helika.io"
   }
 ]

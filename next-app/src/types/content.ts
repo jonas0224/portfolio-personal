@@ -33,7 +33,7 @@ export interface ProjectContent {
   description: string
   tech: string[]
   github: string | null
-  external: string
+  external: string | null
   image?: string
   status?: 'Built' | 'Live' | 'MVP' | 'Roadmap' | 'Parked'
   impact?: string[]

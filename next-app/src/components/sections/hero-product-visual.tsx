@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
 import {
   OPS_PREVIEW_SERVICES,
@@ -12,6 +12,8 @@ import {
 const PREVIEWS = PRODUCT_PREVIEWS
 const POS_ITEMS = POS_PREVIEW_ITEMS
 const OPS_SERVICES = OPS_PREVIEW_SERVICES
+const IDLE_BEFORE_ROTATE_MS = 12_000
+const ROTATE_CHECK_MS = 2_000
 
 function PreviewArchiveRoom({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
   const [cart, setCart] = useState(1)
@@ -143,7 +145,7 @@ function PreviewFlashcut({ prefersReducedMotion }: { prefersReducedMotion: boole
           Create game
         </button>
       </div>
-      <p className="hp-fc-meta">10 rounds · ~12 minutes · live scoring</p>
+      <p className="hp-fc-meta">15 rounds · ~12 minutes · live scoring</p>
     </div>
   )
 }
@@ -172,7 +174,7 @@ function PreviewOps({ prefersReducedMotion }: { prefersReducedMotion: boolean })
           </div>
         ))}
       </div>
-      <div className="hp-ops-alert">Payments latency elevated — reconnect healthy</div>
+      <div className="hp-ops-alert">Payments latency elevated. Reconnect healthy.</div>
     </div>
   )
 }
@@ -200,21 +202,48 @@ function PreviewBody({
 export function HeroProductVisual() {
   const prefersReducedMotion = usePrefersReducedMotion()
   const [activeId, setActiveId] = useState<PreviewId>('pos')
+  const lastInteractionRef = useRef(0)
   const active = PREVIEWS.find((p) => p.id === activeId) ?? PREVIEWS[0]
 
   useEffect(() => {
+    lastInteractionRef.current = Date.now()
+  }, [])
+
+  const markInteraction = useCallback(() => {
+    lastInteractionRef.current = Date.now()
+  }, [])
+
+  const selectTab = useCallback(
+    (id: PreviewId) => {
+      markInteraction()
+      setActiveId(id)
+    },
+    [markInteraction],
+  )
+
+  useEffect(() => {
     if (prefersReducedMotion) return
+
     const id = window.setInterval(() => {
+      if (Date.now() - lastInteractionRef.current < IDLE_BEFORE_ROTATE_MS) return
       setActiveId((current) => {
         const index = PREVIEWS.findIndex((p) => p.id === current)
         return PREVIEWS[(index + 1) % PREVIEWS.length].id
       })
-    }, 7000)
+      lastInteractionRef.current = Date.now()
+    }, ROTATE_CHECK_MS)
+
     return () => window.clearInterval(id)
   }, [prefersReducedMotion])
 
+  const panelId = `hero-panel-${activeId}`
+
   return (
-    <div className={`hero-visual${prefersReducedMotion ? '' : ' hero-enter hero-enter-delay-5'}`}>
+    <div
+      className={`hero-visual${prefersReducedMotion ? '' : ' hero-enter hero-enter-delay-5'}`}
+      onPointerDown={markInteraction}
+      onKeyDown={markInteraction}
+    >
       <div className="hero-visual-frame hero-visual-frame--live">
         <div className="hero-visual-chrome">
           <span className="hero-visual-dot" />
@@ -226,9 +255,12 @@ export function HeroProductVisual() {
                 key={preview.id}
                 type="button"
                 role="tab"
+                id={`hero-tab-${preview.id}`}
                 aria-selected={activeId === preview.id}
+                aria-controls={panelId}
+                tabIndex={activeId === preview.id ? 0 : -1}
                 className={`hero-visual-tab${activeId === preview.id ? ' is-active' : ''}`}
-                onClick={() => setActiveId(preview.id)}
+                onClick={() => selectTab(preview.id)}
               >
                 {preview.label}
               </button>
@@ -244,7 +276,12 @@ export function HeroProductVisual() {
             {active.hrefLabel}
           </a>
         </div>
-        <div className="hero-visual-live-body">
+        <div
+          className="hero-visual-live-body"
+          role="tabpanel"
+          id={panelId}
+          aria-labelledby={`hero-tab-${activeId}`}
+        >
           <p className="hero-visual-url">{active.title}</p>
           <div className="hero-visual-stage" key={active.id}>
             <PreviewBody id={active.id} prefersReducedMotion={prefersReducedMotion} />

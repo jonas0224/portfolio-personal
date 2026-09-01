@@ -5,9 +5,15 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { KEY_CODES } from '@/lib/key-codes'
 import { NAV_LINKS } from '@/lib/nav'
 import { useOnClickOutside } from '@/hooks/use-on-click-outside'
+import { useActiveNavHref } from '@/hooks/use-active-nav-href'
 import { ButtonLink } from '@/ui/button'
 
-export function MobileMenu() {
+type Props = {
+  isHome: boolean
+}
+
+export function MobileMenu({ isHome }: Props) {
+  const activeHref = useActiveNavHref(isHome)
   const [menuOpen, setMenuOpen] = useState(false)
   const toggleMenu = () => setMenuOpen((o) => !o)
 
@@ -107,13 +113,20 @@ export function MobileMenu() {
         >
           <nav ref={navRef}>
             <ol>
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} onClick={() => setMenuOpen(false)}>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const isActive = activeHref === link.href
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      aria-current={isActive ? 'page' : undefined}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                )
+              })}
             </ol>
             <ButtonLink
               className="portfolio-sidebar-resume"

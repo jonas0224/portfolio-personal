@@ -7,19 +7,20 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "verify-content": "node scripts/verify-content-sync.mjs",
     "sync-content": "node scripts/sync-content.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "vitest run"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "gray-matter": "^4.0.3",
-    "next": "16.2.4",
+    "next": "^16.3.4",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-markdown": "^10.1.0",
     "react-transition-group": "^4.4.5",
-    "remark-gfm": "^4.0.1"
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -28,11 +29,12 @@
     "@types/react-dom": "^19",
     "@types/react-transition-group": "^4.4.12",
     "eslint": "^9.39.4",
-    "eslint-config-next": "16.2.4",
+    "eslint-config-next": "^16.3.4",
     "globals": "^17.6.0",
     "prettier": "^3.9.6",
     "tailwindcss": "^4",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=20 <23"

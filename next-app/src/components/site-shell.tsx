@@ -1,12 +1,11 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { ScrollProgress } from '@/components/scroll-progress'
-import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 
-export function SiteShell({ children }: { children: React.ReactNode }) {
+export function SiteShell({ children, footer }: { children: React.ReactNode; footer: ReactNode }) {
   const pathname = usePathname()
   const isHome = pathname === '/'
 
@@ -35,7 +34,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
       <div id="content">
         <main className={mainClassName}>{children}</main>
-        <SiteFooter />
+        {footer}
       </div>
     </>
   )

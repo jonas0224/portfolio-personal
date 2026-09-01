@@ -2,6 +2,7 @@
 
 import { ButtonLink } from '@/ui/button'
 import type { HeroContent } from '@/types/content'
+import { CONTACT_EMAIL } from '@/lib/site-contact'
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
 import { HeroProductVisual } from '@/components/sections/hero-product-visual'
 
@@ -21,7 +22,7 @@ export function HeroSection({ hero }: Props) {
         <p className={`hero-tagline ${enter} hero-enter-delay-2`}>{hero.tagline}</p>
         <p className={`hero-description ${enter} hero-enter-delay-3`}>{hero.description}</p>
         <div className={`portfolio-hero-actions ${enter} hero-enter-delay-4`}>
-          <ButtonLink href={`mailto:${hero.ctaEmail}`} rel="noreferrer" size="lg" variant="outline">
+          <ButtonLink href={`mailto:${CONTACT_EMAIL}`} rel="noreferrer" size="lg" variant="outline">
             {hero.ctaLabel}
           </ButtonLink>
           <ButtonLink href="/#jobs" size="lg" variant="ghost">

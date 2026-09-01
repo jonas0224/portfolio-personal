@@ -1,7 +1,8 @@
 [
   {
+    "slug": "frontend-design-system",
     "title": "Frontend Design System Migration",
-    "description": "Next.js workspace with semantic design tokens, reusable primitives (forms, feedback, overlay), a live component playground, and Storybook + Vitest quality gates—including CI—so consuming apps can migrate away from one-off UI drift.",
+    "description": "Next.js workspace with semantic design tokens, reusable primitives (forms, feedback, overlay), a live component playground, and Storybook + Vitest quality gates (including CI) so consuming apps can migrate away from one-off UI drift.",
     "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest", "Playwright"],
     "status": "Built",
     "impact": ["Token-driven primitives", "Storybook + CI coverage"],
@@ -9,8 +10,9 @@
     "external": "https://github.com/jonas0224/frontend-design-system-migration"
   },
   {
-    "title": "POS & Inventory Management System",
-    "description": "Archive Room — live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing. Deployed and in continuous development/support.",
+    "slug": "pos-inventory-system",
+    "title": "POS & Inventory Management",
+    "description": "Archive Room: live consignment POS on Vercel + Neon for clothing shops: tablet checkout, multi-tenant inventory, reporting, audited transactions, funds tracking, refunds, and per-brand pricing. Deployed and in continuous development/support.",
     "tech": ["Next.js", "React", "TypeScript", "PostgreSQL", "Prisma", "NextAuth", "Tailwind CSS"],
     "status": "Live",
     "impact": [
@@ -22,6 +24,7 @@
     "external": "https://archive-room.vercel.app/login"
   },
   {
+    "slug": "flashcut",
     "title": "FLASHCUT",
     "description": "Real-time team party game: a quick image peek, blackout flashcut phase, then Kahoot-style speed scoring across 15 rounds. Built with Next.js, Redis-backed rooms, HTTP polling for Vercel serverless, and host-editable funny image packs.",
     "tech": ["Next.js", "React", "TypeScript", "Upstash Redis", "Tailwind CSS", "Vitest"],
@@ -31,8 +34,9 @@
     "external": "https://flashcut-nine.vercel.app/"
   },
   {
+    "slug": "realtime-operations-dashboard",
     "title": "Realtime Operations Dashboard",
-    "description": "Realtime operations dashboard with WebSocket event streams, service health tiles, alert states, and reconnect/stale-data UX — demo e-commerce platform monitoring with a self-contained event simulator.",
+    "description": "Realtime operations dashboard with WebSocket event streams, service health tiles, alert states, and reconnect/stale-data UX, demo e-commerce platform monitoring with a self-contained event simulator.",
     "tech": ["Next.js", "TypeScript", "WebSockets", "PostgreSQL", "Prisma", "Redis"],
     "status": "Built",
     "impact": ["Faster incident awareness", "Resilient realtime sync patterns"],
@@ -40,8 +44,9 @@
     "external": "https://github.com/jonas0224/realtime-operations-dashboard"
   },
   {
-    "title": "RC Crawler PH — Builder & Community",
-    "description": "Parked product bet: MN82 1:12 rig builder in PHP (presets, shareable builds, community pricing) plus PH crawler community — gallery, spots, events, clubs. Desktop 3D rig viewer started; accurate per-part models and production deploy still open.",
+    "slug": "rc-crawler-ph",
+    "title": "RC Crawler PH: Builder & Community",
+    "description": "Parked product bet: MN82 1:12 rig builder in PHP (presets, shareable builds, community pricing) plus PH crawler community, gallery, spots, events, clubs. Desktop 3D rig viewer started; accurate per-part models and production deploy still open.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "React Three Fiber"],
     "status": "Parked",
     "impact": ["PH budget build planning in pesos", "Community hub beyond Facebook groups"],
@@ -49,37 +54,39 @@
     "external": "https://github.com/jonas0224/rc-crawler-ph"
   },
   {
+    "slug": "document-keeper",
     "title": "Document Keeper",
-    "description": "Roadmap: a documentation keeper that indexes and renders markdown across personal projects — release plans, roadmaps, runbooks, and specs — with search and links back to source repos (Archive Room, CMS, design system).",
+    "description": "Roadmap: a documentation keeper that indexes and renders markdown across personal projects: release plans, roadmaps, runbooks, and specs, with search and links back to source repos (Archive Room, CMS, design system).",
     "tech": ["Next.js", "TypeScript", "Markdown", "GitHub API"],
     "status": "Roadmap",
     "impact": ["Faster doc discovery", "Single index for project knowledge"],
     "github": null,
-    "external": "https://jonasyambao.com"
+    "external": null
   },
   {
+    "slug": "dental-management-system",
     "title": "Dental Management System",
-    "description": "Production clinic product (planned): end-to-end dental practice ops — role-aware access, patients, appointments, clinical charting, billing/day sheet, and deploy/ops hardening for real clinic use.",
+    "description": "Production clinic product (planned): end-to-end dental practice ops, role-aware access, patients, appointments, clinical charting, billing/day sheet, and deploy/ops hardening for real clinic use.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "NextAuth"],
     "status": "Roadmap",
     "impact": ["Daily clinic operations", "Production-ready clinic software"],
     "github": null,
-    "external": "https://jonasyambao.com"
+    "external": null
   },
   {
     "slug": "developer-productivity-portal",
     "title": "Developer Productivity Portal",
-    "description": "Ship desk that centralizes CI status, release notes, and service health — with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
+    "description": "Ship desk that centralizes CI status, release notes, and service health, with acknowledge/publish actions, an activity trail, fixture Harbor Commerce data, and optional GitHub Actions/Releases sync.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zod", "GitHub API"],
     "status": "Built",
-    "impact": ["Less context switching", "Actionable release workflow"],
+    "impact": ["Two data sources end-to-end", "Actionable release workflow"],
     "github": "https://github.com/jonas0224/developer-productivity-portal",
     "external": "https://github.com/jonas0224/developer-productivity-portal"
   },
   {
     "slug": "mobile-delivery-companion",
     "title": "Mobile Delivery Companion",
-    "description": "DropRoute — Expo field companion with offline-first stop updates, SQLite outbox sync/retry, and explicit local-vs-dispatch conflict resolution for a Manila morning route.",
+    "description": "DropRoute: Expo field companion with offline-first stop updates, SQLite outbox sync/retry, and explicit local-vs-dispatch conflict resolution for a Manila morning route.",
     "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Reanimated"],
     "status": "Built",
     "impact": ["Offline-first field writes", "Explicit sync conflict handling"],
@@ -88,7 +95,7 @@
   },
   {
     "slug": "kasama-wfh-companion",
-    "title": "KASAMA — WFH Companion",
+    "title": "KASAMA: WFH Companion",
     "description": "Local-first mobile companion for remote-work rituals: start the day with intentions, protect focus blocks, close with wins and blockers, and review honest weekly focus trends.",
     "tech": ["Expo", "React Native", "TypeScript", "SQLite", "Zustand", "Reanimated"],
     "status": "MVP",
@@ -98,8 +105,8 @@
   },
   {
     "slug": "ai-incident-triage",
-    "title": "AI-Assisted Incident Triage UI",
-    "description": "AI-assisted incident triage console with Gemini (or rule-based) severity/category suggestions, seeded runbooks, human override, and an audit trail — free-tier Next.js + Prisma portfolio demo.",
+    "title": "AI-Assisted Incident Triage",
+    "description": "AI-assisted incident triage console with Gemini (or rule-based) severity/category suggestions, seeded runbooks, human override, and an audit trail, free-tier Next.js + Prisma portfolio demo.",
     "tech": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Gemini API", "Zod"],
     "status": "Built",
     "impact": ["Faster incident triage", "Safer human-in-the-loop routing"],

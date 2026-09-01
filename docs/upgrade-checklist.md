@@ -2,19 +2,42 @@
 
 The production site lives in **`next-app`** (Next.js App Router, Tailwind CSS v4, TypeScript).
 
-Canonical editable content for sync:
+## Canonical content
 
-- `content/site/*.json` — homepage sections (copied into `next-app/src/content/site/` by `npm run sync-content`).
-- `content/posts/` — Pensieve markdown + assets (synced into `next-app/content/posts/` and `next-app/public/posts-static/`).
+Edit JSON at the repo root, then sync into the app:
+
+- `content/site/*.json` → `next-app/src/content/site/` via `npm run sync-content`
+
+Archived markdown and posts live in `content/_archive/`.
+
+```sh
+npm run verify-content
+```
+
+Root `npm run build` runs sync automatically. Netlify does the same in `netlify.toml`.
+
+## Local development
 
 From the repo root:
 
 ```sh
-npm install          # root: husky, prettier, lint-staged (once)
+npm install
 cd next-app && npm install
-npm run dev          # from root: starts next-app dev server
-npm run sync-content # from root: refresh next-app copies from content/
-npm run build        # from root: production build
+npm run dev
 ```
 
-The previous Gatsby-focused upgrade checklist is obsolete and was removed when the site moved to Next.js.
+## Quality checks
+
+```sh
+npm run verify-content
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+CI runs these on push/PR (`.github/workflows/ci.yml`).
+
+## Audit tracker
+
+See `docs/audit-tracker.md` for open site health items.

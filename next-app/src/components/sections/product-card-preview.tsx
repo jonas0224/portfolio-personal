@@ -1,5 +1,3 @@
-'use client'
-
 import {
   OPS_PREVIEW_SERVICES,
   POS_PREVIEW_ITEMS,
@@ -160,6 +158,38 @@ function renderScene(slug?: string) {
           <div className="gp-kasama-footer">
             <strong>25:00</strong>
             <span>Start focus</span>
+          </div>
+        </div>
+      )
+    case 'developer-productivity-portal':
+      return (
+        <div className="gp-portal">
+          <div className="gp-portal-bar">
+            <span>Ship desk</span>
+            <span className="gp-portal-pill">CI failing</span>
+          </div>
+          <div className="gp-portal-grid">
+            <div className="gp-portal-tile is-warn">checkout-api</div>
+            <div className="gp-portal-tile is-ok">inventory</div>
+            <div className="gp-portal-tile is-ok">releases</div>
+          </div>
+          <div className="gp-portal-actions">
+            <span>Acknowledge</span>
+            <span className="gp-portal-cta">Publish notes</span>
+          </div>
+        </div>
+      )
+    case 'mobile-delivery-companion':
+      return (
+        <div className="gp-route">
+          <div className="gp-route-bar">
+            <span>DropRoute</span>
+            <span className="gp-route-pill">3 stops left</span>
+          </div>
+          <div className="gp-route-list">
+            <div className="gp-route-stop is-done">Stop 4 · Delivered</div>
+            <div className="gp-route-stop is-active">Stop 5 · Out for delivery</div>
+            <div className="gp-route-stop">Stop 6 · Queued offline</div>
           </div>
         </div>
       )

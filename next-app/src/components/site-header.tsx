@@ -87,7 +87,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
 
   const logo = (
     <div className="portfolio-logo-wrap" tabIndex={-1}>
-      <Link href="/" aria-label="Jonas Yambao — home">
+      <Link href="/" aria-label="Jonas Yambao home">
         <LogoMark className="portfolio-logo-mark" />
       </Link>
     </div>
@@ -136,7 +136,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
                 {linkList}
                 {resume}
               </div>
-              <MobileMenu />
+              <MobileMenu isHome={isHome} />
             </div>
           </>
         ) : (
@@ -193,7 +193,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
                 {isMounted && (
                   <CSSTransition nodeRef={menuNodeRef} classNames={fadeClass} timeout={timeout}>
                     <div ref={menuNodeRef}>
-                      <MobileMenu />
+                      <MobileMenu isHome={isHome} />
                     </div>
                   </CSSTransition>
                 )}
