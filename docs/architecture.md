@@ -51,15 +51,15 @@ Root `npm run build` runs sync before the Next production build.
 
 ## Homepage composition
 
-| Section      | Rendering  | Notes                                 |
-| ------------ | ---------- | ------------------------------------- |
-| Hero         | Client     | Product visual tabs + motion          |
-| Craft        | **Server** | “What I optimize for” pillars         |
-| Work         | **Server** | Bento product gallery + card previews        |
-| Horizon      | **Server** | Roadmap / parked items from `projects.json`  |
-| Experience   | **Server** | Compact timeline + skill pillars             |
-| Notes teaser | **Server** | Links to `/writing`                   |
-| Contact      | **Server** | Email + availability + socials        |
+| Section      | Rendering  | Notes                                       |
+| ------------ | ---------- | ------------------------------------------- |
+| Hero         | Client     | Product visual tabs + motion                |
+| Craft        | **Server** | “What I optimize for” pillars               |
+| Work         | **Server** | Bento product gallery + card previews       |
+| Horizon      | **Server** | Roadmap / parked items from `projects.json` |
+| Experience   | **Server** | Compact timeline + skill pillars            |
+| Notes teaser | **Server** | Links to `/writing`                         |
+| Contact      | **Server** | Email + availability + socials              |
 
 Shell (header, footer, scroll progress) stays client for nav interactivity. Footer GitHub stats are fetched on the server with 1h revalidate.
 

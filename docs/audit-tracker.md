@@ -120,14 +120,14 @@ Living checklist from the deep audit of `portfolio-personal` (September 2026). U
 
 ## Deferred / decisions needed
 
-| Status | Item                                  | Decision                                            |
-| ------ | ------------------------------------- | --------------------------------------------------- |
-| [x]    | Publish Pensieve blog posts           | Removed pipeline; `/pensieve` → `/writing`          |
-| [x]    | Promote BOQ/Helika to primary gallery | Added to `HOME_SLUGS` — 2026-09-01                  |
+| Status | Item                                  | Decision                                                               |
+| ------ | ------------------------------------- | ---------------------------------------------------------------------- |
+| [x]    | Publish Pensieve blog posts           | Removed pipeline; `/pensieve` → `/writing`                             |
+| [x]    | Promote BOQ/Helika to primary gallery | Added to `HOME_SLUGS` — 2026-09-01                                     |
 | [x]    | Show roadmap projects on site         | `horizon-section.tsx` from `projects.json` Roadmap/Parked — 2026-09-01 |
-| [-]    | Vercel Analytics on Netlify deploy    | **Accepted** — lightweight, no cookie banner needed |
-| [x]    | Per-project OG images                 | `projects/[slug]/opengraph-image.tsx` — 2026-09-01  |
-| [x]    | Automated tests                       | Vitest content schema tests + CI — 2026-09-01       |
+| [-]    | Vercel Analytics on Netlify deploy    | **Accepted** — lightweight, no cookie banner needed                    |
+| [x]    | Per-project OG images                 | `projects/[slug]/opengraph-image.tsx` — 2026-09-01                     |
+| [x]    | Automated tests                       | Vitest content schema tests + CI — 2026-09-01                          |
 
 ---
 
