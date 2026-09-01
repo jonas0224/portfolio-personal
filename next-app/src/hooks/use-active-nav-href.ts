@@ -17,6 +17,44 @@ function hrefFromPathname(pathname: string, isHome: boolean): string {
   return ''
 }
 
+/** Match the former IntersectionObserver band (~upper quarter of the viewport). */
+export function activationOffsetPx(viewportHeight: number): number {
+  return Math.round(viewportHeight * 0.25)
+}
+
+type SectionSample = { href: string; top: number }
+
+/**
+ * Pick the last nav section whose top has crossed the activation line.
+ * Works for very tall sections where intersection ratios stay below observer thresholds.
+ */
+export function pickSectionHref(
+  sections: SectionSample[],
+  scrollY: number,
+  activationOffset: number,
+): string {
+  if (sections.length === 0) return '/#hero'
+  if (scrollY < 80) return '/#hero'
+
+  let activeHref = sections[0]!.href
+  for (const section of sections) {
+    if (section.top <= activationOffset) {
+      activeHref = section.href
+    }
+  }
+
+  return activeHref
+}
+
+export function resolveScrollHref(elements: { href: string; el: HTMLElement }[]): string {
+  const offset = activationOffsetPx(window.innerHeight)
+  const sections = elements.map((item) => ({
+    href: item.href,
+    top: item.el.getBoundingClientRect().top,
+  }))
+  return pickSectionHref(sections, window.scrollY, offset)
+}
+
 /**
  * Active primary-nav href: scroll-spy on home sections, otherwise route match.
  */
@@ -40,33 +78,24 @@ export function useActiveNavHref(isHome: boolean): string {
 
     if (elements.length === 0) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))
-
-        if (visible[0]?.target) {
-          const match = elements.find((item) => item.el === visible[0].target)
-          if (match) setScrollHref(match.href)
-        }
-      },
-      {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: [0.1, 0.25, 0.5, 0.75],
-      },
-    )
-
-    elements.forEach(({ el }) => observer.observe(el))
-
-    const onScrollTop = () => {
-      if (window.scrollY < 80) setScrollHref('/#hero')
+    let frame = 0
+    const update = () => {
+      frame = 0
+      setScrollHref(resolveScrollHref(elements))
     }
-    window.addEventListener('scroll', onScrollTop, { passive: true })
+    const onScrollOrResize = () => {
+      if (frame) return
+      frame = requestAnimationFrame(update)
+    }
+
+    update()
+    window.addEventListener('scroll', onScrollOrResize, { passive: true })
+    window.addEventListener('resize', onScrollOrResize, { passive: true })
 
     return () => {
-      observer.disconnect()
-      window.removeEventListener('scroll', onScrollTop)
+      if (frame) cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScrollOrResize)
+      window.removeEventListener('resize', onScrollOrResize)
     }
   }, [isHome, pathname])
 
