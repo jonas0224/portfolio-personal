@@ -15,11 +15,24 @@ type Props = {
 export function MobileMenu({ isHome }: Props) {
   const activeHref = useActiveNavHref(isHome)
   const [menuOpen, setMenuOpen] = useState(false)
-  const toggleMenu = () => setMenuOpen((o) => !o)
 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const navRef = useRef<HTMLElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
+
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false)
+    requestAnimationFrame(() => buttonRef.current?.focus())
+  }, [])
+
+  const toggleMenu = () => {
+    setMenuOpen((open) => {
+      if (open) {
+        requestAnimationFrame(() => buttonRef.current?.focus())
+      }
+      return !open
+    })
+  }
 
   useEffect(() => {
     if (menuOpen) {
@@ -49,7 +62,8 @@ export function MobileMenu({ isHome }: Props) {
       if (!menuOpen) return
 
       if (e.key === KEY_CODES.ESCAPE || e.key === KEY_CODES.ESCAPE_IE11) {
-        setMenuOpen(false)
+        e.preventDefault()
+        closeMenu()
         return
       }
 
@@ -72,7 +86,7 @@ export function MobileMenu({ isHome }: Props) {
 
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [menuOpen, getFocusables])
+  }, [menuOpen, getFocusables, closeMenu])
 
   useEffect(() => {
     const onResize = () => {
@@ -84,7 +98,9 @@ export function MobileMenu({ isHome }: Props) {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  useOnClickOutside(wrapperRef, () => setMenuOpen(false))
+  useOnClickOutside(wrapperRef, () => {
+    if (menuOpen) closeMenu()
+  })
 
   return (
     <div className="portfolio-mobile-wrap">
@@ -120,7 +136,7 @@ export function MobileMenu({ isHome }: Props) {
                     <Link
                       href={link.href}
                       aria-current={isActive ? 'page' : undefined}
-                      onClick={() => setMenuOpen(false)}
+                      onClick={closeMenu}
                     >
                       {link.name}
                     </Link>
@@ -131,7 +147,7 @@ export function MobileMenu({ isHome }: Props) {
             <ButtonLink
               className="portfolio-sidebar-resume"
               href="/resume.pdf"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               rel="noopener noreferrer"
               size="lg"
               target="_blank"

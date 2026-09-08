@@ -1,7 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
+import { KEY_CODES } from '@/lib/key-codes'
 import {
   OPS_PREVIEW_SERVICES,
   POS_PREVIEW_ITEMS,
@@ -221,6 +222,44 @@ export function HeroProductVisual() {
     [markInteraction],
   )
 
+  const onTabListKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      const keys: string[] = [
+        KEY_CODES.ARROW_LEFT,
+        KEY_CODES.ARROW_LEFT_IE11,
+        KEY_CODES.ARROW_RIGHT,
+        KEY_CODES.ARROW_RIGHT_IE11,
+        KEY_CODES.HOME,
+        KEY_CODES.END,
+      ]
+      if (!keys.includes(event.key)) return
+
+      event.preventDefault()
+      markInteraction()
+
+      const index = PREVIEWS.findIndex((preview) => preview.id === activeId)
+      const last = PREVIEWS.length - 1
+      let nextIndex = index
+
+      if (event.key === KEY_CODES.ARROW_LEFT || event.key === KEY_CODES.ARROW_LEFT_IE11) {
+        nextIndex = index <= 0 ? last : index - 1
+      } else if (event.key === KEY_CODES.ARROW_RIGHT || event.key === KEY_CODES.ARROW_RIGHT_IE11) {
+        nextIndex = index >= last ? 0 : index + 1
+      } else if (event.key === KEY_CODES.HOME) {
+        nextIndex = 0
+      } else if (event.key === KEY_CODES.END) {
+        nextIndex = last
+      }
+
+      const nextId = PREVIEWS[nextIndex]!.id
+      setActiveId(nextId)
+      requestAnimationFrame(() => {
+        document.getElementById(`hero-tab-${nextId}`)?.focus()
+      })
+    },
+    [activeId, markInteraction],
+  )
+
   useEffect(() => {
     if (prefersReducedMotion) return
 
@@ -249,7 +288,12 @@ export function HeroProductVisual() {
           <span className="hero-visual-dot" />
           <span className="hero-visual-dot" />
           <span className="hero-visual-dot" />
-          <div className="hero-visual-tabs" role="tablist" aria-label="Product previews">
+          <div
+            className="hero-visual-tabs"
+            role="tablist"
+            aria-label="Product previews"
+            onKeyDown={onTabListKeyDown}
+          >
             {PREVIEWS.map((preview) => (
               <button
                 key={preview.id}

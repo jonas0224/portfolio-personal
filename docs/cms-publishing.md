@@ -8,14 +8,14 @@ The authoritative slug → file mapping and publish behavior live in the CMS rep
 
 **`portfolio-content-management/docs/publishing-contract.md`**
 
-| CMS slug            | Portfolio file                        |
-| ------------------- | ------------------------------------- |
-| `hero`              | `content/site/hero.json`              |
-| `about`             | `content/site/about.json`             |
-| `jobs`              | `content/site/jobs.json`              |
-| `featured-projects` | `content/site/featured-projects.json` |
-| `projects`          | `content/site/projects.json`          |
-| `contact`           | `content/site/contact.json`           |
+| CMS slug            | Portfolio file                                        |
+| ------------------- | ----------------------------------------------------- |
+| `hero`              | `content/site/hero.json`                              |
+| `about`             | `content/site/about.json`                             |
+| `jobs`              | `content/site/jobs.json`                              |
+| `featured-projects` | `content/site/featured-projects.json`                 |
+| `projects`          | `content/site/projects.json` (full portfolio catalog) |
+| `contact`           | `content/site/contact.json`                           |
 
 `writing.json` is edited in this repo only until a CMS slug is added.
 

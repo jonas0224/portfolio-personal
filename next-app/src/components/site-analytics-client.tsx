@@ -1,45 +1,67 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useId, useRef, useSyncExternalStore } from 'react'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import { GA_MEASUREMENT_ID } from '@/lib/site'
 
 const CONSENT_KEY = 'portfolio-analytics-consent'
 
-function readConsentState() {
+type ConsentState = {
+  analyticsAllowed: boolean
+  showBanner: boolean
+}
+
+const listeners = new Set<() => void>()
+
+function emitConsentChange() {
+  listeners.forEach((listener) => listener())
+}
+
+function readConsentState(): ConsentState {
   if (typeof window === 'undefined') {
-    return { gaAllowed: false, showBanner: false }
+    return { analyticsAllowed: false, showBanner: false }
   }
 
   const stored = window.localStorage.getItem(CONSENT_KEY)
   if (stored === 'granted') {
-    return { gaAllowed: true, showBanner: false }
+    return { analyticsAllowed: true, showBanner: false }
   }
   if (stored === 'denied') {
-    return { gaAllowed: false, showBanner: false }
+    return { analyticsAllowed: false, showBanner: false }
   }
 
-  return { gaAllowed: false, showBanner: Boolean(GA_MEASUREMENT_ID) }
+  return { analyticsAllowed: false, showBanner: true }
+}
+
+function subscribeConsent(listener: () => void) {
+  listeners.add(listener)
+  return () => listeners.delete(listener)
+}
+
+function writeConsent(value: 'granted' | 'denied') {
+  window.localStorage.setItem(CONSENT_KEY, value)
+  emitConsentChange()
 }
 
 export function SiteAnalyticsClient() {
-  const [{ gaAllowed, showBanner }, setConsent] = useState(readConsentState)
+  const { analyticsAllowed, showBanner } = useSyncExternalStore(
+    subscribeConsent,
+    readConsentState,
+    () => ({ analyticsAllowed: false, showBanner: false }),
+  )
+  const titleId = useId()
+  const acceptRef = useRef<HTMLButtonElement>(null)
 
-  function grantConsent() {
-    window.localStorage.setItem(CONSENT_KEY, 'granted')
-    setConsent({ gaAllowed: true, showBanner: false })
-  }
-
-  function denyConsent() {
-    window.localStorage.setItem(CONSENT_KEY, 'denied')
-    setConsent({ gaAllowed: false, showBanner: false })
-  }
+  useEffect(() => {
+    if (!showBanner) return
+    acceptRef.current?.focus()
+  }, [showBanner])
 
   return (
     <>
-      <Analytics />
-      {GA_MEASUREMENT_ID && gaAllowed ? (
+      {analyticsAllowed ? <Analytics /> : null}
+      {GA_MEASUREMENT_ID && analyticsAllowed ? (
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -54,16 +76,27 @@ gtag('config', '${GA_MEASUREMENT_ID}');`}
         </>
       ) : null}
       {showBanner ? (
-        <div className="analytics-consent" role="dialog" aria-label="Analytics consent">
-          <p>
-            This site can load optional Google Analytics when enabled. Accept only if you are
-            comfortable with basic usage analytics.
+        <div
+          className="analytics-consent"
+          role="region"
+          aria-labelledby={titleId}
+          aria-live="polite"
+        >
+          <p id={titleId}>
+            This site can load optional usage analytics (Vercel Analytics
+            {GA_MEASUREMENT_ID ? ' and Google Analytics' : ''}). Accept only if you are comfortable
+            with basic anonymous traffic metrics.
           </p>
           <div className="analytics-consent-actions">
-            <button type="button" onClick={denyConsent}>
+            <button type="button" onClick={() => writeConsent('denied')}>
               Decline
             </button>
-            <button type="button" className="is-primary" onClick={grantConsent}>
+            <button
+              ref={acceptRef}
+              type="button"
+              className="is-primary"
+              onClick={() => writeConsent('granted')}
+            >
               Accept
             </button>
           </div>

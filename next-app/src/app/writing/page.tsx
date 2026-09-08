@@ -2,11 +2,31 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SECTION_SHELL } from '@/components/sections/constants'
 import { writing } from '@/data/site'
+import { OG_IMAGE_PATH, SITE_URL } from '@/lib/site'
 import { OutlineLink } from '@/ui/outline-link'
+
+const canonical = `${SITE_URL}/writing`
+const ogImageUrl = `${SITE_URL}${OG_IMAGE_PATH}`
 
 export const metadata: Metadata = {
   title: 'Notes',
   description: writing.description,
+  alternates: {
+    canonical,
+  },
+  openGraph: {
+    type: 'website',
+    url: canonical,
+    title: 'Notes',
+    description: writing.description,
+    images: [{ url: ogImageUrl }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Notes',
+    description: writing.description,
+    images: [ogImageUrl],
+  },
 }
 
 export default function WritingPage() {

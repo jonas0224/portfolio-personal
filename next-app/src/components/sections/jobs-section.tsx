@@ -2,22 +2,33 @@ import type { AboutContent, JobContent } from '@/types/content'
 import { ExternalLink } from '@/components/external-link'
 import { SECTION_SHELL } from '@/components/sections/constants'
 
-type Props = {
+interface JobsSectionProps {
   jobs: JobContent[]
   about: AboutContent
 }
 
-const PILLAR_LABELS = ['Core', 'UI systems', 'Quality', 'Delivery'] as const
-
-export function JobsSection({ jobs, about }: Props) {
-  const pillars = PILLAR_LABELS.map((label) =>
-    about.skillGroups.find((group) => group.label === label),
-  ).filter(Boolean)
-
+export function JobsSection({ jobs, about }: JobsSectionProps) {
   return (
     <section id="jobs" className={SECTION_SHELL}>
       <h2 className="section-heading">Experience</h2>
-      <p className="experience-lede">{about.intro[0]}</p>
+      <div className="experience-lede">
+        {about.intro.map((paragraph) => (
+          <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+        ))}
+      </div>
+
+      {about.companies.length ? (
+        <>
+          <ul className="experience-companies" aria-label="Companies">
+            {about.companies.map((company) => (
+              <li key={company.url}>
+                <ExternalLink href={company.url}>{company.name}</ExternalLink>
+              </li>
+            ))}
+          </ul>
+          <p className="experience-companies-summary">{about.companiesSummary}</p>
+        </>
+      ) : null}
 
       <ol className="experience-timeline experience-timeline--compact">
         {jobs.map((job) => (
@@ -39,18 +50,16 @@ export function JobsSection({ jobs, about }: Props) {
       </ol>
 
       <div className="experience-pillars" aria-label="Skill pillars">
-        {pillars.map((group) =>
-          group ? (
-            <div key={group.label} className="experience-pillar">
-              <h3>{group.label}</h3>
-              <ul>
-                {group.skills.slice(0, 6).map((skill) => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null,
-        )}
+        {about.skillGroups.map((group) => (
+          <div key={group.label} className="experience-pillar">
+            <h3>{group.label}</h3>
+            <ul>
+              {group.skills.slice(0, 6).map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   )

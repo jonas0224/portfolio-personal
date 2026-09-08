@@ -39,10 +39,12 @@ describe('content schemas', () => {
     }
   })
 
-  it('parses projects.json', () => {
+  it('parses projects.json catalog', () => {
     const projects = projectsSchema.parse(projectsJson)
-    const horizon = projects.filter((p) => p.status === 'Roadmap' || p.status === 'Parked')
-    expect(horizon.length).toBeGreaterThan(0)
+    expect(projects.length).toBeGreaterThan(0)
+    const statuses = new Set(projects.map((p) => p.status))
+    expect(statuses.has('Roadmap') || statuses.has('Parked')).toBe(true)
+    expect(statuses.has('Built') || statuses.has('Live') || statuses.has('MVP')).toBe(true)
   })
 
   it('parses contact.json', () => {

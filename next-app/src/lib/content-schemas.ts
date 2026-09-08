@@ -10,11 +10,9 @@ export const heroSchema = z.object({
   name: z.string(),
   tagline: z.string(),
   description: z.string(),
-  companies: z.array(companyLinkSchema),
   proofChips: z.array(z.string()).optional(),
   ctaLabel: z.string(),
   ctaSecondaryLabel: z.string(),
-  ctaEmail: z.string().email(),
 })
 
 export const aboutSchema = z.object({

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { SOCIAL_LINKS } from '@/lib/site-contact'
 import type { SocialIconName } from '@/components/icons/social-icon'
 import { SocialIcon } from '@/components/icons/social-icon'
@@ -79,7 +80,7 @@ export async function SiteFooter() {
           ) : null}
         </a>
         <p className="portfolio-footer-notes">
-          <a href="/writing">Notes</a>
+          <Link href="/writing">Notes</Link>
         </p>
       </div>
     </footer>

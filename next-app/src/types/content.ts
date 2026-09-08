@@ -8,11 +8,9 @@ export interface HeroContent {
   name: string
   tagline: string
   description: string
-  companies: CompanyLink[]
   proofChips?: string[]
   ctaLabel: string
   ctaSecondaryLabel: string
-  ctaEmail: string
 }
 
 export interface SkillGroup {

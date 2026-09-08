@@ -43,12 +43,13 @@ See `next-app/README.md` for app-specific details.
 
 ## Docs
 
-| Doc                         | Purpose                             |
-| --------------------------- | ----------------------------------- |
-| `docs/architecture.md`      | App structure and content flow      |
-| `docs/cms-publishing.md`    | CMS → portfolio JSON contract       |
-| `docs/project-roadmap.md`   | Portfolio + product roadmap         |
-| `docs/upgrade-checklist.md` | Stack and sync notes                |
+| Doc                             | Purpose                        |
+| ------------------------------- | ------------------------------ |
+| `docs/architecture.md`          | App structure and content flow |
+| `docs/improvement-checklist.md` | Polish progress and next work  |
+| `docs/cms-publishing.md`        | CMS → portfolio JSON contract  |
+| `docs/project-roadmap.md`       | Portfolio + product roadmap    |
+| `docs/upgrade-checklist.md`     | Stack and sync notes           |
 
 ## Deploy
 

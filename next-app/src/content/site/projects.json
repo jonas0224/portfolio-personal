@@ -122,5 +122,25 @@
     "impact": ["Faster content publishing turnaround", "More reliable publishing workflow"],
     "github": "https://github.com/jonas0224/portfolio-content-management",
     "external": "https://github.com/jonas0224/portfolio-content-management"
+  },
+  {
+    "slug": "boq-digital-banking-platform",
+    "title": "BOQ Digital Banking Platform",
+    "description": "Employer work under NRI ANZ: senior frontend delivery for Bank of Queensland banking experiences, reusable UI patterns and release guardrails in regulated workflows.",
+    "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
+    "status": "Built",
+    "impact": ["Employer case study", "Lower production risk", "Stronger release readiness"],
+    "github": null,
+    "external": "https://www.boq.com.au"
+  },
+  {
+    "slug": "helika-analytics-platform",
+    "title": "Helika Analytics Platform",
+    "description": "Employer work: frontend architecture for a data-heavy analytics product, dashboard performance, shared patterns, and team delivery standards.",
+    "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
+    "status": "Built",
+    "impact": ["Employer case study", "Faster dashboards", "Fewer regressions"],
+    "github": null,
+    "external": "https://helika.io"
   }
 ]

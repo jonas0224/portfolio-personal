@@ -1,30 +1,24 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 const QUERY = '(prefers-reduced-motion: no-preference)'
-const isServer = typeof window === 'undefined'
 
-/**
- * SSR-safe: assume full motion until hydrated (matches legacy behavior closely).
- */
-function getInitialState() {
-  if (isServer) {
-    return false
-  }
+function subscribe(onStoreChange: () => void) {
+  const media = window.matchMedia(QUERY)
+  media.addEventListener('change', onStoreChange)
+  return () => media.removeEventListener('change', onStoreChange)
+}
+
+function getSnapshot() {
   return !window.matchMedia(QUERY).matches
 }
 
+/** Assume reduced motion until hydrated so entrance animations do not flash. */
+function getServerSnapshot() {
+  return true
+}
+
 export function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState)
-
-  useEffect(() => {
-    const mq = window.matchMedia(QUERY)
-    const listener = () => setPrefersReducedMotion(!mq.matches)
-    listener()
-    mq.addEventListener('change', listener)
-    return () => mq.removeEventListener('change', listener)
-  }, [])
-
-  return prefersReducedMotion
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }

@@ -8,7 +8,7 @@ High-level map of `portfolio-personal` — how content, routes, and deploy fit t
 portfolio-personal/
 ├── content/site/*.json     # Canonical site copy (edit here)
 ├── content/_archive/       # Retired Gatsby markdown + unused JSON
-├── docs/                   # Roadmap, audit tracker, this file
+├── docs/                   # Roadmap, architecture, CMS notes
 ├── netlify.toml            # Deploy: next-app + sync-content + build
 └── next-app/               # Next.js 16 App Router application
     ├── src/app/            # Routes
@@ -53,10 +53,10 @@ Root `npm run build` runs sync before the Next production build.
 
 | Section      | Rendering  | Notes                                       |
 | ------------ | ---------- | ------------------------------------------- |
-| Hero         | Client     | Product visual tabs + motion                |
+| Hero         | **Server** | Product visual tabs + motion (client leaf)  |
 | Craft        | **Server** | “What I optimize for” pillars               |
 | Work         | **Server** | Bento product gallery + card previews       |
-| Horizon      | **Server** | Roadmap / parked items from `projects.json` |
+| Horizon      | **Server** | Full `projects.json` catalog (all statuses) |
 | Experience   | **Server** | Compact timeline + skill pillars            |
 | Notes teaser | **Server** | Links to `/writing`                         |
 | Contact      | **Server** | Email + availability + socials              |
@@ -65,9 +65,8 @@ Shell (header, footer, scroll progress) stays client for nav interactivity. Foot
 
 ## Security & analytics
 
-- Security headers in `next.config.ts`
-- Vercel Analytics loads by default
-- GA4 loads only when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set **and** the user accepts the consent banner
+- Security headers in `next.config.ts` (CSP, HSTS, frame deny, nosniff, referrer, permissions)
+- Usage analytics (Vercel Analytics, and GA4 when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set) load only after the consent banner is accepted
 
 ## Deploy
 
@@ -81,6 +80,7 @@ GitHub Actions (`.github/workflows/ci.yml`): verify-content → lint → typeche
 
 ## Related docs
 
+- [improvement-checklist.md](./improvement-checklist.md) — polish progress and next work
 - [cms-publishing.md](./cms-publishing.md) — CMS → portfolio JSON contract (portfolio side)
 - [project-roadmap.md](./project-roadmap.md) — product/project planning
 - [upgrade-checklist.md](./upgrade-checklist.md) — stack + sync quick reference

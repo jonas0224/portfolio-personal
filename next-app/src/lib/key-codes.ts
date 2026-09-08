@@ -7,6 +7,8 @@ export const KEY_CODES = {
   ARROW_UP_IE11: 'Up',
   ARROW_DOWN: 'ArrowDown',
   ARROW_DOWN_IE11: 'Down',
+  HOME: 'Home',
+  END: 'End',
   ESCAPE: 'Escape',
   ESCAPE_IE11: 'Esc',
   TAB: 'Tab',

@@ -14,9 +14,10 @@ export function SiteShell({ children, footer }: { children: React.ReactNode; foo
     if (!hash) {
       return
     }
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     requestAnimationFrame(() => {
       document.getElementById(hash.slice(1))?.scrollIntoView({
-        behavior: 'smooth',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
       })
     })
   }, [pathname])
