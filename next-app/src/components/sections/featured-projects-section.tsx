@@ -28,8 +28,8 @@ export function FeaturedProjectsSection({ projects }: Props) {
     <section id="work" className={SECTION_SHELL}>
       <h2 className="section-heading">Selected products</h2>
       <p className="product-bento-lede">
-        A product tour of what I ship: live apps, design systems, and case studies. Each card is a
-        miniature UI, not a screenshot placeholder.
+        A product tour of what I ship: live apps, design systems, and case studies. Prefer{' '}
+        <strong>Open live</strong> when a demo is available; otherwise jump into the case study.
       </p>
       <ul className="product-bento">
         {hero.map((project) => (

@@ -6,9 +6,9 @@
     "tech": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "NextAuth"],
     "status": "Live",
     "impact": [
-      "Live production product",
-      "Audited sales and funds workflows",
-      "Ongoing feature support"
+      "Live on Vercel + Neon",
+      "Multi-tenant tablet checkout",
+      "Audited sales, refunds, and funds"
     ],
     "caseStudy": {
       "role": "Solo product engineer owning UI architecture, auth, inventory domain, and reporting for a consigned clothing POS, still shipping releases after go-live.",
@@ -41,7 +41,7 @@
     "description": "Token-driven Next.js workspace with reusable primitives, a live playground, and Storybook + Vitest gates, so apps migrate off one-off UI drift.",
     "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest"],
     "status": "Built",
-    "impact": ["Token-driven primitives", "Storybook + CI coverage"],
+    "impact": ["Semantic tokens + primitives", "Storybook + Vitest in CI"],
     "caseStudy": {
       "role": "Frontend platform owner defining tokens, primitives, and adoption paths for consuming apps.",
       "challenge": "Product UIs drifted into one-off styles with weak shared contracts and little regression safety.",
@@ -71,7 +71,7 @@
     "description": "Real-time party game: peek an image, survive the flashcut blackout, then race Kahoot-style scoring across 15 rounds, Next.js, Redis rooms, and Vercel-friendly polling.",
     "tech": ["Next.js", "React", "TypeScript", "Upstash Redis", "Vitest"],
     "status": "Built",
-    "impact": ["~20 player sync", "Speed-based scoring"],
+    "impact": ["~20 player rooms", "15-round speed scoring", "Serverless-friendly polling"],
     "caseStudy": {
       "role": "Full product owner for realtime game UX, room state, and serverless-friendly sync.",
       "challenge": "Need multiplayer round timing that works on Vercel serverless without sticky WebSocket hosts.",
@@ -281,7 +281,7 @@
     "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ, reusable UI patterns and release guardrails in regulated workflows.",
     "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
     "status": "Built",
-    "impact": ["Lower production risk", "Stronger release readiness"],
+    "impact": ["Reusable UI patterns across squads", "Release guardrails for regulated flows"],
     "caseStudy": {
       "role": "Senior frontend engineer for architecture, implementation standards, and delivery quality across critical journeys.",
       "challenge": "Regulated banking delivery requires velocity without sacrificing reliability, security, or review depth.",
@@ -311,7 +311,7 @@
     "description": "Frontend architecture for a data-heavy analytics product, dashboard performance, shared patterns, and team delivery standards.",
     "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
     "status": "Built",
-    "impact": ["Faster dashboards", "Fewer regressions"],
+    "impact": ["Dashboard performance budgets", "Shared visualization patterns"],
     "caseStudy": {
       "role": "Senior frontend owner for architecture and performance of analytics surfaces.",
       "challenge": "Large datasets and inconsistent patterns slowed rendering and delivery.",

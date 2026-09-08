@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ProjectContent } from '@/types/content'
 import { ExternalLink } from '@/components/external-link'
 import { SECTION_SHELL } from '@/components/sections/constants'
-import { projectOwnershipLabel } from '@/lib/project-ownership'
+import { projectExternalCtaLabel, projectOwnershipLabel } from '@/lib/project-ownership'
 
 interface HorizonSectionProps {
   projects: ProjectContent[]
@@ -87,11 +87,7 @@ export function HorizonSection({ projects, caseStudySlugs = [] }: HorizonSection
                 ) : null}
                 {project.external && project.external !== project.github ? (
                   <ExternalLink href={project.external}>
-                    {project.status === 'Live' || project.status === 'MVP'
-                      ? 'Open live'
-                      : project.github
-                        ? 'Learn more'
-                        : 'Company site'}
+                    {projectExternalCtaLabel(project)}
                   </ExternalLink>
                 ) : null}
               </div>

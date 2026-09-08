@@ -10,20 +10,21 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Status snapshot
 
-| Track         | State                                  |
-| ------------- | -------------------------------------- |
-| Audit P1–P3   | Done (committed `fcb6821`, not pushed) |
-| Story polish  | In progress                            |
-| Content depth | Open                                   |
+| Track         | State                       |
+| ------------- | --------------------------- |
+| Audit P1–P3   | Done (pushed)               |
+| Story polish  | Done (pushed)               |
+| Proof polish  | Mostly done (local pending) |
+| Content depth | Open (Notes)                |
 
 ---
 
 ## Ship gate
 
-| Status | Item                                           | Notes                    |
-| ------ | ---------------------------------------------- | ------------------------ |
-| [x]    | Commit P1/P2/P3 + catalog restore + BOQ/Helika | `fcb6821`                |
-| [ ]    | Push audit commit to origin                    | Local `main` ahead by 1+ |
+| Status | Item                         | Notes     |
+| ------ | ---------------------------- | --------- |
+| [x]    | Commit + push audit closeout | `fcb6821` |
+| [x]    | Commit + push story polish   | `5838a6a` |
 
 ---
 
@@ -40,12 +41,12 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Proof & case studies
 
-| Status | Item                                                                 | Notes                              |
-| ------ | -------------------------------------------------------------------- | ---------------------------------- |
-| [ ]    | Add 1–2 honest metrics to top case studies where possible            | Latency, coverage, release cadence |
-| [ ]    | Confirm live CTAs are clearest path for Archive Room / FLASHCUT / DS | Hero + Work                        |
-| [ ]    | Refresh `/resume.pdf` to match current BOQ/NRI + top products        | Keep PDF in sync with site         |
-| [ ]    | Decide on Experience portrait (add real photo or keep text-only)     | Removed unused `me.png`            |
+| Status | Item                                                                 | Notes                                     |
+| ------ | -------------------------------------------------------------------- | ----------------------------------------- |
+| [x]    | Add 1–2 honest metrics to top case studies where possible            | POS, DS, FLASHCUT, BOQ, Helika            |
+| [x]    | Confirm live CTAs are clearest path for Archive Room / FLASHCUT / DS | Open live vs Case study / View repository |
+| [ ]    | Refresh `/resume.pdf` to match current BOQ/NRI + top products        | Needs your PDF source; site copy is ready |
+| [x]    | Decide on Experience portrait                                        | Keep text-only (no photo)                 |
 
 ---
 
@@ -118,9 +119,8 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Suggested order
 
-1. Push audit + story polish commits when ready
-2. Resume refresh + case-study metrics (where honest)
-3. Notes decision (publish one or soften CTA)
+1. Refresh `next-app/public/resume.pdf` against current BOQ/NRI + Archive Room framing
+2. Notes decision (publish one or soften CTA)
 
 ---
 

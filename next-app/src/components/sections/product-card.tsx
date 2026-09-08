@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { ProjectContent } from '@/types/content'
 import type { WorkTier } from '@/lib/product-tour'
-import { projectOwnershipLabel } from '@/lib/project-ownership'
+import { projectExternalCtaLabel, projectOwnershipLabel } from '@/lib/project-ownership'
 import { OutlineLink } from '@/ui/outline-link'
 import { ExternalLink } from '@/components/external-link'
 import { ProductCardPreview } from '@/components/sections/product-card-preview'
@@ -67,7 +67,7 @@ export function ProductCard({ project, tier }: ProductCardProps) {
             <OutlineLink href={`/projects/${project.slug}`}>Read case study</OutlineLink>
             {project.external ? (
               <ExternalLink className="product-card-external" href={project.external}>
-                {project.status === 'Live' ? 'Open live' : 'View project'}
+                {projectExternalCtaLabel(project)}
               </ExternalLink>
             ) : null}
           </div>

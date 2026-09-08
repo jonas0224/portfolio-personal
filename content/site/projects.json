@@ -5,7 +5,7 @@
     "description": "Next.js workspace with semantic design tokens, reusable primitives (forms, feedback, overlay), a live component playground, and Storybook + Vitest quality gates (including CI) so consuming apps can migrate away from one-off UI drift.",
     "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Storybook", "Vitest", "Playwright"],
     "status": "Built",
-    "impact": ["Token-driven primitives", "Storybook + CI coverage"],
+    "impact": ["Semantic tokens + primitives", "Storybook + Vitest in CI"],
     "github": "https://github.com/jonas0224/frontend-design-system-migration",
     "external": "https://github.com/jonas0224/frontend-design-system-migration"
   },
@@ -16,9 +16,9 @@
     "tech": ["Next.js", "React", "TypeScript", "PostgreSQL", "Prisma", "NextAuth", "Tailwind CSS"],
     "status": "Live",
     "impact": [
-      "Live production product",
-      "Audited sales and funds workflows",
-      "Ongoing feature support"
+      "Live on Vercel + Neon",
+      "Multi-tenant tablet checkout",
+      "Audited sales, refunds, and funds"
     ],
     "github": "https://github.com/jonas0224/pos-inventory-system",
     "external": "https://archive-room.vercel.app/login"
@@ -29,7 +29,7 @@
     "description": "Real-time team party game: a quick image peek, blackout flashcut phase, then Kahoot-style speed scoring across 15 rounds. Built with Next.js, Redis-backed rooms, HTTP polling for Vercel serverless, and host-editable funny image packs.",
     "tech": ["Next.js", "React", "TypeScript", "Upstash Redis", "Tailwind CSS", "Vitest"],
     "status": "Built",
-    "impact": ["Sync for ~20 remote players", "Speed-based round scoring"],
+    "impact": ["~20 player rooms", "15-round speed scoring"],
     "github": "https://github.com/jonas0224/flashcut",
     "external": "https://flashcut-nine.vercel.app/"
   },
@@ -129,7 +129,7 @@
     "description": "Employer work under NRI ANZ: senior frontend delivery for Bank of Queensland banking experiences, reusable UI patterns and release guardrails in regulated workflows.",
     "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
     "status": "Built",
-    "impact": ["Employer case study", "Lower production risk", "Stronger release readiness"],
+    "impact": ["Employer case study", "Reusable UI patterns", "Regulated release guardrails"],
     "github": null,
     "external": "https://www.boq.com.au"
   },
@@ -139,7 +139,7 @@
     "description": "Employer work: frontend architecture for a data-heavy analytics product, dashboard performance, shared patterns, and team delivery standards.",
     "tech": ["React", "TypeScript", "Redux Toolkit", "MUI", "AWS"],
     "status": "Built",
-    "impact": ["Employer case study", "Faster dashboards", "Fewer regressions"],
+    "impact": ["Employer case study", "Performance budgets", "Shared viz patterns"],
     "github": null,
     "external": "https://helika.io"
   }
