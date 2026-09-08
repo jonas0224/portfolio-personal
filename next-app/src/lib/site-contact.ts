@@ -1,7 +1,7 @@
 export const CONTACT_EMAIL = 'jonas.paul11@yahoo.com'
 
 export const CONTACT_AVAILABILITY =
-  'Open to senior frontend roles · Melbourne or remote (AU) · typically replies within 2 business days'
+  'Full-time, part-time, or commission · Philippines or remote · typically replies within 2 business days'
 
 export type SocialLink = { name: string; url: string }
 

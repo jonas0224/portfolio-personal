@@ -229,6 +229,42 @@ function renderScene(slug?: string) {
           </div>
         </div>
       )
+    case 'helika-analytics-platform':
+      return (
+        <div className="gp-helika">
+          <div className="gp-helika-bar">
+            <span>Player analytics</span>
+            <span className="gp-helika-pill">Live</span>
+          </div>
+          <div className="gp-helika-kpis">
+            <div>
+              <em>DAU</em>
+              <strong>48.2k</strong>
+            </div>
+            <div>
+              <em>Retention D7</em>
+              <strong>36%</strong>
+            </div>
+            <div>
+              <em>p95 load</em>
+              <strong>1.8s</strong>
+            </div>
+          </div>
+          <div className="gp-helika-chart" aria-hidden>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span className="is-accent" />
+          </div>
+          <div className="gp-helika-actions">
+            <span>Cohorts</span>
+            <span className="gp-helika-cta">Export</span>
+          </div>
+        </div>
+      )
     default:
       return (
         <div className="gp-fallback">

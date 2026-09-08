@@ -131,7 +131,7 @@ Rationale: showcase track is complete for the planned portfolio projects; KASAMA
 
 - **Code:** `personal/rc-crawler-ph/` → GitHub `jonas0224/rc-crawler-ph` (private)
 - **Resume:** [`rc-crawler-ph/docs/STATUS.md`](../rc-crawler-ph/docs/STATUS.md)
-- **Build prompt (historical):** [rc-crawler-ph-build-prompt.md](./rc-crawler-ph-build-prompt.md) — superseded by shipped MVP; use for context only
+- **Build prompt (historical):** [`content/_archive/docs/rc-crawler-ph-build-prompt.md`](../content/_archive/docs/rc-crawler-ph-build-prompt.md) — superseded by shipped MVP; context only
 
 ---
 

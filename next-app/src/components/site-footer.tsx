@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { SOCIAL_LINKS } from '@/lib/site-contact'
 import type { SocialIconName } from '@/components/icons/social-icon'
 import { SocialIcon } from '@/components/icons/social-icon'
@@ -66,7 +65,7 @@ export async function SiteFooter() {
       <div className="portfolio-footer-credit" tabIndex={-1}>
         <a href={githubUrl} rel="noopener noreferrer" target="_blank">
           <div>Designed &amp; Built by Jonas Yambao</div>
-          {githubInfo ? (
+          {githubInfo && (githubInfo.stars > 0 || githubInfo.forks > 0) ? (
             <div className="portfolio-footer-stats">
               <span>
                 <SocialIcon name="Star" />
@@ -79,9 +78,6 @@ export async function SiteFooter() {
             </div>
           ) : null}
         </a>
-        <p className="portfolio-footer-notes">
-          <Link href="/writing">Notes</Link>
-        </p>
       </div>
     </footer>
   )

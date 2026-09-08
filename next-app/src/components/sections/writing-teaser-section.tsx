@@ -8,23 +8,28 @@ type Props = {
 }
 
 export function WritingTeaserSection({ writing }: Props) {
-  const featured = writing.topics[0]
+  const notes = writing.topics.slice(0, 3)
 
   return (
     <section className={SECTION_SHELL}>
-      <p className="portfolio-contact-overline numbered-heading">{writing.eyebrow}</p>
       <h2 className="section-heading">{writing.title}</h2>
-      <p className="mx-auto mt-4 max-w-2xl text-[var(--light-slate)]">{writing.description}</p>
-      {featured ? (
-        <article className="writing-teaser-card">
-          <p className="writing-teaser-status">{featured.status}</p>
-          <h3 className="writing-teaser-title">
-            <Link href={writing.ctaHref}>{featured.title}</Link>
-          </h3>
-          <p className="writing-teaser-blurb">{featured.blurb}</p>
-        </article>
+      <p className="writing-teaser-lede">{writing.description}</p>
+      {notes.length ? (
+        <ul className="writing-teaser-list">
+          {notes.map((topic) => (
+            <li key={topic.title}>
+              <article className="writing-teaser-item">
+                <p className="writing-teaser-status">{topic.status}</p>
+                <h3 className="writing-teaser-title">
+                  <Link href={writing.ctaHref}>{topic.title}</Link>
+                </h3>
+                <p className="writing-teaser-blurb">{topic.blurb}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
       ) : null}
-      <div className="mt-6 flex justify-center">
+      <div className="writing-teaser-actions">
         <OutlineLink href={writing.ctaHref}>{writing.ctaLabel}</OutlineLink>
       </div>
     </section>

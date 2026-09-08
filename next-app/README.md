@@ -50,4 +50,4 @@ Edit `content/site/*.json` at the repo root, then sync. Netlify runs sync automa
 
 Hosted on Netlify via repo root `netlify.toml` (`base = next-app`).
 
-See also `../docs/architecture.md`, `../docs/improvement-checklist.md`, and `../docs/upgrade-checklist.md`.
+See also `../docs/architecture.md`.

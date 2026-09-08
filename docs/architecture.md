@@ -8,7 +8,7 @@ High-level map of `portfolio-personal` — how content, routes, and deploy fit t
 portfolio-personal/
 ├── content/site/*.json     # Canonical site copy (edit here)
 ├── content/_archive/       # Retired Gatsby markdown + unused JSON
-├── docs/                   # Roadmap, architecture, CMS notes
+├── docs/                   # Architecture, CMS, roadmap, resume
 ├── netlify.toml            # Deploy: next-app + sync-content + build
 └── next-app/               # Next.js 16 App Router application
     ├── src/app/            # Routes
@@ -80,7 +80,6 @@ GitHub Actions (`.github/workflows/ci.yml`): verify-content → lint → typeche
 
 ## Related docs
 
-- [improvement-checklist.md](./improvement-checklist.md) — polish progress and next work
 - [cms-publishing.md](./cms-publishing.md) — CMS → portfolio JSON contract (portfolio side)
 - [project-roadmap.md](./project-roadmap.md) — product/project planning
-- [upgrade-checklist.md](./upgrade-checklist.md) — stack + sync quick reference
+- [resume-ats.md](./resume-ats.md) — ATS resume source

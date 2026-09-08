@@ -27,11 +27,11 @@ export function ContactSection({ contact, email }: Props) {
       id="contact"
       className="portfolio-contact portfolio-section mx-auto w-full max-w-[640px] pb-[100px] text-center [@media(max-width:768px)]:pb-[50px]"
     >
-      <p className="portfolio-contact-overline numbered-heading">{contact.overline}</p>
+      <p className="portfolio-contact-overline">{contact.overline}</p>
       <h2 className="portfolio-contact-title text-[var(--lightest-slate)]">{contact.title}</h2>
-      <p className="mx-auto mt-4 max-w-2xl text-[var(--light-slate)]">{contact.description}</p>
+      <p className="portfolio-contact-desc">{contact.description}</p>
       <p className="portfolio-contact-availability">{CONTACT_AVAILABILITY}</p>
-      <ButtonLink className="email-link mt-6" href={`mailto:${email}`} size="lg" variant="outline">
+      <ButtonLink className="email-link" href={`mailto:${email}`} size="lg" variant="outline">
         {contact.ctaLabel}
       </ButtonLink>
 

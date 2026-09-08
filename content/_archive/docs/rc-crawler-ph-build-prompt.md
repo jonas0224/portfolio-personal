@@ -1,7 +1,7 @@
 # RC Crawler PH — build prompt (historical)
 
 > **Parked 2026-07-10.** MVP (M0–M4) and 3D viewer spike are implemented in `personal/rc-crawler-ph/`.  
-> **Resume from:** [`rc-crawler-ph/docs/STATUS.md`](../../rc-crawler-ph/docs/STATUS.md) and [`rc-crawler-ph/README.md`](../../rc-crawler-ph/README.md).  
+> **Resume from:** [`rc-crawler-ph/docs/STATUS.md`](../../../../rc-crawler-ph/docs/STATUS.md) and [`rc-crawler-ph/README.md`](../../../../rc-crawler-ph/README.md).  
 > Private repo: `jonas0224/rc-crawler-ph`.
 
 The prompt below was used to scaffold the project. Keep for context; do not re-run from scratch unless starting a greenfield rewrite.
@@ -146,6 +146,6 @@ Reference planning doc in my workspace: `portfolio-personal/docs/project-roadmap
 
 ## Related docs
 
-- **Status (done / remaining):** [`rc-crawler-ph/docs/STATUS.md`](../../rc-crawler-ph/docs/STATUS.md)
-- Roadmap: [project-roadmap.md](./project-roadmap.md) — section **Active product bet: RC Crawler PH**
+- **Status (done / remaining):** [`rc-crawler-ph/docs/STATUS.md`](../../../../rc-crawler-ph/docs/STATUS.md)
+- Roadmap: [project-roadmap.md](../../../docs/project-roadmap.md) — section **Active product bet: RC Crawler PH**
 - Portfolio roadmap card: `content/site/projects.json` → **RC Crawler PH — Builder & Community**
