@@ -54,10 +54,10 @@ Root `npm run build` runs sync before the Next production build.
 | Section      | Rendering  | Notes                                      |
 | ------------ | ---------- | ------------------------------------------ |
 | Hero         | **Server** | Product visual tabs + motion (client leaf) |
-| Craft        | **Server** | “What I optimize for” pillars              |
+| Experience   | **Server** | Compact timeline + skill pillars           |
 | Work         | **Server** | Bento product gallery + card previews      |
 | Projects     | **Server** | Full `projects.json` catalog (`#projects`) |
-| Experience   | **Server** | Compact timeline + skill pillars           |
+| Craft        | **Server** | “What I optimize for” pillars              |
 | Notes teaser | **Server** | Links to `/writing`                        |
 | Contact      | **Server** | Email + availability + socials             |
 

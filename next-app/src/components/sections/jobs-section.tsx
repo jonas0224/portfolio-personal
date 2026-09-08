@@ -18,7 +18,8 @@ export function JobsSection({ jobs, about }: JobsSectionProps) {
       </div>
 
       {about.companies.length ? (
-        <>
+        <div className="experience-companies-block">
+          <p className="experience-companies-label">Selected companies</p>
           <ul className="experience-companies" aria-label="Companies">
             {about.companies.map((company) => (
               <li key={company.url}>
@@ -26,8 +27,10 @@ export function JobsSection({ jobs, about }: JobsSectionProps) {
               </li>
             ))}
           </ul>
-          <p className="experience-companies-summary">{about.companiesSummary}</p>
-        </>
+          {about.companiesSummary ? (
+            <p className="experience-companies-summary">{about.companiesSummary}</p>
+          ) : null}
+        </div>
       ) : null}
 
       <ol className="experience-timeline experience-timeline--compact">

@@ -82,6 +82,10 @@ export function previewLabelForSlug(slug: string | undefined, fallback: string) 
       return 'KASAMA · today'
     case 'portfolio-content-management':
       return 'Portfolio CMS · publish'
+    case 'boq-digital-banking-platform':
+      return 'BOQ · internet banking'
+    case 'helika-analytics-platform':
+      return 'Helika · analytics'
     default:
       return fallback
   }

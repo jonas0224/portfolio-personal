@@ -193,6 +193,42 @@ function renderScene(slug?: string) {
           </div>
         </div>
       )
+    case 'boq-digital-banking-platform':
+      return (
+        <div className="gp-ib">
+          <div className="gp-ib-bar">
+            <span>Accounts</span>
+            <span className="gp-ib-pill">Live</span>
+          </div>
+          <div className="gp-ib-grid">
+            <div className="gp-ib-tile is-active">
+              <span>Everyday</span>
+              <strong>$12,480.00</strong>
+              <em>Available</em>
+            </div>
+            <div className="gp-ib-tile">
+              <span>Savings</span>
+              <strong>$4,210.55</strong>
+              <em>Growing</em>
+            </div>
+            <div className="gp-ib-tile">
+              <span>Credit card</span>
+              <strong>$620.40</strong>
+              <em>Due in 9 days</em>
+            </div>
+            <div className="gp-ib-tile gp-ib-tile--cta">
+              <span>Pay anyone</span>
+              <strong>Transfer</strong>
+              <em>Same-day</em>
+            </div>
+          </div>
+          <div className="gp-ib-actions">
+            <span>Pay</span>
+            <span>Transfer</span>
+            <span className="gp-ib-cta">Cards</span>
+          </div>
+        </div>
+      )
     default:
       return (
         <div className="gp-fallback">

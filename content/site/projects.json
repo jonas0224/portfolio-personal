@@ -125,11 +125,11 @@
   },
   {
     "slug": "boq-digital-banking-platform",
-    "title": "BOQ Digital Banking Platform",
-    "description": "Employer work under NRI ANZ: senior frontend delivery for Bank of Queensland banking experiences, reusable UI patterns and release guardrails in regulated workflows.",
+    "title": "BOQ Internet Banking",
+    "description": "Employer work under NRI ANZ: senior frontend for Bank of Queensland internet banking — customer journeys, reusable UI patterns, and release guardrails in regulated workflows.",
     "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
-    "status": "Built",
-    "impact": ["Employer case study", "Reusable UI patterns", "Regulated release guardrails"],
+    "status": "Live",
+    "impact": ["Employer case study", "Internet banking journeys", "Regulated release guardrails"],
     "github": null,
     "external": "https://www.boq.com.au"
   },

@@ -10,12 +10,12 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Status snapshot
 
-| Track         | State                       |
-| ------------- | --------------------------- |
-| Audit P1–P3   | Done (pushed)               |
-| Story polish  | Done (pushed)               |
-| Proof polish  | Mostly done (local pending) |
-| Content depth | Open (Notes)                |
+| Track         | State                             |
+| ------------- | --------------------------------- |
+| Audit P1–P3   | Done (pushed)                     |
+| Story polish  | Done (pushed)                     |
+| Proof polish  | Done locally (resume ATS rebuild) |
+| Content depth | Open (Notes)                      |
 
 ---
 
@@ -45,7 +45,7 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 | ------ | -------------------------------------------------------------------- | ----------------------------------------- |
 | [x]    | Add 1–2 honest metrics to top case studies where possible            | POS, DS, FLASHCUT, BOQ, Helika            |
 | [x]    | Confirm live CTAs are clearest path for Archive Room / FLASHCUT / DS | Open live vs Case study / View repository |
-| [ ]    | Refresh `/resume.pdf` to match current BOQ/NRI + top products        | Needs your PDF source; site copy is ready |
+| [x]    | Refresh `/resume.pdf` to ATS-friendly BOQ/NRI version                | Source: `docs/resume-ats.md`              |
 | [x]    | Decide on Experience portrait                                        | Keep text-only (no photo)                 |
 
 ---
@@ -119,8 +119,8 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Suggested order
 
-1. Refresh `next-app/public/resume.pdf` against current BOQ/NRI + Archive Room framing
-2. Notes decision (publish one or soften CTA)
+1. Notes decision (publish one or soften CTA)
+2. Review ATS resume PDF in browser/download before applying
 
 ---
 

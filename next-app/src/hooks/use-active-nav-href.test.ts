@@ -3,10 +3,10 @@ import { activationOffsetPx, pickSectionHref } from '@/hooks/use-active-nav-href
 
 const SECTIONS = [
   { href: '/#hero', top: -200 },
-  { href: '/#craft', top: -1200 },
+  { href: '/#jobs', top: -1200 },
   { href: '/#work', top: 40 },
   { href: '/#projects', top: 500 },
-  { href: '/#jobs', top: 900 },
+  { href: '/#craft', top: 900 },
   { href: '/#contact', top: 1800 },
 ]
 
@@ -22,10 +22,10 @@ describe('pickSectionHref', () => {
   it('highlights projects while scrolling the full catalog', () => {
     const sections = [
       { href: '/#hero', top: -3000 },
-      { href: '/#craft', top: -2000 },
+      { href: '/#jobs', top: -2000 },
       { href: '/#work', top: -800 },
       { href: '/#projects', top: 40 },
-      { href: '/#jobs', top: 900 },
+      { href: '/#craft', top: 900 },
     ]
 
     expect(pickSectionHref(sections, 3200, activationOffsetPx(800))).toBe('/#projects')

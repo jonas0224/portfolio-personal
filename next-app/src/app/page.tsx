@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <HeroSection hero={hero} />
-      <OptimizeForSection />
+      <JobsSection jobs={jobs} about={about} />
       <FeaturedProjectsSection projects={featuredProjects} />
       <HorizonSection
         projects={projects}
@@ -20,7 +20,7 @@ export default function Home() {
           .filter((project) => project.slug && project.caseStudy)
           .map((project) => project.slug!)}
       />
-      <JobsSection jobs={jobs} about={about} />
+      <OptimizeForSection />
       <WritingTeaserSection writing={writing} />
       <ContactSection contact={contact} email={CONTACT_EMAIL} />
     </>

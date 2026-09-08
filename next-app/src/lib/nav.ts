@@ -6,14 +6,14 @@ export type NavItem = {
 }
 
 /**
- * Primary nav: product-tour story flow on the homepage.
+ * Primary nav: recruiter-first homepage flow (experience before product gallery).
  */
 export const NAV_LINKS: NavItem[] = [
   { name: 'Story', href: '/#hero', sectionId: 'hero' },
-  { name: 'Craft', href: '/#craft', sectionId: 'craft' },
+  { name: 'Experience', href: '/#jobs', sectionId: 'jobs' },
   { name: 'Work', href: '/#work', sectionId: 'work' },
   { name: 'Projects', href: '/#projects', sectionId: 'projects' },
-  { name: 'Experience', href: '/#jobs', sectionId: 'jobs' },
+  { name: 'Craft', href: '/#craft', sectionId: 'craft' },
   { name: 'Notes', href: '/writing' },
   { name: 'Contact', href: '/#contact', sectionId: 'contact' },
 ]

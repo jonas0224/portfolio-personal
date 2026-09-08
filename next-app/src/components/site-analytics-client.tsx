@@ -12,6 +12,21 @@ type ConsentState = {
   showBanner: boolean
 }
 
+const CONSENT_PENDING: ConsentState = {
+  analyticsAllowed: false,
+  showBanner: true,
+}
+const CONSENT_GRANTED: ConsentState = {
+  analyticsAllowed: true,
+  showBanner: false,
+}
+const CONSENT_DENIED: ConsentState = {
+  analyticsAllowed: false,
+  showBanner: false,
+}
+/** Stable SSR snapshot — must not allocate a new object per call. */
+const CONSENT_SERVER: ConsentState = CONSENT_DENIED
+
 const listeners = new Set<() => void>()
 
 function emitConsentChange() {
@@ -19,19 +34,14 @@ function emitConsentChange() {
 }
 
 function readConsentState(): ConsentState {
-  if (typeof window === 'undefined') {
-    return { analyticsAllowed: false, showBanner: false }
-  }
-
   const stored = window.localStorage.getItem(CONSENT_KEY)
-  if (stored === 'granted') {
-    return { analyticsAllowed: true, showBanner: false }
-  }
-  if (stored === 'denied') {
-    return { analyticsAllowed: false, showBanner: false }
-  }
+  if (stored === 'granted') return CONSENT_GRANTED
+  if (stored === 'denied') return CONSENT_DENIED
+  return CONSENT_PENDING
+}
 
-  return { analyticsAllowed: false, showBanner: true }
+function getServerConsentState(): ConsentState {
+  return CONSENT_SERVER
 }
 
 function subscribeConsent(listener: () => void) {
@@ -48,7 +58,7 @@ export function SiteAnalyticsClient() {
   const { analyticsAllowed, showBanner } = useSyncExternalStore(
     subscribeConsent,
     readConsentState,
-    () => ({ analyticsAllowed: false, showBanner: false }),
+    getServerConsentState,
   )
   const titleId = useId()
   const acceptRef = useRef<HTMLButtonElement>(null)

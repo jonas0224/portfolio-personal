@@ -277,18 +277,18 @@
   },
   {
     "slug": "boq-digital-banking-platform",
-    "title": "BOQ Digital Banking Platform",
-    "description": "Senior frontend delivery for BOQ banking experiences under NRI ANZ, reusable UI patterns and release guardrails in regulated workflows.",
+    "title": "BOQ Internet Banking",
+    "description": "Senior frontend delivery for Bank of Queensland internet banking under NRI ANZ — customer journeys, reusable UI patterns, and release guardrails in a regulated environment.",
     "tech": ["Next.js", "React", "TypeScript", "Azure", "Playwright", "Jest"],
-    "status": "Built",
-    "impact": ["Reusable UI patterns across squads", "Release guardrails for regulated flows"],
+    "status": "Live",
+    "impact": ["Internet banking journeys", "Regulated release guardrails"],
     "caseStudy": {
-      "role": "Senior frontend engineer for architecture, implementation standards, and delivery quality across critical journeys.",
-      "challenge": "Regulated banking delivery requires velocity without sacrificing reliability, security, or review depth.",
+      "role": "Senior frontend engineer for architecture, implementation standards, and delivery quality across internet banking journeys.",
+      "challenge": "Regulated internet banking needs velocity without sacrificing reliability, security, or review depth on high-trust customer flows.",
       "approach": [
+        "Shipped frontend for internet banking experiences customers use to view accounts, pay, and transfer.",
         "Standardized reusable UI patterns across squads.",
-        "Introduced release guardrails for risky UI changes.",
-        "Strengthened test strategy for key customer flows."
+        "Introduced release guardrails and stronger tests for critical regulated flows."
       ],
       "architecture": [
         "Feature-oriented frontend structure for ownership boundaries.",
@@ -300,7 +300,7 @@
         "PR checklists for reliability and accessibility.",
         "Post-release validation for faster issue detection."
       ],
-      "outcome": "Improved release confidence for regulated banking journeys, reusable UI patterns, stronger automated checks, and clearer rollout guardrails across squads."
+      "outcome": "Higher release confidence on internet banking journeys, reusable UI patterns, stronger automated checks, and clearer rollout guardrails across squads."
     },
     "github": null,
     "external": "https://www.boq.com.au"
