@@ -81,7 +81,6 @@ GitHub Actions (`.github/workflows/ci.yml`): verify-content → lint → typeche
 
 ## Related docs
 
-- [audit-tracker.md](./audit-tracker.md) — site health checklist
 - [cms-publishing.md](./cms-publishing.md) — CMS → portfolio JSON contract (portfolio side)
 - [project-roadmap.md](./project-roadmap.md) — product/project planning
 - [upgrade-checklist.md](./upgrade-checklist.md) — stack + sync quick reference

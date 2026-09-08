@@ -37,7 +37,3 @@ npm run build
 ```
 
 CI runs these on push/PR (`.github/workflows/ci.yml`).
-
-## Audit tracker
-
-See `docs/audit-tracker.md` for open site health items.

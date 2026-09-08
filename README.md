@@ -45,7 +45,6 @@ See `next-app/README.md` for app-specific details.
 
 | Doc                         | Purpose                             |
 | --------------------------- | ----------------------------------- |
-| `docs/audit-tracker.md`     | Site audit findings and fix tracker |
 | `docs/architecture.md`      | App structure and content flow      |
 | `docs/cms-publishing.md`    | CMS → portfolio JSON contract       |
 | `docs/project-roadmap.md`   | Portfolio + product roadmap         |
