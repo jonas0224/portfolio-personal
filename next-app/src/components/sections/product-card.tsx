@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import type { ProjectContent } from '@/types/content'
 import type { WorkTier } from '@/lib/product-tour'
+import { projectOwnershipLabel } from '@/lib/project-ownership'
 import { OutlineLink } from '@/ui/outline-link'
 import { ExternalLink } from '@/components/external-link'
 import { ProductCardPreview } from '@/components/sections/product-card-preview'
 
-type Props = {
+interface ProductCardProps {
   project: ProjectContent
   tier: WorkTier
 }
@@ -17,7 +18,7 @@ function statusLabel(status?: ProjectContent['status']) {
   return status ?? 'Project'
 }
 
-export function ProductCard({ project, tier }: Props) {
+export function ProductCard({ project, tier }: ProductCardProps) {
   const tierClass =
     tier === 'banner'
       ? 'product-bento-card--banner'
@@ -26,12 +27,17 @@ export function ProductCard({ project, tier }: Props) {
         : tier === 'standard'
           ? 'product-bento-card--standard'
           : 'product-bento-card--compact'
+  const ownership = projectOwnershipLabel(project.slug)
 
   return (
     <article className={`product-card product-bento-card ${tierClass}`}>
       <ProductCardPreview slug={project.slug} title={project.title} />
       <div className="product-card-body">
-        <p className="portfolio-work-overline">{statusLabel(project.status)}</p>
+        <p className="portfolio-work-overline">
+          <span className="product-card-ownership">{ownership}</span>
+          <span aria-hidden="true"> · </span>
+          <span>{statusLabel(project.status)}</span>
+        </p>
         <h3 className="product-card-title">
           {project.slug && project.caseStudy ? (
             <Link href={`/projects/${project.slug}`}>{project.title}</Link>

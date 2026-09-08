@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { ProjectContent } from '@/types/content'
 import { ExternalLink } from '@/components/external-link'
 import { SECTION_SHELL } from '@/components/sections/constants'
+import { projectOwnershipLabel } from '@/lib/project-ownership'
 
 interface HorizonSectionProps {
   projects: ProjectContent[]
@@ -36,8 +37,8 @@ export function HorizonSection({ projects, caseStudySlugs = [] }: HorizonSection
   if (!catalog.length) return null
 
   return (
-    <section id="horizon" className={SECTION_SHELL} aria-labelledby="horizon-heading">
-      <h2 id="horizon-heading" className="section-heading">
+    <section id="projects" className={SECTION_SHELL} aria-labelledby="projects-heading">
+      <h2 id="projects-heading" className="section-heading">
         All projects
       </h2>
       <p className="horizon-lede">
@@ -48,11 +49,16 @@ export function HorizonSection({ projects, caseStudySlugs = [] }: HorizonSection
         {catalog.map((project) => {
           const caseStudyHref =
             project.slug && caseStudySet.has(project.slug) ? `/projects/${project.slug}` : null
+          const ownership = projectOwnershipLabel(project.slug)
 
           return (
             <li key={project.slug ?? project.title} className="horizon-item">
               <div className="horizon-item-head">
-                <p className="horizon-status">{statusLabel(project.status)}</p>
+                <p className="horizon-status">
+                  {ownership}
+                  <span aria-hidden="true"> · </span>
+                  {statusLabel(project.status)}
+                </p>
                 <h3 className="horizon-title">
                   {caseStudyHref ? (
                     <Link href={caseStudyHref}>{project.title}</Link>

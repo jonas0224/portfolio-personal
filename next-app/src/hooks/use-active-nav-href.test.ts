@@ -5,6 +5,7 @@ const SECTIONS = [
   { href: '/#hero', top: -200 },
   { href: '/#craft', top: -1200 },
   { href: '/#work', top: 40 },
+  { href: '/#projects', top: 500 },
   { href: '/#jobs', top: 900 },
   { href: '/#contact', top: 1800 },
 ]
@@ -18,14 +19,15 @@ describe('pickSectionHref', () => {
     expect(pickSectionHref(SECTIONS, 2400, activationOffsetPx(800))).toBe('/#work')
   })
 
-  it('keeps work active in the horizon gap before experience', () => {
+  it('highlights projects while scrolling the full catalog', () => {
     const sections = [
       { href: '/#hero', top: -3000 },
       { href: '/#craft', top: -2000 },
-      { href: '/#work', top: -400 },
-      { href: '/#jobs', top: 500 },
+      { href: '/#work', top: -800 },
+      { href: '/#projects', top: 40 },
+      { href: '/#jobs', top: 900 },
     ]
 
-    expect(pickSectionHref(sections, 3200, activationOffsetPx(800))).toBe('/#work')
+    expect(pickSectionHref(sections, 3200, activationOffsetPx(800))).toBe('/#projects')
   })
 })

@@ -10,32 +10,31 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Status snapshot
 
-| Track               | State                            |
-| ------------------- | -------------------------------- |
-| Audit P1 (a11y/sec) | Done locally (not committed yet) |
-| Audit P2            | Done locally (not committed yet) |
-| Audit P3            | Done locally (not committed yet) |
-| Story polish        | Next                             |
-| Content depth       | Open                             |
+| Track         | State                                  |
+| ------------- | -------------------------------------- |
+| Audit P1–P3   | Done (committed `fcb6821`, not pushed) |
+| Story polish  | In progress                            |
+| Content depth | Open                                   |
 
 ---
 
 ## Ship gate
 
-| Status | Item                                               | Notes                                      |
-| ------ | -------------------------------------------------- | ------------------------------------------ |
-| [ ]    | Commit + push P1/P2 + catalog restore + BOQ/Helika | Uncommitted work sitting on `main` locally |
+| Status | Item                                           | Notes                    |
+| ------ | ---------------------------------------------- | ------------------------ |
+| [x]    | Commit P1/P2/P3 + catalog restore + BOQ/Helika | `fcb6821`                |
+| [ ]    | Push audit commit to origin                    | Local `main` ahead by 1+ |
 
 ---
 
-## Story & positioning (next)
+## Story & positioning
 
-| Status | Item                                                     | Notes                              |
-| ------ | -------------------------------------------------------- | ---------------------------------- |
-| [ ]    | Add hero **Currently** line (BOQ/NRI + Archive Room)     | First-viewport skim                |
-| [ ]    | Label Work cards **Employer** vs **Personal product**    | BOQ / Helika clarity               |
-| [ ]    | Add nav item for full catalog (`Projects` → `/#horizon`) | Work currently skips All projects  |
-| [ ]    | Optionally rename section id `horizon` → `projects`      | Only if nav/hash links are updated |
+| Status | Item                                                      | Notes                        |
+| ------ | --------------------------------------------------------- | ---------------------------- |
+| [x]    | Add hero **Currently** line (BOQ/NRI + Archive Room)      | `hero.json` + hero section   |
+| [x]    | Label Work cards **Employer** vs **Personal product**     | Also on All projects catalog |
+| [x]    | Add nav item for full catalog (`Projects` → `/#projects`) | Scroll-spy included          |
+| [x]    | Rename section id `horizon` → `projects`                  | `horizon-section.tsx`        |
 
 ---
 
@@ -119,10 +118,9 @@ Living checklist for `portfolio-personal`. Use this to track polish after the Se
 
 ## Suggested order
 
-1. Commit/push current local work (ship gate) — **audit P1–P3 now complete locally**
-2. Hero **Currently** + Employer/Personal labels + Projects nav
-3. Resume refresh + case-study metrics (where honest)
-4. Notes decision (publish one or soften CTA)
+1. Push audit + story polish commits when ready
+2. Resume refresh + case-study metrics (where honest)
+3. Notes decision (publish one or soften CTA)
 
 ---
 

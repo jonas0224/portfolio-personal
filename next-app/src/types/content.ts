@@ -7,6 +7,7 @@ export interface HeroContent {
   eyebrow: string
   name: string
   tagline: string
+  currently?: string
   description: string
   proofChips?: string[]
   ctaLabel: string

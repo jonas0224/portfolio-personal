@@ -18,6 +18,9 @@ export function HeroSection({ hero }: HeroSectionProps) {
         <p className="portfolio-hero-eyebrow hero-enter">{hero.eyebrow}</p>
         <h1 className="hero-name hero-enter hero-enter-delay-1">{hero.name}</h1>
         <p className="hero-tagline hero-enter hero-enter-delay-2">{hero.tagline}</p>
+        {hero.currently ? (
+          <p className="portfolio-hero-currently hero-enter hero-enter-delay-2">{hero.currently}</p>
+        ) : null}
         <p className="hero-description hero-enter hero-enter-delay-3">{hero.description}</p>
         <div className="portfolio-hero-actions hero-enter hero-enter-delay-4">
           <ButtonLink href={`mailto:${CONTACT_EMAIL}`} rel="noreferrer" size="lg" variant="outline">

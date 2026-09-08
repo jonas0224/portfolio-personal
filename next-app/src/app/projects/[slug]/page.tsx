@@ -5,13 +5,12 @@ import { CaseStudySection } from '@/components/case-study-section'
 import { ProductCardPreview } from '@/components/sections/product-card-preview'
 import type { Metadata } from 'next'
 import { SITE_URL } from '@/lib/site'
+import { EMPLOYER_PROJECT_SLUGS } from '@/lib/project-ownership'
 import { featuredProjects } from '@/data/site'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
-
-const EMPLOYER_SLUGS = new Set(['boq-digital-banking-platform', 'helika-analytics-platform'])
 
 export async function generateStaticParams() {
   return featuredProjects
@@ -55,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function externalCtaLabel(slug: string, status?: string) {
-  if (EMPLOYER_SLUGS.has(slug)) {
+  if (EMPLOYER_PROJECT_SLUGS.has(slug)) {
     return 'Company site'
   }
   if (status === 'Live') {

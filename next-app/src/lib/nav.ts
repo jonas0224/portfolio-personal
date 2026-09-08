@@ -12,6 +12,7 @@ export const NAV_LINKS: NavItem[] = [
   { name: 'Story', href: '/#hero', sectionId: 'hero' },
   { name: 'Craft', href: '/#craft', sectionId: 'craft' },
   { name: 'Work', href: '/#work', sectionId: 'work' },
+  { name: 'Projects', href: '/#projects', sectionId: 'projects' },
   { name: 'Experience', href: '/#jobs', sectionId: 'jobs' },
   { name: 'Notes', href: '/writing' },
   { name: 'Contact', href: '/#contact', sectionId: 'contact' },

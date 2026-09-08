@@ -9,6 +9,7 @@ export const heroSchema = z.object({
   eyebrow: z.string(),
   name: z.string(),
   tagline: z.string(),
+  currently: z.string().optional(),
   description: z.string(),
   proofChips: z.array(z.string()).optional(),
   ctaLabel: z.string(),
