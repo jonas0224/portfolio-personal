@@ -2,79 +2,74 @@
 
 **Senior Frontend Developer**
 
+Philippines · Open to remote  
 Mobile: +63 906 363 8625  
 Email: jonas.paul11@yahoo.com  
 LinkedIn: https://www.linkedin.com/in/jonasyambao/  
-Website: https://jonasyambao.com
+Website: https://jonasyambao.vercel.app/
 
 ## Professional Summary
 
-Senior frontend developer with 7+ years building web and mobile products in React, Next.js, and TypeScript. Currently leading frontend delivery for Bank of Queensland internet banking under NRI ANZ. Experienced mentoring engineers, strengthening CI/CD and release quality, and shipping secure, accessible interfaces for banking, analytics, logistics, and enterprise systems. Also ships production personal products such as Archive Room (consignment POS).
+Senior Frontend Developer with 7 years of experience building web and mobile products in React, Next.js, and TypeScript. Currently leads frontend delivery for Bank of Queensland internet banking at NRI ANZ, including secure customer journeys, mentoring, code review, and CI/CD on GitHub and Azure DevOps with Jest and Playwright. For the past two years, uses Cursor, Claude, Codex, and GitHub Copilot in daily frontend work and reviews AI-generated code before it ships. Previous work covers React Native logistics products, analytics dashboards with Chart.js and D3.js, legacy modernization, and enterprise APIs in Java, Spring Boot, and Oracle SQL.
 
 ## Skills
 
-- **Frontend:** React, Next.js, TypeScript, JavaScript, HTML5, CSS3/SCSS, Tailwind CSS, MUI, Bootstrap
-- **State & data visualization:** Redux, Redux-Saga, Zustand, Context API, Chart.js, D3.js, React Flow
-- **Mobile:** React Native
-- **APIs & backend:** REST, GraphQL, Axios, Fetch, Spring Boot, SQL, Oracle SQL
-- **Testing & quality:** Jest, React Testing Library, Playwright, Postman, ESLint, Prettier, Accessibility
-- **DevOps & tools:** GitHub Actions, Azure DevOps, Jenkins, Docker, AWS (S3, EC2, CloudFront), Git, Figma, Jira
-- **Delivery:** Agile, mentoring, code reviews, UI/UX collaboration
+- **Languages:** TypeScript, JavaScript, HTML5, CSS3, SQL
+- **Frontend:** React, Next.js, React Native, Tailwind CSS, Material UI, SCSS, Bootstrap, responsive UI
+- **State management:** Redux, Redux Toolkit, Redux-Saga, Zustand, React Context
+- **Testing:** Jest, React Testing Library, Playwright, Vitest, Postman
+- **APIs:** REST, GraphQL, Axios
+- **Cloud and delivery:** Azure, Azure DevOps, GitHub Actions, Jenkins, Docker, AWS (S3, EC2, CloudFront), CI/CD
+- **Backend:** Java, Spring Boot, Oracle SQL, PostgreSQL
+- **AI-assisted development:** Cursor, Claude, Codex, and GitHub Copilot for 2 years. Daily use for implementation, refactors, and tests, with review of generated code before it ships.
+- **Practices:** Agile, code review, technical mentoring, web accessibility, ESLint, Prettier, Git, GitHub, GitLab, Jira, Figma
 
 ## Experience
 
 ### Senior Frontend Developer
 
-**NRI ANZ (Bank of Queensland)** | February 2025 - Present
+**NRI ANZ · Bank of Queensland internet banking** | February 2025 – Present
 
-- Lead frontend initiatives for Bank of Queensland internet banking with a focus on security, scalability, and delivery in a regulated environment.
-- Mentor and onboard developers; run code reviews that raise reliability and accessibility standards.
-- Improve release flow with CI/CD changes across GitHub and Azure DevOps (Functions / Web Apps).
-- Skills: Next.js, React, TypeScript, CSS/SCSS, Tailwind CSS, Azure, GitHub, Playwright, Jest, Agile
+- Lead frontend delivery for internet banking customer journeys in Next.js, React, and TypeScript, with security and scalability requirements for a regulated bank.
+- Mentor and onboard developers, and run code reviews focused on reliability, accessibility, and consistent UI patterns.
+- Improve CI/CD on GitHub and Azure DevOps so Jest and Playwright run before deployment to Azure Web Apps.
+- Partner with product, design, and backend teams so frontend architecture matches delivery and business goals.
 
 ### Senior Frontend Developer
 
-**Helika.io** | February 2024 - November 2024
+**Helika.io** | February 2024 – November 2024
 
-- Delivered analytics dashboards in React/Next.js with Chart.js and D3.js for data-heavy product surfaces.
-- Owned frontend patterns and reviews that kept dashboard work consistent under fast iteration.
-- Supported recruitment and onboarding so new engineers could ship safely sooner.
-- Skills: React, Next.js, Redux, Jest, Chart.js, D3.js, AWS, Docker
+- Delivered analytics dashboards in React and Next.js using Chart.js and D3.js for data-heavy product views.
+- Kept large chart surfaces responsive by sharing visualization patterns instead of building one-off chart implementations.
+- Set frontend review standards and supported recruitment and onboarding of developers.
+- Shipped with Redux, Jest, Material UI, AWS, and Docker.
 
 ### Full Stack Developer
 
-**TwistResources Inc.** | March 2023 - March 2024
+**TwistResources Inc.** | March 2023 – March 2024
 
-- Modernized legacy systems with React and Next.js to improve maintainability for operations teams.
-- Mentored developers through reviews and technical guidance across frontend and shared TypeScript models.
-- Designed SQL-backed solutions and API integrations that kept daily workflows reliable.
-- Skills: React, React Native, Next.js, TypeScript, Redux, Spring Boot, SQL, Jest, Agile
+- Modernized legacy user interfaces with React, Next.js, and TypeScript so operations teams could change the product with less risk.
+- Designed SQL queries and REST API integrations, including Spring Boot services, to support the frontend.
+- Mentored developers through code review and technical guidance on shared TypeScript models.
+- Contributed React Native features where the product required a mobile client.
 
-### Senior Frontend/Mobile Developer
+### Senior Frontend and Mobile Developer
 
-**Entrego** | May 2021 - March 2023
+**Entrego** | May 2021 – March 2023
 
-- Supervised the frontend/mobile team, balancing delivery with mentoring on React Native and React.
-- Modernized the stack to cut technical debt and improve performance on logistics product surfaces.
-- Facilitated Agile ceremonies so release cadence stayed predictable under growth.
-- Skills: React Native, React, Redux-Saga, Next.js, Tailwind CSS, Jest, Agile
+- Supervised the frontend and mobile team, balancing feature delivery with mentoring.
+- Built logistics product screens in React Native, React, and Next.js, using Redux-Saga, Tailwind CSS, and Jest.
+- Modernized the stack to reduce technical debt and improve frontend performance.
+- Facilitated Agile ceremonies so the team could sequence work and surface risk early.
 
 ### Associate Software Engineer
 
-**Accenture Inc.** | October 2018 - May 2020
+**Accenture Inc.** | October 2018 – May 2020
 
-- Built enterprise solutions with Spring Boot and Oracle SQL for reliability-critical client systems.
-- Improved database performance and application stability under strict delivery requirements.
-- Delivered REST integrations and enhancements inside large-team Agile engagements.
-- Skills: Java, Spring Boot, Oracle SQL, REST APIs, Agile
-
-## Selected Personal Products
-
-- **Archive Room (POS & Inventory):** Live multi-tenant consignment POS on Next.js, Prisma, and Neon; tablet checkout; audited sales/refunds/funds. Live: https://archive-room.vercel.app/login
-- **FLASHCUT:** Realtime party game with Redis-backed rooms and serverless-friendly polling (~20 players, 15 rounds).
-- **Frontend Design System Migration:** Token-driven primitives with Storybook and Vitest CI gates.
+- Developed enterprise applications with Java, Spring Boot, Oracle SQL, and REST APIs.
+- Improved database query performance and application stability for client systems under strict delivery requirements.
 
 ## Education
 
 **Bulacan State University** — Malolos, Bulacan  
-BS Mathematics major in Computer Science | June 2013 - June 2018
+Bachelor of Science in Mathematics, major in Computer Science | June 2013 – June 2018

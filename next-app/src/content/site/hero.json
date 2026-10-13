@@ -1,10 +1,10 @@
 {
-  "eyebrow": "Senior Frontend Developer · React & Next.js",
+  "eyebrow": "Senior frontend · Philippines",
   "name": "Jonas Yambao",
-  "tagline": "I lead frontend delivery for products that have to ship clean.",
-  "currently": "Currently leading frontend for BOQ internet banking under NRI ANZ, and shipping Archive Room.",
-  "description": "7+ years shipping web and mobile products, currently leading frontend for Bank of Queensland internet banking under NRI ANZ, with a track record across analytics, logistics, and enterprise systems in React, Next.js, and TypeScript.",
-  "proofChips": ["NRI ANZ · BOQ internet banking", "7+ years", "React / Next.js", "TypeScript"],
-  "ctaLabel": "Get in touch",
-  "ctaSecondaryLabel": "Read my path"
+  "tagline": "I ship interfaces that have to survive contact with real users.",
+  "currently": "Leading internet banking for Bank of Queensland under NRI ANZ. Archive Room is the product I run on the side.",
+  "description": "Seven years in React, Next.js, and TypeScript. The work that stuck is the kind where a sloppy release costs money or trust: banking journeys, a live consignment POS, and systems other engineers have to build on.",
+  "proofChips": ["Regulated journeys", "Design systems", "Live products", "Release quality"],
+  "ctaLabel": "Say hello",
+  "ctaSecondaryLabel": "How I lead"
 }

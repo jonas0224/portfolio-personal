@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { useEffect, type ReactNode } from 'react'
+import { CursorField } from '@/components/cursor-field'
 import { ScrollProgress } from '@/components/scroll-progress'
 import { SiteHeader } from '@/components/site-header'
 
@@ -34,6 +35,7 @@ export function SiteShell({ children, footer }: { children: React.ReactNode; foo
       <SiteHeader isHome={isHome} />
 
       <div id="content">
+        <CursorField />
         <main className={mainClassName}>{children}</main>
         {footer}
       </div>

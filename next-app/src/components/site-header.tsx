@@ -89,6 +89,7 @@ export function SiteHeader({ isHome }: SiteHeaderProps) {
     <div className="portfolio-logo-wrap" tabIndex={-1}>
       <Link href="/" aria-label="Jonas Yambao home">
         <LogoMark className="portfolio-logo-mark" />
+        <span className="portfolio-wordmark">Jonas</span>
       </Link>
     </div>
   )

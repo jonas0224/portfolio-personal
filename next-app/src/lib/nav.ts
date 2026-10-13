@@ -6,14 +6,15 @@ export type NavItem = {
 }
 
 /**
- * Primary nav: recruiter-first homepage flow (experience before product gallery).
+ * Primary nav follows the page: experience, then work, then craft and the full stack.
  */
 export const NAV_LINKS: NavItem[] = [
   { name: 'Story', href: '/#hero', sectionId: 'hero' },
   { name: 'Experience', href: '/#jobs', sectionId: 'jobs' },
   { name: 'Work', href: '/#work', sectionId: 'work' },
-  { name: 'Projects', href: '/#projects', sectionId: 'projects' },
   { name: 'Craft', href: '/#craft', sectionId: 'craft' },
+  { name: 'Skills', href: '/#skills', sectionId: 'skills' },
+  { name: 'Projects', href: '/#projects', sectionId: 'projects' },
   { name: 'Notes', href: '/writing' },
   { name: 'Contact', href: '/#contact', sectionId: 'contact' },
 ]

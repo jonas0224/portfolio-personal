@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google'
+import { Bricolage_Grotesque, Geist, Geist_Mono } from 'next/font/google'
 import { OG_IMAGE_PATH, SITE_DESCRIPTION, SITE_TITLE, SITE_URL, TWITTER_SITE } from '@/lib/site'
 import { SiteAnalyticsClient } from '@/components/site-analytics-client'
 import { SiteFooter } from '@/components/site-footer'
@@ -7,13 +7,19 @@ import { SiteJsonLd } from '@/components/site-json-ld'
 import { SiteShell } from '@/components/site-shell'
 import './globals.css'
 
-const jakarta = Plus_Jakarta_Sans({
+const display = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
 })
 
-const mono = JetBrains_Mono({
+const sans = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const mono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
@@ -60,10 +66,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full ${jakarta.variable} ${mono.variable}`}
+      className={`h-full ${display.variable} ${sans.variable} ${mono.variable}`}
       data-theme="portfolio"
     >
-      <body className="min-h-full font-[family-name:var(--font-display)]">
+      <body className="min-h-full font-[family-name:var(--font-sans)]">
         <SiteJsonLd />
         <SiteShell footer={<SiteFooter />}>{children}</SiteShell>
         <SiteAnalyticsClient />

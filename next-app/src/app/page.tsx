@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/sections/hero-section'
 import { HorizonSection } from '@/components/sections/horizon-section'
 import { JobsSection } from '@/components/sections/jobs-section'
 import { OptimizeForSection } from '@/components/sections/optimize-for-section'
+import { SkillsSection } from '@/components/sections/skills-section'
 import { WritingTeaserSection } from '@/components/sections/writing-teaser-section'
 import { CONTACT_EMAIL } from '@/lib/site-contact'
 import { about, contact, featuredProjects, hero, jobs, projects, writing } from '@/data/site'
@@ -11,16 +12,17 @@ import { about, contact, featuredProjects, hero, jobs, projects, writing } from 
 export default function Home() {
   return (
     <>
-      <HeroSection hero={hero} />
+      <HeroSection hero={hero} about={about} />
       <JobsSection jobs={jobs} about={about} />
       <FeaturedProjectsSection projects={featuredProjects} />
+      <OptimizeForSection />
+      <SkillsSection about={about} />
       <HorizonSection
         projects={projects}
         caseStudySlugs={featuredProjects
           .filter((project) => project.slug && project.caseStudy)
           .map((project) => project.slug!)}
       />
-      <OptimizeForSection />
       <WritingTeaserSection writing={writing} />
       <ContactSection contact={contact} email={CONTACT_EMAIL} />
     </>

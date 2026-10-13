@@ -80,7 +80,7 @@ function PreviewDesignSystem() {
         <span>Tokens</span>
       </aside>
       <div className="hp-ds-stage">
-        <p className="hp-ds-kicker">Playground · Button</p>
+        <p className="hp-ds-kicker">Tokens · Button</p>
         <div className="hp-ds-row">
           <button
             type="button"

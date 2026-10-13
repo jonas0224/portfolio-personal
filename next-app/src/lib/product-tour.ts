@@ -27,22 +27,3 @@ export function workTierForSlug(slug: string | undefined): WorkTier {
   if ((WORK_STANDARD_SLUGS as readonly string[]).includes(slug)) return 'standard'
   return 'compact'
 }
-
-export const OPTIMIZE_PILLARS = [
-  {
-    title: 'Performance',
-    description: 'Core Web Vitals, bundle discipline, and UI that stays fast on real devices.',
-  },
-  {
-    title: 'Design systems',
-    description: 'Tokens, primitives, and documentation that teams can ship against.',
-  },
-  {
-    title: 'Shipping',
-    description: 'Incremental delivery, clear PRs, and features that reach production.',
-  },
-  {
-    title: 'Reliability',
-    description: 'Typed boundaries, tests where they matter, and defensive product UI.',
-  },
-] as const

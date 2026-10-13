@@ -1,23 +1,20 @@
-import {
-  OPS_PREVIEW_SERVICES,
-  POS_PREVIEW_ITEMS,
-  previewLabelForSlug,
-} from '@/lib/product-previews'
+import { OPS_PREVIEW_SERVICES, POS_PREVIEW_ITEMS, previewLabelForSlug } from '@/lib/product-previews'
 
 type Props = {
   slug?: string
   title: string
+  /** Browser chrome reads as a generic card. Spreads use the scene alone. */
+  frame?: 'window' | 'bare'
 }
 
-export function ProductCardPreview({ slug, title }: Props) {
+export function ProductCardPreview({ slug, title, frame = 'window' }: Props) {
   return (
-    <div className="product-card-preview" aria-hidden>
-      <div className="product-card-preview-chrome">
-        <span className="product-card-preview-dot" />
-        <span className="product-card-preview-dot" />
-        <span className="product-card-preview-dot" />
-        <span className="product-card-preview-label">{previewLabelForSlug(slug, title)}</span>
-      </div>
+    <div className={`product-card-preview${frame === 'bare' ? ' is-bare' : ''}`} aria-hidden>
+      {frame === 'window' ? (
+        <div className="product-card-preview-chrome">
+          <span className="product-card-preview-label">{previewLabelForSlug(slug, title)}</span>
+        </div>
+      ) : null}
       <div className="product-card-preview-scene">{renderScene(slug)}</div>
     </div>
   )
@@ -27,250 +24,173 @@ function renderScene(slug?: string) {
   switch (slug) {
     case 'pos-inventory-system':
       return (
-        <div className="gp-pos">
-          <div className="gp-pos-bar">
-            <span>Point of Sale</span>
-            <span className="gp-pos-pill">2 in cart</span>
-          </div>
-          <div className="gp-pos-grid">
-            {POS_PREVIEW_ITEMS.map((item, index) => (
-              <div key={item.sku} className={`gp-pos-card${index === 0 ? ' is-active' : ''}`}>
-                <span className="gp-pos-thumb" />
+        <div className="still still-pos">
+          <header>
+            <span>Archive Room</span>
+            <span>Sale 00481</span>
+          </header>
+          <ul className="still-lines">
+            {POS_PREVIEW_ITEMS.map((item) => (
+              <li key={item.sku}>
                 <span>{item.name}</span>
-                <strong>{item.price}</strong>
-              </div>
+                <b>{item.price}</b>
+              </li>
             ))}
-          </div>
+          </ul>
+          <p className="still-total">
+            <span>Due</span>
+            <strong>₱4,420</strong>
+          </p>
         </div>
       )
     case 'frontend-design-system':
       return (
-        <div className="gp-ds">
-          <aside>
-            <span className="is-active">Button</span>
-            <span>Input</span>
+        <div className="still still-ds">
+          <header>
+            <span>Specimen</span>
             <span>Tokens</span>
-          </aside>
-          <div className="gp-ds-stage">
-            <button type="button" className="gp-ds-btn is-brand" tabIndex={-1}>
-              Primary
-            </button>
-            <button type="button" className="gp-ds-btn" tabIndex={-1}>
-              Ghost
-            </button>
-            <div className="gp-ds-tokens">
-              <span>--brand</span>
-              <span>--radius</span>
-              <span>--space</span>
-            </div>
+          </header>
+          <div className="still-ds-stage">
+            <span className="still-ds-btn">Primary</span>
+            <p className="still-ds-field">
+              <span>Email</span>
+              <b>you@studio.dev</b>
+            </p>
           </div>
+          <ul className="still-swatches">
+            <li>
+              <i className="is-brand" />
+              #22d3ee
+            </li>
+            <li>
+              <i className="is-ink" />
+              #09090b
+            </li>
+            <li>
+              <i className="is-paper" />
+              #fafafa
+            </li>
+          </ul>
         </div>
       )
     case 'flashcut':
       return (
-        <div className="gp-fc">
-          <p className="gp-fc-logo">FLASHCUT</p>
-          <div className="gp-fc-stage">Round 4 · peek</div>
-          <div className="gp-fc-row">
-            <span>Host PIN ····</span>
-            <span className="gp-fc-cta">Create game</span>
-          </div>
-        </div>
-      )
-    case 'realtime-operations-dashboard':
-      return (
-        <div className="gp-ops">
-          <div className="gp-ops-bar">
-            <span>Operations</span>
-            <span className="gp-ops-live">Live</span>
-          </div>
-          <div className="gp-ops-grid">
-            {OPS_PREVIEW_SERVICES.map((service) => (
-              <div
-                key={service.name}
-                className={`gp-ops-tile${service.status === 'degraded' ? ' is-warn' : ' is-ok'}`}
-              >
-                <i />
-                {service.name.replace(' sync', '')}
-                <em>{service.latency}</em>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    case 'ai-incident-triage':
-      return (
-        <div className="gp-triage">
-          <div className="gp-triage-bar">
-            <span>Incident triage</span>
-            <span className="gp-triage-pill">Gemini</span>
-          </div>
-          <div className="gp-triage-card">
-            <strong>Checkout charges failing</strong>
-            <em>SEV2 · payments-oncall</em>
-            <span className="gp-triage-conf">Confidence 86%</span>
-          </div>
-          <div className="gp-triage-actions">
-            <span>Override</span>
-            <span className="gp-triage-cta">Accept</span>
-          </div>
-        </div>
-      )
-    case 'portfolio-content-management':
-      return (
-        <div className="gp-cms">
-          <div className="gp-cms-bar">
-            <span>Content documents</span>
-            <span className="gp-cms-pill">ADMIN</span>
-          </div>
-          <div className="gp-cms-list">
-            <div className="gp-cms-row is-active">
-              <span>hero</span>
-              <em>Draft</em>
-            </div>
-            <div className="gp-cms-row">
-              <span>jobs</span>
-              <em>Published</em>
-            </div>
-            <div className="gp-cms-row">
-              <span>featured-projects</span>
-              <em>Published</em>
-            </div>
-          </div>
-          <div className="gp-cms-actions">
-            <span>Preview</span>
-            <span className="gp-cms-cta">Open PR</span>
-          </div>
-        </div>
-      )
-    case 'kasama-wfh-companion':
-      return (
-        <div className="gp-kasama">
-          <div className="gp-kasama-head">
-            <span>Today</span>
-            <em>Tuesday · 8:42 AM</em>
-          </div>
-          <div className="gp-kasama-intentions">
-            <span className="is-done">01 · Ship the next slice</span>
-            <span>02 · Protect a focus block</span>
-            <span>03 · End the day cleanly</span>
-          </div>
-          <div className="gp-kasama-footer">
-            <strong>25:00</strong>
-            <span>Start focus</span>
-          </div>
-        </div>
-      )
-    case 'developer-productivity-portal':
-      return (
-        <div className="gp-portal">
-          <div className="gp-portal-bar">
-            <span>Ship desk</span>
-            <span className="gp-portal-pill">CI failing</span>
-          </div>
-          <div className="gp-portal-grid">
-            <div className="gp-portal-tile is-warn">checkout-api</div>
-            <div className="gp-portal-tile is-ok">inventory</div>
-            <div className="gp-portal-tile is-ok">releases</div>
-          </div>
-          <div className="gp-portal-actions">
-            <span>Acknowledge</span>
-            <span className="gp-portal-cta">Publish notes</span>
-          </div>
-        </div>
-      )
-    case 'mobile-delivery-companion':
-      return (
-        <div className="gp-route">
-          <div className="gp-route-bar">
-            <span>DropRoute</span>
-            <span className="gp-route-pill">3 stops left</span>
-          </div>
-          <div className="gp-route-list">
-            <div className="gp-route-stop is-done">Stop 4 · Delivered</div>
-            <div className="gp-route-stop is-active">Stop 5 · Out for delivery</div>
-            <div className="gp-route-stop">Stop 6 · Queued offline</div>
-          </div>
+        <div className="still still-fc">
+          <p className="still-fc-word">FLASH</p>
+          <i className="still-fc-cut" />
+          <p className="still-fc-round">Round 4 of 15</p>
         </div>
       )
     case 'boq-digital-banking-platform':
       return (
-        <div className="gp-ib">
-          <div className="gp-ib-bar">
-            <span>Accounts</span>
-            <span className="gp-ib-pill">Live</span>
-          </div>
-          <div className="gp-ib-grid">
-            <div className="gp-ib-tile is-active">
-              <span>Everyday</span>
-              <strong>$12,480.00</strong>
-              <em>Available</em>
-            </div>
-            <div className="gp-ib-tile">
-              <span>Savings</span>
-              <strong>$4,210.55</strong>
-              <em>Growing</em>
-            </div>
-            <div className="gp-ib-tile">
-              <span>Credit card</span>
-              <strong>$620.40</strong>
-              <em>Due in 9 days</em>
-            </div>
-            <div className="gp-ib-tile gp-ib-tile--cta">
-              <span>Pay anyone</span>
-              <strong>Transfer</strong>
-              <em>Same-day</em>
-            </div>
-          </div>
-          <div className="gp-ib-actions">
-            <span>Pay</span>
-            <span>Transfer</span>
-            <span className="gp-ib-cta">Cards</span>
-          </div>
+        <div className="still still-ib">
+          <header>
+            <span>Internet banking</span>
+            <span>BOQ</span>
+          </header>
+          <p className="still-ib-title">Pay anyone</p>
+          <ol className="still-steps">
+            <li>Amount</li>
+            <li className="is-on">Review</li>
+            <li>Release</li>
+          </ol>
+        </div>
+      )
+    case 'realtime-operations-dashboard':
+      return (
+        <div className="still still-ops">
+          <header>
+            <span>Live feed</span>
+            <span>Stale shown</span>
+          </header>
+          <ul className="still-lines">
+            {OPS_PREVIEW_SERVICES.map((service) => (
+              <li key={service.name} className={service.status === 'degraded' ? 'is-warn' : ''}>
+                <span>{service.name}</span>
+                <b>{service.latency}</b>
+              </li>
+            ))}
+          </ul>
         </div>
       )
     case 'helika-analytics-platform':
       return (
-        <div className="gp-helika">
-          <div className="gp-helika-bar">
+        <div className="still still-helika">
+          <header>
             <span>Player analytics</span>
-            <span className="gp-helika-pill">Live</span>
-          </div>
-          <div className="gp-helika-kpis">
-            <div>
-              <em>DAU</em>
-              <strong>48.2k</strong>
-            </div>
-            <div>
-              <em>Retention D7</em>
-              <strong>36%</strong>
-            </div>
-            <div>
-              <em>p95 load</em>
-              <strong>1.8s</strong>
-            </div>
-          </div>
-          <div className="gp-helika-chart" aria-hidden>
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span className="is-accent" />
-          </div>
-          <div className="gp-helika-actions">
-            <span>Cohorts</span>
-            <span className="gp-helika-cta">Export</span>
-          </div>
+            <span>D7 · 36%</span>
+          </header>
+          <p className="still-total">
+            <span>DAU</span>
+            <strong>48.2k</strong>
+          </p>
+          <svg className="still-spark" viewBox="0 0 240 48" preserveAspectRatio="none">
+            <path d="M0 36 L28 32 L52 34 L80 22 L108 26 L136 14 L164 18 L196 8 L240 12" />
+          </svg>
+        </div>
+      )
+    case 'ai-incident-triage':
+      return (
+        <div className="still still-note">
+          <header>
+            <span>SEV2</span>
+            <span>86%</span>
+          </header>
+          <p className="still-ib-title">Checkout charges failing</p>
+          <p className="still-foot">payments-oncall · human override</p>
+        </div>
+      )
+    case 'portfolio-content-management':
+      return (
+        <div className="still still-note">
+          <header>
+            <span>hero.md</span>
+            <span>Draft</span>
+          </header>
+          <p className="still-ib-title">Open a PR</p>
+          <p className="still-foot">Preview · review · publish</p>
+        </div>
+      )
+    case 'kasama-wfh-companion':
+      return (
+        <div className="still still-note">
+          <header>
+            <span>Today</span>
+            <span>Focus</span>
+          </header>
+          <p className="still-total">
+            <span>Block</span>
+            <strong>25:00</strong>
+          </p>
+          <p className="still-foot">Ship the next slice</p>
+        </div>
+      )
+    case 'developer-productivity-portal':
+      return (
+        <div className="still still-note">
+          <header>
+            <span>Ship desk</span>
+            <span className="is-warn">CI failing</span>
+          </header>
+          <p className="still-ib-title">checkout-api</p>
+          <p className="still-foot">Acknowledge · publish notes</p>
+        </div>
+      )
+    case 'mobile-delivery-companion':
+      return (
+        <div className="still still-note">
+          <header>
+            <span>DropRoute</span>
+            <span>3 left</span>
+          </header>
+          <p className="still-ib-title">Stop 5</p>
+          <p className="still-foot">Out for delivery · queued offline</p>
         </div>
       )
     default:
       return (
-        <div className="gp-fallback">
-          <span />
-          <span />
-          <span />
+        <div className="still still-note">
+          <p className="still-ib-title">{slug ? 'Project' : 'Work'}</p>
         </div>
       )
   }

@@ -1,18 +1,16 @@
-import { OPTIMIZE_PILLARS } from '@/lib/product-tour'
 import { SECTION_SHELL } from '@/components/sections/constants'
+import { ReleaseFloor } from '@/components/sections/release-floor'
 
 export function OptimizeForSection() {
   return (
     <section id="craft" className={`${SECTION_SHELL} optimize-for-section`}>
-      <h2 className="section-heading">What I optimize for</h2>
-      <ul className="optimize-for-grid">
-        {OPTIMIZE_PILLARS.map((pillar) => (
-          <li key={pillar.title} className="optimize-for-card">
-            <h3 className="optimize-for-title">{pillar.title}</h3>
-            <p className="optimize-for-desc">{pillar.description}</p>
-          </li>
-        ))}
-      </ul>
+      <p className="studio-kicker">03 / Craft</p>
+      <h2 className="studio-section-title">How I lead frontend</h2>
+      <p className="release-floor-lede">
+        Senior work is the judgment around the interface. Pick a layer. Each one is work I am
+        actually doing, not a demo shelf.
+      </p>
+      <ReleaseFloor />
     </section>
   )
 }
